@@ -1,0 +1,26 @@
+#BlueJ class context
+comment0.target=Map
+comment0.text=\n\ Map,\ contains\ map\ and\ various\ methods\ that\ a\ map\ needs\n\ Created\ when\ WarWorld\ is\ created,\ reflects\ map.\n\ \n\ @author\ Thomas\n\ @version\ 1.0\n
+comment1.params=mapId\ xsiz\ ysiz\ xpix\ ypix
+comment1.target=Map(int,\ int,\ int,\ int,\ int)
+comment10.params=px
+comment10.target=int\ getMapX(int)
+comment11.params=py
+comment11.target=int\ getMapY(int)
+comment2.params=
+comment2.target=Node[][]\ getNodeMap()
+comment3.params=x\ y
+comment3.target=int\ getType(int,\ int)
+comment4.params=x\ y
+comment4.target=Node\ getNode(int,\ int)
+comment5.params=x\ y
+comment5.target=int\ getSlow(int,\ int)
+comment6.params=
+comment6.target=int\ getMaxX()
+comment7.params=
+comment7.target=int\ getMaxY()
+comment8.params=x
+comment8.target=int\ getPixX(int)
+comment9.params=y
+comment9.target=int\ getPixY(int)
+numComments=12

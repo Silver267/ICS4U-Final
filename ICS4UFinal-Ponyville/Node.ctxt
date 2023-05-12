@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=Node
+comment0.text=\n\ Node,\ the\ building\ block\ of\ map\n\ \n\ @author\ Thomas\ &\ George\ (refactor)\n\ @version\ 1.0\n
+comment1.params=type
+comment1.target=Node(int)
+comment2.params=
+comment2.target=int\ getT()
+numComments=3

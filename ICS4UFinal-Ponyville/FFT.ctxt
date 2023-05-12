@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=FFT
+comment0.text=\n\ Write\ a\ description\ of\ class\ FFT\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=
+comment1.target=FFT()
+comment1.text=\n\ Constructor\ for\ objects\ of\ class\ FFT\n
+numComments=2
