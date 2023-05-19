@@ -216,6 +216,11 @@ public class SparkleEngine{
          * Space: 2;
          * Gate: 3;
         */
-        
+        int mpY = mp.length, mpX = mp[0].length;
+        for(int i=0; i<mpY; i++){
+            for(int j=0; j<mpX; j++){
+                
+            }
+        }
     }
 }

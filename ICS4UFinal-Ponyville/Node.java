@@ -21,6 +21,7 @@ public class Node{
     }
     
     public int getType(){
+        //1 - stairs (proceed to next level when pressed enter)
         return type;
     }
     
