@@ -11,6 +11,7 @@ public class FFT{
     /**
      * Constructor for objects of class FFT
      */
-    public FFT(){
+    public FFT(byte[] buff){
+        
     }
 }

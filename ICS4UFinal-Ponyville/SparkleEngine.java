@@ -209,4 +209,13 @@ public class SparkleEngine{
         ret.drawString(text, x, y);
         return ret;
     }
+    
+    public static void formMap(Node[][] mp, int xsz, int ysz){
+        /* 
+         * Wall: 1;
+         * Space: 2;
+         * Gate: 3;
+        */
+        
+    }
 }
