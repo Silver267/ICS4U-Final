@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Map
-comment0.text=\n\ Map,\ contains\ map\ and\ various\ methods\ that\ a\ map\ needs\n\ Created\ when\ WarWorld\ is\ created,\ reflects\ map.\n\ \n\ @author\ Thomas\n\ @version\ 1.0\n
+comment0.text=\r\n\ Map,\ contains\ map\ and\ various\ methods\ that\ a\ map\ needs\r\n\ Created\ when\ WarWorld\ is\ created,\ reflects\ map.\r\n\ \r\n\ @author\ Thomas\r\n\ @version\ 1.0\r\n
 comment1.params=mapId\ xsiz\ ysiz\ xpix\ ypix
 comment1.target=Map(int,\ int,\ int,\ int,\ int)
 comment10.params=px

@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=SparkleEngine
-comment0.text=\n\ SparkleEngine\ -\ Very\ portable\ &\ reusable\ engine\ that\ wrapps\ various\ functions.\n\ All\ static\ methods.\n\ Rooted\ from\ grade\ 11\ final\ project's\ engine,\ developed\ largely\ since\ then.\n\ Making\ the\ engine\ an\ actor\ to\ prevent\ repeatitively\ call\ dt\ \=\ new\ Date().\n\ \n\ @author\ Xuanxi\ Jiang\n\ @version\ 0.3\n
+comment0.text=\r\n\ SparkleEngine\ -\ Very\ portable\ &\ reusable\ engine\ that\ wrapps\ various\ functions.\r\n\ All\ static\ methods.\r\n\ Rooted\ from\ grade\ 11\ final\ project's\ engine,\ developed\ largely\ since\ then.\r\n\ Making\ the\ engine\ an\ actor\ to\ prevent\ repeatitively\ call\ dt\ \=\ new\ Date().\r\n\ \r\n\ @author\ Xuanxi\ Jiang\r\n\ @version\ 0.3\r\n
 comment1.params=img\ brt
 comment1.target=greenfoot.GreenfootImage\ setBrightness(greenfoot.GreenfootImage,\ int)
 comment10.params=in\ f\ mxLength
@@ -23,10 +23,10 @@ comment6.params=brightFactor\ img
 comment6.target=greenfoot.GreenfootImage\ brighten(double,\ greenfoot.GreenfootImage)
 comment7.params=mass\ cof\ gravity
 comment7.target=double\ getFrict(double,\ double,\ double)
-comment7.text=\n\ Get\ force\ of\ friction\ of\ object\ in\ N\n\ Helpful\ in\ calculating\ the\ needed\ force\ to\ maintain\ velocity,\ etc.\n\ Remember\:\ to\ maintain\ constant\ velocity\:\ cva\ \=\ getFrict()/mass\n\ (cva\ \=\ acceleration\ to\ maintain\ constant\ velocity)\n\ Only\ works\ if\ y\ axis\ has\ no\ force\ other\ than\ gravity\ and\ normal\ force.\n\ If\ y\ axis\ has\ force\:\ real\ friction\ \=\ getFrict()\ +\ yForce*u\n
+comment7.text=\r\n\ Get\ force\ of\ friction\ of\ object\ in\ N\r\n\ Helpful\ in\ calculating\ the\ needed\ force\ to\ maintain\ velocity,\ etc.\r\n\ Remember\:\ to\ maintain\ constant\ velocity\:\ cva\ \=\ getFrict()/mass\r\n\ (cva\ \=\ acceleration\ to\ maintain\ constant\ velocity)\r\n\ Only\ works\ if\ y\ axis\ has\ no\ force\ other\ than\ gravity\ and\ normal\ force.\r\n\ If\ y\ axis\ has\ force\:\ real\ friction\ \=\ getFrict()\ +\ yForce*u\r\n
 comment8.params=vel\ accel\ mass\ cof\ gravity\ time
 comment8.target=double\ dvDueToFrict(double,\ double,\ double,\ double,\ double,\ double)
-comment8.text=\n\ delta\ velocity\ due\ to\ friction\n\ F\ \=\ m*a,\ Ff\ \=\ mass*gravity*u\ (mass*gravity)\ \=\ N,\ u\ \=\ kinetic\ friction\ coefficient\n\ vel,\ accel,\ time\n\ xf\ (force\ on\ x\ axis)\ \=\ \n\ usage\:\ spd\ \=\ spd\ -\ dvDueToFrict();\n
+comment8.text=\r\n\ delta\ velocity\ due\ to\ friction\r\n\ F\ \=\ m*a,\ Ff\ \=\ mass*gravity*u\ (mass*gravity)\ \=\ N,\ u\ \=\ kinetic\ friction\ coefficient\r\n\ vel,\ accel,\ time\r\n\ xf\ (force\ on\ x\ axis)\ \=\ \r\n\ usage\:\ spd\ \=\ spd\ -\ dvDueToFrict();\r\n
 comment9.params=font\ text
 comment9.target=int\ getStringWidth(greenfoot.Font,\ java.lang.String)
 numComments=14

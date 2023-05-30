@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Node
-comment0.text=\n\ Node,\ the\ building\ block\ of\ map\n\ \n\ @author\ Thomas\ &\ George\ (refactor)\n\ @version\ 1.0\n
+comment0.text=\r\n\ Node,\ the\ building\ block\ of\ map\r\n\ \r\n\ @author\ Thomas\ &\ George\ (refactor)\r\n\ @version\ 1.0\r\n
 comment1.params=type
 comment1.target=Node(int)
 comment2.params=
