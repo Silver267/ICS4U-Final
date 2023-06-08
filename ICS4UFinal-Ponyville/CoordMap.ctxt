@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.target=CoordMap
+comment0.text=\r\n\ Map,\ contains\ map\ and\ various\ methods\ that\ a\ map\ needs\r\n\ Created\ when\ WarWorld\ is\ created,\ reflects\ map.\r\n\ \r\n\ @author\ Thomas\r\n\ @version\ 1.0\r\n
+comment1.params=mapId\ xsiz\ ysiz\ xpix\ ypix
+comment1.target=CoordMap(int,\ int,\ int,\ int,\ int)
+comment2.params=
+comment2.target=int[]\ getSz()
+comment3.params=
+comment3.target=Node[][]\ getNodeMap()
+comment4.params=in\ cood
+comment4.target=void\ setNode(Node,\ int[])
+comment5.params=in
+comment5.target=Node\ getNode(int[])
+comment6.params=
+comment6.target=int[]\ getMaxes()
+comment7.params=coord
+comment7.target=int[]\ getPixes(int[])
+comment8.params=coord
+comment8.target=int[]\ getMaps(int[])
+numComments=9

@@ -7,10 +7,75 @@ import greenfoot.*;
  * Making the engine an actor to prevent repeatitively call dt = new Date().
  * 
  * @author Xuanxi Jiang
- * @version 0.3
+ * @version 0.4
  */
 public class SparkleEngine{
-    //Sets the brightness of an image according to brt, valid values are [0 to 100].
+    /**
+     * convert the given image to greyscale
+     * 
+     * @param img   The given image
+     * @return GreenfootImage   Greyscale image
+     */
+    public static GreenfootImage greyIFy(GreenfootImage img){
+        GreenfootImage ret = new GreenfootImage(img);
+        for(int x=0; x<ret.getWidth(); x++){
+            for(int y=0; y<ret.getHeight(); y++){
+                Color cc = ret.getColorAt(x, y);
+                int tmp = (cc.getRed()+cc.getBlue()+cc.getGreen())/3;
+                ret.setColorAt(x, y, new Color(tmp, tmp, tmp, cc.getAlpha()));
+            }
+        }
+        return ret;
+    }
+    
+    /**
+     * Draw a progress bar given various parameters.
+     * 
+     * @param tot   Total value of the progress bar (max value)
+     * @param rem   Remaining value of the progress bar (current value)
+     * @param len   Length of progress bar in pixels
+     * @param hig   Height of progress bar in pixels
+     * @param before    Base color of progress bar
+     * @param after Color of "current value".
+     * @return  GreenfootImage  Returns the progress bar as an GreenfootImage.
+     */
+    public static GreenfootImage drawProgressBar(int tot, int rem, int len, int hig, Color before, Color after){//Draw Hp bar
+        GreenfootImage i = new GreenfootImage(len, hig);
+        i.setColor(before);
+        i.fillRect(0, 0, len, hig);
+        i.setColor(after);
+        double perc = ((double)rem/tot);
+        i.fillRect((int)(perc*len), 0, len, hig);
+        return i;
+    }
+    
+    /**
+     * Set the transparency of an image according to brt.
+     * 
+     * @param img   The given image
+     * @param perc  The percentage of transparency, ranges from [0 to 100], 0 = fully transparent.
+     * @return GreenfootImage   The processed input image that is either shaded or brightened by brt.
+     */
+    public static GreenfootImage setTransparency(GreenfootImage img, int perc){
+        if(perc<=0 || perc>100)
+            return img;
+        GreenfootImage ret = new GreenfootImage(img);
+        for(int x=0; x<ret.getWidth(); x++){
+            for(int y=0; y<ret.getHeight(); y++){
+                Color cc = ret.getColorAt(x, y);
+                ret.setColorAt(x, y, new Color(cc.getRed(), cc.getGreen(), cc.getBlue(), ((100-perc)*255)/100));
+            }
+        }
+        return ret;
+    }
+    
+    /**
+     * Set the brightness of an image according to brt.
+     * 
+     * @param img   The given image
+     * @param brt   The brightness factor. less than 50 means shade, more than 50 means brighten.
+     * @return GreenfootImage   The processed input image that is either shaded or brightened by brt.
+     */
     public static GreenfootImage setBrightness(GreenfootImage img, int brt){
         GreenfootImage ret = new GreenfootImage(img);
         if(brt==50)
@@ -22,7 +87,13 @@ public class SparkleEngine{
         return ret;
     }
     
-    //Turns an image to red and returns a new image. perc stands for percentage of change, ranges are [0 100].
+    /**
+     * Turns an image to red by perc percent.
+     * 
+     * @param img   The given image
+     * @param perc  The percentage of turning red ranging from [0 to 100], 100 = fully red.
+     * @return GreenfootImage   The processed input image that is turned red by perc percent.
+     */
     public static GreenfootImage turnRed(GreenfootImage img, int perc){
         if(perc<=0 || perc>100)
             return img;
@@ -40,7 +111,13 @@ public class SparkleEngine{
         return ret;
     }
 
-    //Turns an image to blue and returns a new image. perc stands for percentage of change, ranges are [0 100].
+    /**
+     * Turns an image to blue by perc percent.
+     * 
+     * @param img   The given image
+     * @param perc  The percentage of turning blue ranging from [0 to 100], 100 = fully blue.
+     * @return GreenfootImage   The processed input image that is turned blue by perc percent.
+     */
     public static GreenfootImage turnBlue(GreenfootImage img, int perc){
         if(perc<=0 || perc>100)
             return img;
@@ -58,7 +135,13 @@ public class SparkleEngine{
         return ret;
     }
     
-    //Reverses the color of an image and returns a new image. perc stands for percentage of inversion, ranges are [0 100].
+    /**
+     * Reverses the color of a given image by a certain percentage.
+     * 
+     * @param img   The given image
+     * @param perc  The percentage of inversion ranging from [0 to 100], 100 = fully reverse.
+     * @return GreenfootImage   The processed input image that is reversed by perc percent.
+     */
     public static GreenfootImage revColor(GreenfootImage img, int perc){
         if(perc<=0 || perc>100)
             return img;
@@ -79,9 +162,14 @@ public class SparkleEngine{
         return ret;
     }
     
-    //shadeFactor = [0, 1.0]:
-    //Shades image by shadeFactor.
-    //Usage: background = new GreenfootImage(ts.shade(0.5, background));
+    /**
+     * <p>Shades image (makes more black) according to shadeFactor.
+     * <p>Usage: background = new GreenfootImage(SparkleEngine.shade(0.5, background));
+     * 
+     * @param shadeFactor  The factor of shade, ranges from [0 to 1.0]. 1.0 = completely black.
+     * @param img           The input image
+     * @return GreenfootImage   The input image, shaded by factor of brighten.
+     */
     public static GreenfootImage shade(double shadeFactor, GreenfootImage img){
         GreenfootImage ret = new GreenfootImage(img);
         for(int x=0; x<ret.getWidth(); x++){
@@ -98,9 +186,14 @@ public class SparkleEngine{
         return ret;
     }
     
-    //brightFactor = [0, 1.0]:
-    //Brightens image by brightFactor.
-    //Similar to shade.
+    /**
+     * <p>Brightens image (makes more white) according to brightFactor.
+     * <p>Usage: background = new GreenfootImage(SparkleEngine.brighten(0.5, background));
+     * 
+     * @param brightFactor  The factor of brighten, ranges from [0 to 1.0]. 1.0 = completely white.
+     * @param img           The input image
+     * @return GreenfootImage   The input image, brightened by factor of brighten.
+     */
     public static GreenfootImage brighten(double brightFactor, GreenfootImage img){
         GreenfootImage ret = new GreenfootImage(img);
         for(int x=0; x<ret.getWidth(); x++){
@@ -117,24 +210,35 @@ public class SparkleEngine{
         return ret;
     }
     
-    /*
-     * Get force of friction of object in N
-     * Helpful in calculating the needed force to maintain velocity, etc.
-     * Remember: to maintain constant velocity: cva = getFrict()/mass
-     * (cva = acceleration to maintain constant velocity)
-     * Only works if y axis has no force other than gravity and normal force.
-     * If y axis has force: real friction = getFrict() + yForce*u
+    /**
+     * <p>Get force of friction of object in N
+     * <p>Helpful in calculating the needed force to maintain velocity, etc.
+     * <p>Remember: to maintain constant velocity: cva = getFrict()/mass
+     * <p>(cva = acceleration to maintain constant velocity)
+     * <p>Only works if y axis has no force other than gravity and normal force.
+     * <p>If y axis has force: real friction = getFrict() + yForce*u
+     * 
+     * @param mass  The mass of the object
+     * @param cof   The coefficient of friction of the surface
+     * @param gravity   The gravity factor
+     * @return double   The force of friction of the given object.
     */
     public static double getFrict(double mass, double cof, double gravity){
         return mass*gravity*cof;
     }
     
-    /*
-     * delta velocity due to friction
-     * F = m*a, Ff = mass*gravity*u (mass*gravity) = N, u = kinetic friction coefficient
-     * vel, accel, time
-     * xf (force on x axis) = 
+    /**
+     * <p>delta velocity due to friction
+     * <p>F = m*a, Ff = mass*gravity*u (mass*gravity) = N, u = kinetic friction coefficient
      * usage: spd = spd - dvDueToFrict();
+     * 
+     * @param vel   Velocity of object
+     * @param accel Acceleration of object
+     * @param mass  Mass of object
+     * @param cof   Coeficcient of friction of the surface.
+     * @param gravity   The gravity factor
+     * @param time  Time of the motion.
+     * @return int  The change in velocity of provided object in the given time period.
     */
     
     public static double dvDueToFrict(double vel, double accel, double mass, double cof, double gravity, double time){//function to calculate the effect of friction.
@@ -143,6 +247,13 @@ public class SparkleEngine{
         return ((F - frict)/mass)*time;
     }
     
+    /**
+     * Gets the width of a string based on the font.
+     * 
+     * @param font  The font used to display the string.
+     * @param text  The string of text itself.
+     * @return int  The width of the string if displayed in the choosen font.
+     */
     public static int getStringWidth (Font font, String text){//Borrowed & optimized code from Mr. Cohen to detect length of String.
         //Note: this method is optimized using binary search by me for better performance.
         int maxWidth = (int)(text.length() * (font.getSize()/1.20)), fontSize = font.getSize();
@@ -166,6 +277,14 @@ public class SparkleEngine{
         return l;
     }
     
+    /**
+     * Takes in a string of words that needs to be alighned and automatically add '/n' to it.
+     * 
+     * @param in    The input string
+     * @param f     The font of the string that you will use to display
+     * @param mxLength  The maximum length that your string cannot exceed.
+     * @return String   Returns the string, formatted so that it will continue on next line if exceeds mxLength.
+     */
     public static String wordWrap(String in, Font f, int mxLength){//Method to convert a string to an automatically wraped string.
         int ind = 1; //current index
         String curWord = "", cur = in.charAt(0)+"", out = ""; //Initial strings
@@ -199,10 +318,16 @@ public class SparkleEngine{
         return out;
     }
     
-    public static long getTime(){
-        return System.currentTimeMillis();
-    }
-    
+    /**
+     * Draws label on an GreenfootImage
+     * 
+     * @param c     The color of the lable
+     * @param f     The font of the lable
+     * @param x     The x position (relative to top left of the object) of the lable
+     * @param y     The y position (relative to top left of the object) of the lable.
+     * @param text  The text on the lable
+     * @return GreenfootImage   Returns the image with lable drawn on it.
+     */
     public static GreenfootImage drawLable(Color c, Font f, int x, int y, String text, GreenfootImage in){
         GreenfootImage ret = new GreenfootImage(in);
         ret.setFont(f); ret.setColor(c);
@@ -210,17 +335,16 @@ public class SparkleEngine{
         return ret;
     }
     
-    public static void formMap(Node[][] mp, int xsz, int ysz){
-        /* 
-         * Wall: 1;
-         * Space: 2;
-         * Gate: 3;
-        */
-        int mpY = mp.length, mpX = mp[0].length;
-        for(int i=0; i<mpY; i++){
-            for(int j=0; j<mpX; j++){
-                
-            }
-        }
+    /**
+     * Get the Manhatten Distance of two objects.
+     * 
+     * @param fromX     The X coordinate of source object
+     * @param fromY     The Y coordinate of source object
+     * @param toX       The X coordinate of target object
+     * @param toY       The Y coordinate of target object
+     * @return int      Returns the manhatten distance between from object and to object.
+     */
+    public static int ManhattenDistance(int[] from, int[] to){
+        return Math.abs(from[0]-to[0])+Math.abs(from[1]-to[1]);
     }
 }

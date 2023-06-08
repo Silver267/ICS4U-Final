@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=floatingPanel
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ floatingPanel\ here.\r\n\ \r\n\ @author\ Xuanxi\ Jiang\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=duration\ i
+comment1.target=void\ init(int,\ greenfoot.GreenfootImage)
+comment2.params=duration\ content
+comment2.target=floatingPanel(int,\ java.lang.String)
+comment2.text=\r\n\ @param\ duration\ \ duration\ in\ seconds.\r\n\ @param\ content\ \ \ the\ content\ of\ the\ floating\ panel.\r\n
+comment3.params=duration\ i
+comment3.target=floatingPanel(int,\ greenfoot.GreenfootImage)
+comment3.text=\r\n\ @param\ duration\ \ duration\ in\ seconds\r\n\ @param\ i\ \ \ \ \ \ \ \ \ Image\ that\ this\ floating\ panel\ displays\r\n
+comment4.params=
+comment4.target=void\ animation()
+comment5.params=
+comment5.target=void\ act()
+comment5.text=\r\n\ Act\ -\ do\ whatever\ the\ floatingPanel\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+numComments=6

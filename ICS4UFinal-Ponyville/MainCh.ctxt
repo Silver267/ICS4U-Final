@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.target=MainCh
+comment0.text=\n\ Write\ a\ description\ of\ class\ MainCh\ here.\n\ \n\ @author\ Xuanxi\ Jiang\n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=w
+comment1.target=void\ addedToWorld(greenfoot.World)
+comment2.params=
+comment2.target=boolean\ isMoving()
+comment3.params=
+comment3.target=void\ act()
+comment4.params=
+comment4.target=void\ display()
+comment5.params=
+comment5.target=void\ move()
+comment5.text=\n\ Method\ for\ all\ the\ character's\ behaviors,\ including\:\n\ pressing\ "alt"\ to\ use\ magic\n\ pressing\ "w",\ "a",\ "s",\ "d"\ to\ move\ around\n\ and\ animation\ of\ moving\ towards\ another\ grid.\n
+comment6.params=
+comment6.target=int\ getMagic()
+comment6.text=\n\ Gets\ the\ "magic"\ value\ of\ player,\ since\ the\ use\ of\ magic\ is\ an\ animation,\ magic\ is\ an\ int.\n\ \n\ @return\ int\ \ \ \ \ \ returns\ the\ magic\ value\ of\ player,\ 100\ is\ considered\ "fully\ active".\n
+comment7.params=gridPos
+comment7.target=boolean\ detect(int[])
+comment7.text=\n\ Detect\ user\ input\ and\ move\ character's\ real\ position\ based\ on\ that.\n\ Animation\ is\ implemented\ in\ shift()\ method.\n\ \n\ @param\ gridPos\ \ \ The\ current\ position\ of\ character\ on\ grid\ {x,\ y}\n\ @return\ boolean\ \ If\ the\ user\ have\ moved\ the\ character.\n
+comment8.params=gridPos
+comment8.target=void\ shift(int[])
+comment8.text=\n\ Animation\ that\ moves\ the\ character\ towards\ the\ target\ grid\ (so\ the\ character\ does\ not\ appear\ to\ be\ "teleported"\ to\ grids.\n\ \n\ @param\ gridPos\ \ \ The\ current\ position\ of\ character\ on\ grid\ {x,\ y}\n
+comment9.params=gridPos
+comment9.target=void\ rsetPos(int[])
+comment9.text=\n\ Set\ the\ position\ of\ character\ on\ grid\ to\ the\ target\ grid.\n\ Used\ by\ shift()\ method\ when\ the\ target\ position\ (animation)\ is\ reached\ or\ exceeded.\n
+numComments=10
