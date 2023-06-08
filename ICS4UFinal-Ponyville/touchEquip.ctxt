@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=touchEquip
+comment0.text=\n\ Write\ a\ description\ of\ class\ touchEquip\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=id
+comment1.target=touchEquip(int)
+comment2.params=w
+comment2.target=void\ addedToWorld(greenfoot.World)
+comment3.params=
+comment3.target=void\ decideLook()
+comment4.params=
+comment4.target=void\ animate()
+numComments=5
