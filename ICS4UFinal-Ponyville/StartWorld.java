@@ -3,10 +3,12 @@ import java.io.FileNotFoundException;
 
 /**
  * Write a description of class StartWorld here.
+ * The starting world for this game. Introduces the background story and instructions for the user to better understand the game.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Molly Wu 
+ * @version 6.9.2023
  */
+
 public class StartWorld extends World
 {
     GreenfootImage img;
