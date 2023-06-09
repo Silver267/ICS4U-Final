@@ -6,16 +6,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author Xuanxi Jiang
  * @version (a version number or a date)
  */
-public class MainCh extends SuperSmoothMover{
-    
-    private int[] realPos, prevPos;
-    private double[][] dirs = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-    private int dir, xx, turn, magic, targMP;
-    private final double spd = 1.5;
-    private boolean moving, facingFront;
-    private floatingPanel fp;
+public class MainCh extends MovingInTurns{
+    private int magic, targMP;
+    private boolean facingFront;
     private GreenfootImage stand, standBack;
     private GreenfootImage[] walk = new GreenfootImage[16], walkBack = new GreenfootImage[16];
+    
+    public MainCh(){
+        spd = 1.5;
+    }
     
     public void addedToWorld(World w){
         standBack = new GreenfootImage("FH/Stand/tile000.png");
@@ -28,8 +27,7 @@ public class MainCh extends SuperSmoothMover{
             walk[i] = new GreenfootImage(walkBack[i]);
             walk[i].mirrorHorizontally();
         }
-        moving = false;
-        dir = -1; xx = 0; turn = 0;
+        moving = false; xx = 0;
         int[] gridPos = ((MainWorld)getWorld()).getMap().getMaps(new int[]{getX(), getY()});
         Statics.setPlayerCoords(gridPos);
         int[] Mid = ((MainWorld)w).getMap().getPixes(gridPos);
@@ -38,19 +36,14 @@ public class MainCh extends SuperSmoothMover{
         realPos = new int[]{getX(), getY()};
         targMP = 100;
         facingFront = true;
-         setImage(stand);
+        setImage(stand);
     }
     
     public boolean isMoving(){
         return moving;
     }
     
-    public void act(){
-        move();
-        display();
-    }
-    
-    private void display(){
+    protected void display(){
         if(!moving){
             if(facingFront)
                 setImage(stand);
@@ -70,7 +63,7 @@ public class MainCh extends SuperSmoothMover{
      * pressing "w", "a", "s", "d" to move around
      * and animation of moving towards another grid.
      */
-    public void move(){
+    protected void move(){
         int x = getX(), y = getY();
         int[] gridPos = ((MainWorld)getWorld()).getMap().getMaps(new int[]{x, y});
         Statics.setPlayerCoords(gridPos);
@@ -79,7 +72,7 @@ public class MainCh extends SuperSmoothMover{
         if(!moving){
             if(detect(gridPos)){
                 targMP = Math.min(100, Statics.getMP()+25);
-                turn++;
+                ((MainWorld)getWorld()).action(gridPos);
             }else if(Greenfoot.isKeyDown("z") && ((MainWorld)getWorld()).getMap().getNode(new int[]{gridPos[0], gridPos[1]}).getType()>2){
                 ((MainWorld)getWorld()).goBattle(((MainWorld)getWorld()).getMap().getNode(new int[]{gridPos[0], gridPos[1]}).getType()-3);
                 return;
@@ -94,7 +87,7 @@ public class MainCh extends SuperSmoothMover{
                 magic = Math.max(magic-2, 0);
             }
         }
-        if(dir!=-1)
+        if(moving)
             shift(gridPos);
     }
     
@@ -141,42 +134,5 @@ public class MainCh extends SuperSmoothMover{
         }
         realPos = ((MainWorld)getWorld()).getMap().getPixes(gridPos);
         return moving;
-    }
-    
-    /**
-     * Animation that moves the character towards the target grid (so the character does not appear to be "teleported" to grids.
-     * 
-     * @param gridPos   The current position of character on grid {x, y}
-     */
-    private void shift(int[] gridPos){
-        if(dir==1 || dir==3){
-            if(prevPos[0]+dirs[dir][0]*spd*xx<=realPos[0] && prevPos[1]+dirs[dir][1]*spd*xx<=realPos[1]){
-                setLocation((double)prevPos[0]+dirs[dir][0]*spd*xx, (double)prevPos[1]+dirs[dir][1]*spd*xx);
-                xx++;
-            }else{
-                rsetPos(gridPos);
-            }
-        }else{
-            if(prevPos[0]+dirs[dir][0]*spd*xx>=realPos[0] && prevPos[1]+dirs[dir][1]*spd*xx>=realPos[1]){
-                setLocation((double)prevPos[0]+dirs[dir][0]*spd*xx, (double)prevPos[1]+dirs[dir][1]*spd*xx);
-                xx++;
-            }else{
-                rsetPos(gridPos);
-            }
-        }
-    }
-    
-    /**
-     * Set the position of character on grid to the target grid.
-     * Used by shift() method when the target position (animation) is reached or exceeded.
-     */
-    private void rsetPos(int[] gridPos){
-        moving = false;
-        dir = -1; xx = 0;
-        setLocation(realPos[0], realPos[1]);
-        prevPos = realPos.clone();
-        if(((MainWorld)getWorld()).getMap().getNode(new int[]{gridPos[0], gridPos[1]}).getType()>2){
-            //call floating window to press z
-        }
     }
 }

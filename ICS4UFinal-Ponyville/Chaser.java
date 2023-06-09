@@ -6,33 +6,81 @@ import java.util.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Chaser extends Encounters{
+public class Chaser extends MovingInTurns{
     
     private GreenfootImage img;
-    private int[][] dirs = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+    private int cnt, hp, prehp;
+    private Stack<Integer> curstk;
+    private Stack<int[]> curPos;
+    private GreenfootImage cc, ccdamaging;
     
     public Chaser(){
-        setImage("TheHeart.png");
+        curstk = new Stack<Integer>();
+        curPos = new Stack<int[]>();
+        moving = false; hp = 45; prehp = 45;
+        spd = 3;
     }
     
+    public void addedToWorld(World w){
+        prevPos = new int[]{getX(), getY()};
+        realPos = new int[]{getX(), getY()};
+        cc = new GreenfootImage("EvilCharacter.png");
+        cc.scale(((MainWorld)getWorld()).getMap().getSz()[0], ((MainWorld)getWorld()).getMap().getSz()[1]);
+        ccdamaging = new GreenfootImage(SparkleEngine.greyIFy(cc));
+        setImage(cc);
+    }
+    
+    protected void move(){
+        if(!moving && cnt>0 && !curstk.isEmpty()){
+            moving = true;
+            cnt--; dir = curstk.pop();
+            realPos = curPos.pop();
+        }
+        if(moving)
+            shift(((MainWorld)getWorld()).getMap().getMaps(new int[]{getX(), getY()}));
+    }
+    
+    protected void display(){
+        if(hp!=prehp){
+            setImage(ccdamaging);
+            prehp = hp;
+        }else{
+            setImage(cc);
+        }
+    }
+    
+    public void damage(){
+        hp--;
+    }
+    
+    public int getHP(){
+        return hp;
+    }
+    
+    public void action(int[] plCoord){
+        decide(plCoord);
+        cnt = 2;
+    }
+
+    public int[] where(){
+        return ((MainWorld)getWorld()).getMap().getMaps(new int[]{getX(), getY()});
+    }
     
     private boolean chk(int[] cur){
         if(cur[0]<0 || cur[1]<0 || cur[0]>=20 || cur[1]>=11)
             return false;
+        if(((MainWorld)getWorld()).getMap().getNode(cur).getType()==2)
+            return false;
         return true;
     }
     
-    public void decide(){
+    private void decide(int[] plCoord){
         int[] ccoord = ((MainWorld)getWorld()).getMap().getMaps(new int[]{getX(), getY()});
         Queue<int[]> q = new LinkedList<int[]>();
-        q.add(ccoord);
-        int[][] vis = new int[20][11];
+        q.add(ccoord); int[][] vis = new int[20][11];
         for (int[] i:vis)
             Arrays.fill(i, -1);
         vis[ccoord[0]][ccoord[1]] = -2;
-        int[] plCoord = Statics.getPlayerCoords();
-        System.out.println(plCoord[0]+"  "+plCoord[1]);
-         System.out.println(ccoord[0]+"  "+ccoord[1]);
         while(!q.isEmpty()){
             int[] cur = q.poll();
             if(cur[0]==plCoord[0] && cur[1]==plCoord[1])
@@ -46,15 +94,13 @@ public class Chaser extends Encounters{
                 }
             }
         }
-        LinkedList<Integer> backTrack = new LinkedList<Integer>();
-        int[] btCoord = Statics.getPlayerCoords();
+        curstk.clear(); curPos.clear();
+        int[] btCoord = plCoord.clone();
         while(vis[btCoord[0]][btCoord[1]]!=-2){
             int tmp = vis[btCoord[0]][btCoord[1]];
-            backTrack.add(tmp);
+            curstk.push(tmp); 
+            curPos.push(((MainWorld)getWorld()).getMap().getPixes(btCoord));
             btCoord[0] -= dirs[tmp][0]; btCoord[1] -= dirs[tmp][1];
-        }
-        for(int i:backTrack){
-            System.out.println(i);
         }
     }
 }

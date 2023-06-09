@@ -27,7 +27,7 @@ public class MainWorld extends World{
         chara = new MainCh();
         for(int i=0; i<20; i++){
             for(int j=0; j<11; j++){
-                //addObject(sb[i][j] = new ShaderBox(mp.getSz()[0], mp.getSz()[1]), mp.getPixes(new int[]{i, j})[0], mp.getPixes(new int[]{i, j})[1]);
+                addObject(sb[i][j] = new ShaderBox(mp.getSz()[0], mp.getSz()[1]), mp.getPixes(new int[]{i, j})[0], mp.getPixes(new int[]{i, j})[1]);
                 if(mp.getNode(new int[]{i, j}).getType()==1){
                     addObject(chara, mp.getPixes(new int[]{i, j})[0], mp.getPixes(new int[]{i, j})[1]);
                 }else if(mp.getNode(new int[]{i, j}).getType()==2){
@@ -46,14 +46,12 @@ public class MainWorld extends World{
          * Final Boss: Battle (Ultra Necrozma)
          * Talk: An Eternal Prison
          */
-        bgmL1 = new GreenfootSound("field_of_hopes.mp3");
-        bgmL1.setVolume(0);
         addObject(new Panel(), 1200/2, (getMap().getSz()[1]+4)/2);
         setBackground("BackGround/"+Statics.getLevel()+".jpg");
         addObject(new ProgressBar(0), 160, 32);
         addObject(new ProgressBar(1), 500, 32);
         setPaintOrder(Label.class, floatingPanel.class, ProgressBar.class, Panel.class, ShaderBox.class, MainCh.class, Barrier.class, touchEquip.class);
-        //update();
+        update();
     }
     
     public void goBattle(int id){
@@ -69,9 +67,8 @@ public class MainWorld extends World{
     }
     
     public void act(){
-        if(chara.isMoving() || chara.getMagic()>0){
-            //update();
-        }
+        if(chara.isMoving() || chara.getMagic()>0)
+            update();
     }
     
     public void started(){
@@ -99,13 +96,32 @@ public class MainWorld extends World{
     }
     
     public void damage(){
+        ArrayList<Chaser> enemies = (ArrayList<Chaser>)getObjects(Chaser.class);
+        for(Chaser c:enemies){
+            if(SparkleEngine.ManhattenDistance(c.where(), Statics.getPlayerCoords())<=2){
+                c.damage();
+                if(c.getHP()<=0)
+                    removeObject(c);
+            }
+        }
         //damage all entities with manhatten distance <= 2.
+    }
+    
+    public void action(int[] plCoord){
+        ArrayList<Chaser> enemies = (ArrayList<Chaser>)getObjects(Chaser.class);
+        for(Chaser c:enemies)
+            c.action(plCoord);
     }
     
     private void update(){
         for(int[] i:prv)
             sb[i[0]][i[1]].iluminate(0);
         prv.clear();
+        ArrayList<Chaser> enemies = (ArrayList<Chaser>)getObjects(Chaser.class);
+        for(Chaser c:enemies){
+            sb[c.where()[0]][c.where()[1]].iluminate(10);
+            prv.add(c.where());
+        }
         int[] currCoords = Statics.getPlayerCoords();
         for(int i=-2; i<=2; i++){
             for(int j=-2; j<=2; j++){
