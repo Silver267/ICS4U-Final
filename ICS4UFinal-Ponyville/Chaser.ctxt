@@ -1,8 +1,10 @@
 #BlueJ class context
 comment0.target=Chaser
 comment0.text=\n\ Write\ a\ description\ of\ class\ Chaser\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=cur
-comment1.target=boolean\ chk(int[])
-comment2.params=
-comment2.target=void\ decide()
-numComments=3
+comment1.params=
+comment1.target=Chaser()
+comment2.params=cur
+comment2.target=boolean\ chk(int[])
+comment3.params=
+comment3.target=void\ decide()
+numComments=4

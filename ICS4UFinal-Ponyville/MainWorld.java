@@ -27,7 +27,7 @@ public class MainWorld extends World{
         chara = new MainCh();
         for(int i=0; i<20; i++){
             for(int j=0; j<11; j++){
-                addObject(sb[i][j] = new ShaderBox(mp.getSz()[0], mp.getSz()[1]), mp.getPixes(new int[]{i, j})[0], mp.getPixes(new int[]{i, j})[1]);
+                //addObject(sb[i][j] = new ShaderBox(mp.getSz()[0], mp.getSz()[1]), mp.getPixes(new int[]{i, j})[0], mp.getPixes(new int[]{i, j})[1]);
                 if(mp.getNode(new int[]{i, j}).getType()==1){
                     addObject(chara, mp.getPixes(new int[]{i, j})[0], mp.getPixes(new int[]{i, j})[1]);
                 }else if(mp.getNode(new int[]{i, j}).getType()==2){
@@ -53,7 +53,7 @@ public class MainWorld extends World{
         addObject(new ProgressBar(0), 160, 32);
         addObject(new ProgressBar(1), 500, 32);
         setPaintOrder(Label.class, floatingPanel.class, ProgressBar.class, Panel.class, ShaderBox.class, MainCh.class, Barrier.class, touchEquip.class);
-        update();
+        //update();
     }
     
     public void goBattle(int id){
@@ -70,7 +70,7 @@ public class MainWorld extends World{
     
     public void act(){
         if(chara.isMoving() || chara.getMagic()>0){
-            update();
+            //update();
         }
     }
     
