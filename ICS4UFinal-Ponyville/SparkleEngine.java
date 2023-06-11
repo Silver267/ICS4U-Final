@@ -53,7 +53,7 @@ public class SparkleEngine{
      * Set the transparency of an image according to brt.
      * 
      * @param img   The given image
-     * @param perc  The percentage of transparency, ranges from [0 to 100], 0 = fully transparent.
+     * @param perc  The percentage of transparency, ranges from [0 to 100], 0 = fully not transparent.
      * @return GreenfootImage   The processed input image that is either shaded or brightened by brt.
      */
     public static GreenfootImage setTransparency(GreenfootImage img, int perc){

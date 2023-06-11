@@ -72,7 +72,8 @@ public class StartWorld extends World
         if (!rightKeyDown && Greenfoot.isKeyDown("right")) {
             rightKeyDown = true;
             count++;
-            setBackground(new GreenfootImage(count+".jpg"));
+            if(count<9)
+                setBackground(new GreenfootImage(count+".jpg"));
         }
         if (rightKeyDown && !Greenfoot.isKeyDown("right")) {
             rightKeyDown = false;
