@@ -8,6 +8,7 @@ import java.util.*;
  */
 public class MainWorld extends World{
     ShaderBox[][] sb;
+    private boolean havePanel;
     private CoordMap mp;
     private int prevPlayerX, prevPlayerY;
     private LinkedList<int[]> prv = new LinkedList<int[]>();
@@ -20,6 +21,7 @@ public class MainWorld extends World{
         //Delete this line when implementing multi-world
         Statics.setMP(100);
         Statics.setOrb(3);
+        havePanel = false;
         sb = new ShaderBox[20][11];
         mp = new CoordMap(Statics.getLevel(), 20, 11, 1200, 675);
         chara = new MainCh();
@@ -146,6 +148,14 @@ public class MainWorld extends World{
                         prv.add(tmp);
                         int normBright = 100-(SparkleEngine.ManhattenDistance(tmp, Statics.getPlayerCoords()))*33;
                         sb[tmp[0]][tmp[1]].iluminate(Math.max(normBright, chara.getMagic()));
+                    }
+                    if(SparkleEngine.ManhattenDistance(tmp, currCoords)==0){
+                        if(havePanel && mp.getNode(currCoords).getType()<=2){
+                            havePanel = false;
+                        }else if(!havePanel && mp.getNode(currCoords).getType()>2){
+                            havePanel = true;
+                            addObject(new floatingPanel(currCoords), mp.getPixes(currCoords)[0], mp.getPixes(currCoords)[1]);
+                        }
                     }
                 }
             }

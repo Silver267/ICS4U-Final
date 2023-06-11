@@ -11,6 +11,7 @@ public class MainCh extends MovingInTurns{
     private boolean facingFront;
     private GreenfootImage stand, standBack;
     private GreenfootImage[] walk = new GreenfootImage[16], walkBack = new GreenfootImage[16];
+    private floatingPanel fp;
     
     public MainCh(){
         spd = 1.5;
@@ -73,8 +74,8 @@ public class MainCh extends MovingInTurns{
             if(detect(gridPos)){
                 targMP = Math.min(100, Statics.getMP()+25);
                 ((MainWorld)getWorld()).action(gridPos);
-            }else if(Greenfoot.isKeyDown("z") && ((MainWorld)getWorld()).getMap().getNode(new int[]{gridPos[0], gridPos[1]}).getType()>2){
-                ((MainWorld)getWorld()).goBattle(((MainWorld)getWorld()).getMap().getNode(new int[]{gridPos[0], gridPos[1]}).getType()-3);
+            }else if(Greenfoot.isKeyDown("z") && ((MainWorld)getWorld()).getMap().getNode(gridPos).getType()>2){
+                ((MainWorld)getWorld()).goBattle(((MainWorld)getWorld()).getMap().getNode(gridPos).getType()-3);
                 return;
             }else if(Greenfoot.isKeyDown("alt") && Statics.getMP()>0){
                 magic = Math.min(magic+2, 100);

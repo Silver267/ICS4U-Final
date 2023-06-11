@@ -7,42 +7,42 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 public class floatingPanel extends Actor{
-    private long prevTime, cnt, duration;
+    private boolean fadeIn, fadeOut;
+    private int curTransparency, targTransparency;
+    private int[] plC;
+    private GreenfootImage[] img;
     
-    private void init(int duration, GreenfootImage i){
-        setImage(i); cnt = 0;
-        if(duration==-1)
-            prevTime = -1;
-        this.duration = duration;
+    public floatingPanel(int[] plC){
+        this.plC = plC.clone();
+        GreenfootImage timg = new GreenfootImage("textures/Box.png");
+        timg.scale(100, 40);
+        timg = SparkleEngine.drawLable(Color.BLACK, new Font(20), 18, 28, "press z", timg);
+        curTransparency = 75;
+        fadeIn = true;
+        img = new GreenfootImage[76];
+        for(int i=25; i<=100; i++){
+            img[i-25] = new GreenfootImage(timg);
+            img[i-25].setTransparency(((100-i)*255)/100);
+        }
+        setImage(img[75]);
     }
     
-    /**
-     * @param duration  duration in seconds.
-     * @param content   the content of the floating panel.
-     */
-    public floatingPanel(int duration, String content){
-        GreenfootImage base = new GreenfootImage("textures/Box.png");
-        init(duration, base);
-    }
-    
-    /**
-     * @param duration  duration in seconds
-     * @param i         Image that this floating panel displays
-     */
-    public floatingPanel(int duration, GreenfootImage i){
-        init(duration, i);
-    }
-    
-    //Fade in, Fade out
-    public void animation(){
-        
-    }
-    
-    /**
-     * Act - do whatever the floatingPanel wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     public void act(){
-        // Add your action code here.
+        if(plC[0]!=Statics.getPlayerCoords()[0] || plC[1]!=Statics.getPlayerCoords()[1])
+            fadeOut = true;
+        if(fadeIn){
+            curTransparency-=2;
+            if(curTransparency<=0){
+                fadeIn = false;
+                curTransparency = 0;
+            }
+            setImage(img[curTransparency]);
+        }
+        if(fadeOut){
+            curTransparency+=2;
+            setImage(img[Math.min(curTransparency, 75)]);
+            if(curTransparency>=75)
+                getWorld().removeObject(this);
+        }
     }
 }
