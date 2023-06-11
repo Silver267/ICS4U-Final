@@ -12,14 +12,12 @@ public class MainWorld extends World{
     private int prevPlayerX, prevPlayerY;
     private LinkedList<int[]> prv = new LinkedList<int[]>();
     private MainCh chara;
-    private GreenfootSound bgmL1, bgmL2, bgmL3;
+    private static GreenfootSound bgm;
     
     public MainWorld(){
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1200, 675, 1, false);
         //Delete this line when implementing multi-world
-        Statics.setLevel(1);
-        Statics.setHP(50);
         Statics.setMP(100);
         Statics.setOrb(3);
         sb = new ShaderBox[20][11];
@@ -28,15 +26,17 @@ public class MainWorld extends World{
         for(int i=0; i<20; i++){
             for(int j=0; j<11; j++){
                 addObject(sb[i][j] = new ShaderBox(mp.getSz()[0], mp.getSz()[1]), mp.getPixes(new int[]{i, j})[0], mp.getPixes(new int[]{i, j})[1]);
-                if(mp.getNode(new int[]{i, j}).getType()==1){
+                if(Statics.isActive())
+                    addObject(chara, Statics.getPlayerCoords()[0], Statics.getPlayerCoords()[1]);
+                if(!Statics.isActive() && mp.getNode(new int[]{i, j}).getType()==1)
                     addObject(chara, mp.getPixes(new int[]{i, j})[0], mp.getPixes(new int[]{i, j})[1]);
-                }else if(mp.getNode(new int[]{i, j}).getType()==2){
+                else if(mp.getNode(new int[]{i, j}).getType()==2)
                     addObject(new Barrier(), mp.getPixes(new int[]{i, j})[0], mp.getPixes(new int[]{i, j})[1]);
-                }else if(mp.getNode(new int[]{i, j}).getType()>=3){
+                else if(mp.getNode(new int[]{i, j}).getType()>=3)
                     addObject(new touchEquip(mp.getNode(new int[]{i, j}).getType()-3), mp.getPixes(new int[]{i, j})[0], mp.getPixes(new int[]{i, j})[1]);
-                }
             }
         }
+        Statics.setActive(true);
         /**
          * BGM thoughts:
          * 1 - Nectar Meadow (Pokemon SMD Music 037
@@ -46,19 +46,21 @@ public class MainWorld extends World{
          * Final Boss: Battle (Ultra Necrozma)
          * Talk: An Eternal Prison
          */
+        bgm = new GreenfootSound("bgm-l-"+Statics.getLevel()+".mp3");
+        bgm.stop(); bgm.setVolume(70);
         addObject(new Panel(), 1200/2, (getMap().getSz()[1]+4)/2);
         setBackground("BackGround/"+Statics.getLevel()+".jpg");
         addObject(new ProgressBar(0), 160, 32);
         addObject(new ProgressBar(1), 500, 32);
         setPaintOrder(Label.class, floatingPanel.class, ProgressBar.class, Panel.class, ShaderBox.class, MainCh.class, Barrier.class, touchEquip.class);
-        update();
+        update(); music();
     }
     
     public void goBattle(int id){
         //todo
+        unMusic();
         SideWorld batle = new SideWorld();
         Statics.setOrb(Statics.getOrb()-1);
-        
         Greenfoot.setWorld(batle);
     }
     
@@ -80,19 +82,11 @@ public class MainWorld extends World{
     }
     
     private void unMusic(){
-        switch(Statics.getLevel()){
-            case 1:
-                bgmL1.pause();
-                break;
-        }
+        bgm.stop();
     }
     
     private void music(){
-        switch(Statics.getLevel()){
-            case 1:
-                bgmL1.playLoop();
-                break;
-        }
+        bgm.playLoop();
     }
     
     public void damage(){
@@ -104,13 +98,34 @@ public class MainWorld extends World{
                     removeObject(c);
             }
         }
-        //damage all entities with manhatten distance <= 2.
     }
     
     public void action(int[] plCoord){
         ArrayList<Chaser> enemies = (ArrayList<Chaser>)getObjects(Chaser.class);
         for(Chaser c:enemies)
             c.action(plCoord);
+        spawnChaser();
+    }
+    
+    private void spawnChaser(){
+        int spawnRate = Statics.getPlayerCoords()[0];
+        double rate = (1.0-(spawnRate*0.01+0.2))*100;
+        if(Greenfoot.getRandomNumber(100)>rate){
+            int dec = Greenfoot.getRandomNumber(2);
+            if(Statics.getPlayerCoords()[0]==19 || Statics.getPlayerCoords()[0]==0 || Statics.getPlayerCoords()[1]==1 || Statics.getPlayerCoords()[1]==10)
+                return;
+            if(Greenfoot.getRandomNumber(2)==0){
+                int tmp = Greenfoot.getRandomNumber(20);
+                while(mp.getNode(new int[]{tmp, dec==0 ? 1:10}).getType()!=0)
+                    tmp = Greenfoot.getRandomNumber(20);
+                addObject(new Chaser(), mp.getPixes(new int[]{tmp, dec==0 ? 0:10})[0], mp.getPixes(new int[]{tmp, dec==0 ? 0:10})[1]);
+            }else{
+                int tmp = Greenfoot.getRandomNumber(11);
+                while(mp.getNode(new int[]{dec==0 ? 0:19, tmp}).getType()!=0)
+                    tmp = Greenfoot.getRandomNumber(11);
+                addObject(new Chaser(), mp.getPixes(new int[]{dec==0 ? 0:19, tmp})[0], mp.getPixes(new int[]{dec==0 ? 0:19, tmp})[1]);
+            }
+        }
     }
     
     private void update(){

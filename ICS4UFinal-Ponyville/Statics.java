@@ -8,6 +8,25 @@ public class Statics{
     //Current level (from 1 to 3), player position x, player position y.
     //Note: ppX and ppY are coordinates of Map, 
     private static int lV, ppX, ppY, MP, HP, orbReim;
+    private static boolean active;
+    
+    /**
+     * Set active state to true if player is already inside a world (ending from normal pony battle)
+     * 
+     * @param in    The new state of active.
+     */
+    public static void setActive(boolean in){
+        active = in;
+    }
+    
+    /**
+     * Returns if the player is currently active in world.
+     * 
+     * @return boolean  Returns true only if player is not in spawn point.
+     */
+    public static boolean isActive(){
+        return active;
+    }
     
     /**
      * Sets the number of remaining memory orbs.

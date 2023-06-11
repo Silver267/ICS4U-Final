@@ -28,10 +28,6 @@ public class Panel extends Actor{
         refresh();
     }
     
-    public void act(){
-        
-    }
-    
     public void refresh(){
         GreenfootImage proc = new GreenfootImage(base);
         for(int i=0; i<3; i++)

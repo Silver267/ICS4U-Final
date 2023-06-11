@@ -47,6 +47,10 @@ public class Chaser extends MovingInTurns{
         }else{
             setImage(cc);
         }
+        if(where()[0]==Statics.getPlayerCoords()[0] && where()[1]==Statics.getPlayerCoords()[1]){
+            Statics.setHP(Statics.getHP()-5);
+            getWorld().removeObject(this);
+        }
     }
     
     public void damage(){

@@ -87,8 +87,16 @@ public class MainCh extends MovingInTurns{
                 magic = Math.max(magic-2, 0);
             }
         }
-        if(moving)
+        if(moving){
             shift(gridPos);
+            magic = Math.max(magic-2, 0);
+        }   
+        if(Statics.getHP()<=0){
+            Statics.setHP(50);
+            Statics.setActive(false);
+            getWorld().stopped();
+            Greenfoot.setWorld(new MainWorld());
+        }
     }
     
     /**
