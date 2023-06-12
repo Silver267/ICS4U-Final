@@ -33,6 +33,7 @@ public class SideWorld extends World
         addObject(new HitBox(), 400, 400);
         addObject(new BattleScreen(), 800, 400);
         addObject(new Boss(), 600, 150);
+        Talk t = new Talk();
     }
     
 }
