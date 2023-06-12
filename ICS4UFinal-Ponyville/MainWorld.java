@@ -153,7 +153,7 @@ public class MainWorld extends World{
                     if(SparkleEngine.ManhattenDistance(tmp, currCoords)==0){
                         if(havePanel && mp.getNode(currCoords).getType()<=2){
                             havePanel = false;
-                        }else if(!havePanel && mp.getNode(currCoords).getType()>2){
+                        }else if(!havePanel && mp.getNode(currCoords).getType()>2 && Statics.getStay(mp.getNode(currCoords).getType()-3)==0){
                             havePanel = true;
                             addObject(new floatingPanel(currCoords), mp.getPixes(currCoords)[0], mp.getPixes(currCoords)[1]);
                         }
