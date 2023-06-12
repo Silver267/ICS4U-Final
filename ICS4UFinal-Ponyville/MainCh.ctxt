@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=MainCh
-comment0.text=\n\ Write\ a\ description\ of\ class\ MainCh\ here.\n\ \n\ @author\ Xuanxi\ Jiang\n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ MainCh\ here.\r\n\ \r\n\ @author\ Xuanxi\ Jiang\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=
 comment1.target=MainCh()
 comment2.params=w
@@ -11,11 +11,11 @@ comment4.params=
 comment4.target=void\ display()
 comment5.params=
 comment5.target=void\ move()
-comment5.text=\n\ Method\ for\ all\ the\ character's\ behaviors,\ including\:\n\ pressing\ "alt"\ to\ use\ magic\n\ pressing\ "w",\ "a",\ "s",\ "d"\ to\ move\ around\n\ and\ animation\ of\ moving\ towards\ another\ grid.\n
+comment5.text=\r\n\ Method\ for\ all\ the\ character's\ behaviors,\ including\:\r\n\ pressing\ "alt"\ to\ use\ magic\r\n\ pressing\ "w",\ "a",\ "s",\ "d"\ to\ move\ around\r\n\ and\ animation\ of\ moving\ towards\ another\ grid.\r\n
 comment6.params=
 comment6.target=int\ getMagic()
-comment6.text=\n\ Gets\ the\ "magic"\ value\ of\ player,\ since\ the\ use\ of\ magic\ is\ an\ animation,\ magic\ is\ an\ int.\n\ \n\ @return\ int\ \ \ \ \ \ returns\ the\ magic\ value\ of\ player,\ 100\ is\ considered\ "fully\ active".\n
+comment6.text=\r\n\ Gets\ the\ "magic"\ value\ of\ player,\ since\ the\ use\ of\ magic\ is\ an\ animation,\ magic\ is\ an\ int.\r\n\ \r\n\ @return\ int\ \ \ \ \ \ returns\ the\ magic\ value\ of\ player,\ 100\ is\ considered\ "fully\ active".\r\n
 comment7.params=gridPos
 comment7.target=boolean\ detect(int[])
-comment7.text=\n\ Detect\ user\ input\ and\ move\ character's\ real\ position\ based\ on\ that.\n\ Animation\ is\ implemented\ in\ shift()\ method.\n\ \n\ @param\ gridPos\ \ \ The\ current\ position\ of\ character\ on\ grid\ {x,\ y}\n\ @return\ boolean\ \ If\ the\ user\ have\ moved\ the\ character.\n
+comment7.text=\r\n\ Detect\ user\ input\ and\ move\ character's\ real\ position\ based\ on\ that.\r\n\ Animation\ is\ implemented\ in\ shift()\ method.\r\n\ \r\n\ @param\ gridPos\ \ \ The\ current\ position\ of\ character\ on\ grid\ {x,\ y}\r\n\ @return\ boolean\ \ If\ the\ user\ have\ moved\ the\ character.\r\n
 numComments=8

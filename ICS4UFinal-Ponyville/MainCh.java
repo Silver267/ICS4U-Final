@@ -74,7 +74,7 @@ public class MainCh extends MovingInTurns{
             if(detect(gridPos)){
                 targMP = Math.min(100, Statics.getMP()+25);
                 ((MainWorld)getWorld()).action(gridPos);
-            }else if(Greenfoot.isKeyDown("z") && ((MainWorld)getWorld()).getMap().getNode(gridPos).getType()>2){
+            }else if(Greenfoot.isKeyDown("z") && ((MainWorld)getWorld()).getMap().getNode(gridPos).getType()>2 && Statics.getStay(((MainWorld)getWorld()).getMap().getNode(gridPos).getType()-3)==0){
                 ((MainWorld)getWorld()).goBattle(((MainWorld)getWorld()).getMap().getNode(gridPos).getType()-3);
                 return;
             }else if(Greenfoot.isKeyDown("alt") && Statics.getMP()>0){
