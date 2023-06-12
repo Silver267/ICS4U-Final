@@ -28,13 +28,14 @@ public class MainWorld extends World{
         for(int i=0; i<20; i++){
             for(int j=0; j<11; j++){
                 addObject(sb[i][j] = new ShaderBox(mp.getSz()[0], mp.getSz()[1]), mp.getPixes(new int[]{i, j})[0], mp.getPixes(new int[]{i, j})[1]);
+                int nodeType = mp.getNode(new int[]{i, j}).getType();
                 if(Statics.isActive())
                     addObject(chara, mp.getPixes(Statics.getPlayerCoords())[0], mp.getPixes(Statics.getPlayerCoords())[1]);
-                if(!Statics.isActive() && mp.getNode(new int[]{i, j}).getType()==1)
+                if(!Statics.isActive() && nodeType==1)
                     addObject(chara, mp.getPixes(new int[]{i, j})[0], mp.getPixes(new int[]{i, j})[1]);
-                else if(mp.getNode(new int[]{i, j}).getType()==2)
+                else if(nodeType==2)
                     addObject(new Barrier(), mp.getPixes(new int[]{i, j})[0], mp.getPixes(new int[]{i, j})[1]);
-                else if(mp.getNode(new int[]{i, j}).getType()>=3)
+                else if(nodeType>=3 && Statics.getStay(nodeType-3)==0)
                     addObject(new touchEquip(mp.getNode(new int[]{i, j}).getType()-3), mp.getPixes(new int[]{i, j})[0], mp.getPixes(new int[]{i, j})[1]);
             }
         }

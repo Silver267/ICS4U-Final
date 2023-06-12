@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=MainWorld
-comment0.text=\n\ Write\ a\ description\ of\ class\ MainWorld\ here.\n\ \n\ @author\ Xuanxi\ Jiang\n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ MainWorld\ here.\r\n\ \r\n\ @author\ Xuanxi\ Jiang\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=
 comment1.target=MainWorld()
 comment10.params=plCoord

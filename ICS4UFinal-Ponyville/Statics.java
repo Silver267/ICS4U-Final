@@ -7,8 +7,20 @@
 public class Statics{
     //Current level (from 1 to 3), player position x, player position y.
     //Note: ppX and ppY are coordinates of Map, 
-    private static int lV, ppX, ppY, MP, HP, orbReim;
+    private static int lV, ppX, ppY, MP, HP, orbReim, stay;
     private static boolean active;
+    
+    public static int getStay(int id){
+        return ((stay>>id)&1);
+    }
+    
+    public static void rsetStay(){
+        stay = 0;
+    }
+    
+    public static void setStay(int id){
+        stay |= (1<<id);
+    }
     
     /**
      * Set active state to true if player is already inside a world (ending from normal pony battle)
