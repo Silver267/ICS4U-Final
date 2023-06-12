@@ -29,7 +29,7 @@ public class MainWorld extends World{
             for(int j=0; j<11; j++){
                 addObject(sb[i][j] = new ShaderBox(mp.getSz()[0], mp.getSz()[1]), mp.getPixes(new int[]{i, j})[0], mp.getPixes(new int[]{i, j})[1]);
                 if(Statics.isActive())
-                    addObject(chara, Statics.getPlayerCoords()[0], Statics.getPlayerCoords()[1]);
+                    addObject(chara, mp.getPixes(Statics.getPlayerCoords())[0], mp.getPixes(Statics.getPlayerCoords())[1]);
                 if(!Statics.isActive() && mp.getNode(new int[]{i, j}).getType()==1)
                     addObject(chara, mp.getPixes(new int[]{i, j})[0], mp.getPixes(new int[]{i, j})[1]);
                 else if(mp.getNode(new int[]{i, j}).getType()==2)
