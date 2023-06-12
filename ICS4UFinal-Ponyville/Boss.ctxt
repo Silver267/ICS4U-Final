@@ -10,4 +10,6 @@ comment3.params=w
 comment3.target=void\ addedToWorld(greenfoot.World)
 comment4.params=x
 comment4.target=void\ roundShoot(int)
-numComments=5
+comment5.params=
+comment5.target=void\ skyKill()
+numComments=6

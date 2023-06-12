@@ -8,10 +8,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Bomb extends StraightDart
 {
-    /**
-     * Act - do whatever the Bomb wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    private GreenfootImage bomb;
+    
+    public Bomb(){
+        bomb = new GreenfootImage("skyBomb.jpg");
+        setImage(bomb);
+    }
+    
     public void act()
     {
         // Add your action code here.

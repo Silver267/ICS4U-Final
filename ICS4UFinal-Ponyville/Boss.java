@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.*;
 
 /**
  * Write a description of class Boss here.
@@ -44,6 +45,7 @@ public class Boss extends Enemy
         }
         time--;
         time1++;
+        skyKill();
     }
     
     public void addedToWorld(World w){
@@ -82,20 +84,20 @@ public class Boss extends Enemy
         }else{
             time1 = 0;
         }
-        /*
-        if(!reverse){
-            
-        }else{
-           direction[x]--;
-        }
-        if(direction[x] == 180){
-            reverse = true;
-        }else if(direction[x] == 0){
-            reverse = false;
-        }
-        */
+        
         
         
     
+    }
+    
+    public void skyKill(){
+        if(time1 % 600 == 0){
+            Random r = new Random();
+            int x = 336 + (1 + r.nextInt(9))*66;
+            int y = 655 - (1 + r.nextInt(9))*40;
+            getWorld().addObject(new Bomb(), x, y);
+        }
+        
+        
     }
 }
