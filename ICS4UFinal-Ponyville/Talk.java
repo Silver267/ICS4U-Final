@@ -117,8 +117,6 @@ public class Talk extends Screen
         }
         
         
-        String check = talkStorage2.get(1).get(0)[0][0];
-        System.out.println(check);
         
     }
     /**
