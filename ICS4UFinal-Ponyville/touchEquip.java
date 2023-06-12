@@ -126,9 +126,6 @@ public class touchEquip extends Actor{
             animateCountDown++;
         }
         
-        System.out.println("index" + imageIndex);
-        System.out.println("count down" + animateCountDown);
-        
         switch(id){
             case 0:
                 img = new GreenfootImage("textures/Portal.png");

@@ -52,6 +52,7 @@ public class StartWorld extends World
         Statics.setLevel(1);
         Statics.setHP(50);
         Statics.setActive(false);
+        Statics.rsetStay();
         Greenfoot.setWorld(new MainWorld());
     }
     
