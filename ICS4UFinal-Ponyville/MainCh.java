@@ -92,6 +92,7 @@ public class MainCh extends MovingInTurns{
             shift(gridPos);
             magic = Math.max(magic-2, 0);
         }   
+        //if fail, use this commnd
         if(Statics.getHP()<=0){
             Statics.setHP(50);
             Statics.setActive(false);

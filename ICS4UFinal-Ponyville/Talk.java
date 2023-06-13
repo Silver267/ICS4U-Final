@@ -116,7 +116,8 @@ public class Talk extends Screen
             talkStorage2.add(tmp);
         }
         
-        
+        //System.out.println(talkStorage2.get(0).get(0)[0][0]);
+        System.out.println(talkStorage2.size());
         
     }
     /**
