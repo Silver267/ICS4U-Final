@@ -10,7 +10,7 @@ import java.io.*;
 public class Statics{
     //Current level (from 1 to 3), player position x, player position y.
     //Note: ppX and ppY are coordinates of Map, 
-    private static int lV, ppX, ppY, MP, HP, orbReim;
+    private static int lV, ppX, ppY, MP, HP, orbReim, stay;
     private static boolean active;
     //below is use to read in all the conversations
     private static ArrayList<String> talkStorage;
@@ -135,6 +135,18 @@ public class Statics{
             tmp.add(tmp4);
             talkStorage2.add(tmp);
         }
+    }
+    
+    public static int getStay(int id){
+        return ((stay>>id)&1);
+    }
+    
+    public static void rsetStay(){
+        stay = 0;
+    }
+    
+    public static void setStay(int id){
+        stay |= (1<<id);
     }
     
     /**
