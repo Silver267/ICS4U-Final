@@ -12,6 +12,8 @@ public class touchEquip extends Actor{
     private int animateCountDown;
     private int imageIndex = 0;
     private boolean animation = false;
+    //Timeout for ponies to blink, counted in acts.
+    private final int blinkTimeout = 300;
     //SimpleTimer animationTimer1 = new SimpleTimer();
     //SimpleTimer animationTimer2 = new SimpleTimer();
     //SimpleTimer animationTimer3 = new SimpleTimer();
@@ -32,7 +34,7 @@ public class touchEquip extends Actor{
     public touchEquip(int id){
         this.id = id;
         //[getlevel][id][picid]
-        
+        animateCountDown = blinkTimeout-2;
         // Initializing Animation Images
         initImage("BrightMac");
         initImage("PearButter");
@@ -109,23 +111,12 @@ public class touchEquip extends Actor{
     }
     
     public void act() {
-        if (animateCountDown == 10) {
+        animateCountDown = (animateCountDown+1)%blinkTimeout;
+        if(animateCountDown<blinkTimeout-15)
+            animation = false;
+        else
             animation = true;
-            animateCountDown = 0;
-            if (imageIndex == 5) {
-                imageIndex = 0;
-            } else {
-                imageIndex++;
-            }
-        } else if (animateCountDown < 0) {
-            animateCountDown--;
-            if (animateCountDown == -20) {
-                animateCountDown = 0;
-            }
-        } else {
-            animateCountDown++;
-        }
-        
+        imageIndex = (((animateCountDown-blinkTimeout+15)/3)+1)%5;
         switch(id){
             case 0:
                 img = new GreenfootImage("textures/Portal.png");
@@ -134,21 +125,21 @@ public class touchEquip extends Actor{
                 break;
             case 1:
                 if (Statics.getLevel() == 1) {
-                    if (animation = true) {
+                    if (animation) {
                         animate(BrightMac, imageIndex);
                     }
                 }
                 break;
             case 2:
                 if (Statics.getLevel() == 1) {
-                    if (animation = true) {
+                    if (animation) {
                         animate(PearButter, imageIndex);
                     }
                 }
                 break;
             case 3:
                 if (Statics.getLevel() == 1) {
-                    if (animation = true) {
+                    if (animation) {
                         animate(GrannySmith, imageIndex);
                     }
                 }
