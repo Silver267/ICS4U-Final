@@ -46,7 +46,7 @@ public class Statics{
         try{
             sc = new Scanner(new File("Story.txt"));
         }catch(FileNotFoundException e){
-                
+            System.out.println("File Not Found, Story.txt file corrupted.");
         }
         
         //use to read in all the lines

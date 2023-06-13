@@ -8,15 +8,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class BattleScreen extends Screen
 {
-    private GreenfootImage b1, b2, b3;
+    // Yawen
+    GreenfootImage image = new GreenfootImage(700, 400);
     public BattleScreen(){
-        b1 = new GreenfootImage(5,200);
-        b2 = new GreenfootImage(400, 5);
-        b3 = new GreenfootImage(5,200);
-        b1.drawRect(300, 300, 200, 200);
-        setImage(b1);
+        image.setColor(Color.BLUE);
+        image.fill();
+        setImage(image);
     }
-    
     
     /**
      * Act - do whatever the BattleScreen wants to do. This method is called whenever
@@ -26,7 +24,4 @@ public class BattleScreen extends Screen
     {
         // Add your action code here.
     }
-    
-    
-    
 }
