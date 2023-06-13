@@ -41,7 +41,7 @@ public class SideWorld extends World
     
     public void ponyTalk(){
         GreenfootImage start = new GreenfootImage(594, 360);
-        SparkleEngine.drawLable(Statics.getStartLine()[id*Static.getLevel()-1]);
+        
     }
     
 }
