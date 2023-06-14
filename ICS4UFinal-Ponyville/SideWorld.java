@@ -3,6 +3,25 @@ import java.util.*;
 
 /**
  * Write a description of class SideWorld here.
+ * Bug List:
+ *  If user pressed continue button without selecting anything, program will error.
+ *  After pausing world / Resetting world, Statics.takeInWords() will error
+ *  If exceed conversation limit, program will error (fixable by kicking player back to map)
+ *  Need to somehow display which button corresponds to what respond.
+ *  Make it look better.
+ *  Currently buttons means preview - make button able to select other text
+ *  Kick player back to world
+ *  According to planning:
+ *      Except for final boss, all other danmu is by turns:
+ *          Boss releases danmu for few seconds
+ *          Go to talk to boss (one exchange dialogue)
+ *          Boss continue release danmu for few seconds
+ *          etc.
+ *      Until all correct talks are slected, then proceed to next level.
+ *  Include BGM:
+ *      bgm-normal-battle for normal pony (talk only)
+ *      bgm-boss-pony for pony boss (danmu + talk)
+ *      bgm-boss-final for final boss (danmu)
  * 
  * @author (your name) 
  * @version (a version number or a date)
@@ -143,6 +162,7 @@ public class SideWorld extends World
     
     public void chooseLine(){
         if(a.isClick()){
+            removeObject(conversationCentre);
             String tmp = changeLine(conversation.get(2 + rounds*8));
             conversationCentre = new Label(tmp, 25);
             conversationCentre.setFillColor(Color.BLACK);
@@ -155,6 +175,7 @@ public class SideWorld extends World
             rounds++;
             sayMore = false;
         }else if(b.isClick()){
+            removeObject(conversationCentre);
             String tmp = changeLine(conversation.get(3 + rounds*8));
             conversationCentre = new Label(tmp, 25);
             conversationCentre.setFillColor(Color.BLACK);
@@ -166,6 +187,8 @@ public class SideWorld extends World
             rounds++;
             sayMore = false;
         }else if(c.isClick()){
+            removeObject(conversationCentre);
+            /**FIX THIS: kick the player back**/
             String tmp = changeLine(conversation.get(4 + rounds*8));
             conversationCentre = new Label(tmp, 25);
             conversationCentre.setFillColor(Color.BLACK);
@@ -177,6 +200,7 @@ public class SideWorld extends World
             rounds++;
             sayMore = false;
         }else if(d.isClick()){
+            removeObject(conversationCentre);
             String tmp = changeLine(conversation.get(5 + rounds*8));
             conversationCentre = new Label(tmp, 25);
             conversationCentre.setFillColor(Color.BLACK);
