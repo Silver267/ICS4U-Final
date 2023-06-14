@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MainCh extends MovingInTurns{
     private int magic, targMP;
-    private boolean facingFront;
+    private boolean facingFront, pressedZ;
     private GreenfootImage stand, standBack;
     private GreenfootImage[] walk = new GreenfootImage[16], walkBack = new GreenfootImage[16];
     private floatingPanel fp;
@@ -35,7 +35,7 @@ public class MainCh extends MovingInTurns{
         setLocation(Mid[0], Mid[1]);
         prevPos = new int[]{getX(), getY()};
         realPos = new int[]{getX(), getY()};
-        targMP = 100;
+        targMP = 100; pressedZ = false;
         facingFront = true;
         setImage(stand);
     }
@@ -71,12 +71,19 @@ public class MainCh extends MovingInTurns{
         if(Statics.getMP()!=targMP)
             Statics.setMP(Statics.getMP()<targMP ? Statics.getMP()+1:Statics.getMP()-1);
         if(!moving){
+            if(!Greenfoot.isKeyDown("z"))
+                pressedZ = false;
             if(detect(gridPos)){
                 targMP = Math.min(100, Statics.getMP()+25);
                 ((MainWorld)getWorld()).action(gridPos);
-            }else if(Greenfoot.isKeyDown("z") && ((MainWorld)getWorld()).getMap().getNode(gridPos).getType()>2 && Statics.getStay(((MainWorld)getWorld()).getMap().getNode(gridPos).getType()-3)==0){
-                ((MainWorld)getWorld()).goBattle(((MainWorld)getWorld()).getMap().getNode(gridPos).getType()-3);
-                return;
+            }else if(Greenfoot.isKeyDown("z")){
+                if(((MainWorld)getWorld()).getMap().getNode(gridPos).getType()>2 && Statics.getStay(((MainWorld)getWorld()).getMap().getNode(gridPos).getType()-3)==0){
+                    ((MainWorld)getWorld()).goBattle(((MainWorld)getWorld()).getMap().getNode(gridPos).getType()-3);
+                    return;
+                }else if(!pressedZ){
+                    ((MainWorld)getWorld()).action(gridPos);
+                    pressedZ = true;
+                }
             }else if(Greenfoot.isKeyDown("alt") && Statics.getMP()>0){
                 magic = Math.min(magic+2, 100);
                 if(magic==100){
