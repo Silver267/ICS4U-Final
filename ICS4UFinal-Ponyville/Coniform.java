@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Coniform extends BattleScreen
 {
     public Coniform(){
-        GreenfootImage gf = new GreenfootImage("OptionTest.png");
+        GreenfootImage gf = new GreenfootImage("nextButton.png");
         gf.scale(100, 50);
         setImage(gf);
     }
