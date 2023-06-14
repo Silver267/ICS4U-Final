@@ -3,6 +3,14 @@ import java.util.*;
 
 /**
  * Write a description of class SideWorld here.
+ * Bug List:
+ *  If user pressed continue button without selecting anything, program will error.
+ *  After pausing world / Resetting world, Statics.takeInWords() will error
+ *  If exceed conversation limit, program will error (fixable by kicking player back to map)
+ *  Need to somehow display which button corresponds to what respond.
+ *  Make it look better.
+ *  Currently buttons means preview - make button able to select other text
+ * 
  * 
  * @author (your name) 
  * @version (a version number or a date)
@@ -168,6 +176,7 @@ public class SideWorld extends World
             sayMore = false;
         }else if(c.isClick()){
             removeObject(conversationCentre);
+            /**FIX THIS: kick the player back**/
             String tmp = changeLine(conversation.get(4 + rounds*8));
             conversationCentre = new Label(tmp, 25);
             conversationCentre.setFillColor(Color.BLACK);
