@@ -72,8 +72,7 @@ public class MainWorld extends World{
     }
     
     public void act(){
-        if(chara.isMoving() || chara.getMagic()>0)
-            update();
+        update();
     }
     
     public void started(){
