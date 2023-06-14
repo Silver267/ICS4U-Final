@@ -143,6 +143,7 @@ public class SideWorld extends World
     
     public void chooseLine(){
         if(a.isClick()){
+            removeObject(conversationCentre);
             String tmp = changeLine(conversation.get(2 + rounds*8));
             conversationCentre = new Label(tmp, 25);
             conversationCentre.setFillColor(Color.BLACK);
@@ -154,6 +155,7 @@ public class SideWorld extends World
             rounds++;
             sayMore = false;
         }else if(b.isClick()){
+            removeObject(conversationCentre);
             String tmp = changeLine(conversation.get(3 + rounds*8));
             conversationCentre = new Label(tmp, 25);
             conversationCentre.setFillColor(Color.BLACK);
@@ -165,6 +167,7 @@ public class SideWorld extends World
             rounds++;
             sayMore = false;
         }else if(c.isClick()){
+            removeObject(conversationCentre);
             String tmp = changeLine(conversation.get(4 + rounds*8));
             conversationCentre = new Label(tmp, 25);
             conversationCentre.setFillColor(Color.BLACK);
@@ -176,6 +179,7 @@ public class SideWorld extends World
             rounds++;
             sayMore = false;
         }else if(d.isClick()){
+            removeObject(conversationCentre);
             String tmp = changeLine(conversation.get(5 + rounds*8));
             conversationCentre = new Label(tmp, 25);
             conversationCentre.setFillColor(Color.BLACK);

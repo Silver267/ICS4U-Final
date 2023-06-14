@@ -58,6 +58,7 @@ public class Statics{
                 moreLine = true;
             }
         }
+        sc.close();
         
         //use to find the number of different enemy characters`
         for(int i = 0; i < talkStorage.size(); i++){
