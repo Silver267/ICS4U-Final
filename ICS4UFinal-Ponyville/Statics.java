@@ -53,6 +53,7 @@ public class Statics{
         while(!moreLine){
             try{
                 talkStorage.add(sc.nextLine());
+                
             }catch (NoSuchElementException e){
                 moreLine = true;
             }
@@ -74,13 +75,17 @@ public class Statics{
             boolean go = true;
             ArrayList<String> tmp = new ArrayList<String>();
             while(go){
+                //System.out.println(talkStorage.size());
+                
                 String tmp1 = talkStorage.get(c);
                 tmp.add(tmp1);
                 c++;
-                
                 if(tmp1.length() > 3 && (tmp1.substring(0,3).equals("End") || c == talkStorage.size())){
-                    go = false;
+                    go = false;                    
                 }
+                
+                
+                
                 
             }
             
@@ -135,6 +140,10 @@ public class Statics{
             tmp.add(tmp4);
             talkStorage2.add(tmp);
         }
+    }
+    
+    public static ArrayList<ArrayList<String>> getConversation(){
+        return talkStorage1;
     }
     
     public static int getStay(int id){
