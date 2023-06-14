@@ -77,7 +77,7 @@ public class Statics{
             ArrayList<String> tmp = new ArrayList<String>();
             while(go){
                 //System.out.println(talkStorage.size());
-                
+                /**FIX THIS**/
                 String tmp1 = talkStorage.get(c);
                 tmp.add(tmp1);
                 c++;
