@@ -146,6 +146,7 @@ public class SideWorld extends World
             String tmp = changeLine(conversation.get(2 + rounds*8));
             conversationCentre = new Label(tmp, 25);
             conversationCentre.setFillColor(Color.BLACK);
+            removeObject(conversationCentre);
             addObject(conversationCentre, 600, 400);
             toSay = conversation.get(6 + rounds*8);
             if(conversation.get(2 + rounds*8).substring(6,7).equals("F")){
