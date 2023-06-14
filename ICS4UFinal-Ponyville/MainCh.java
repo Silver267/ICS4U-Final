@@ -16,7 +16,7 @@ public class MainCh extends MovingInTurns{
     
     public MainCh(){
         spd = 1.5;
-        magicSE = new GreenfootSound("SE/laser.wav");
+        magicSE = new GreenfootSound("SE/lightSound.wav");
         magicSE.setVolume(85);
     }
     
