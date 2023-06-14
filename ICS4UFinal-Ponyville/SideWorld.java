@@ -10,7 +10,18 @@ import java.util.*;
  *  Need to somehow display which button corresponds to what respond.
  *  Make it look better.
  *  Currently buttons means preview - make button able to select other text
- * 
+ *  Kick player back to world
+ *  According to planning:
+ *      Except for final boss, all other danmu is by turns:
+ *          Boss releases danmu for few seconds
+ *          Go to talk to boss (one exchange dialogue)
+ *          Boss continue release danmu for few seconds
+ *          etc.
+ *      Until all correct talks are slected, then proceed to next level.
+ *  Include BGM:
+ *      bgm-normal-battle for normal pony (talk only)
+ *      bgm-boss-pony for pony boss (danmu + talk)
+ *      bgm-boss-final for final boss (danmu)
  * 
  * @author (your name) 
  * @version (a version number or a date)
