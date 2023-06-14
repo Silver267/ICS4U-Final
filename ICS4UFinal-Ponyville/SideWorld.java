@@ -29,7 +29,8 @@ public class SideWorld extends World
     private OptionD d;
     private Coniform cf;
     private String toSay;//This string will hold what the enmy will say next
-    private boolean done, sayIt;//This boolean will check if the pony fail to talk heal the enemy, sayIt controls when the enemy will response
+    private Label conversationCentre;//This label will show the conversation
+    private boolean done, sayIt, sayMore;//This boolean will check if the pony fail to talk heal the enemy, sayIt controls when the enemy will response, sayMore controls when can the character continue speak
     public SideWorld(int id)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -69,7 +70,7 @@ public class SideWorld extends World
         }else{
             Statics.takeInWords();
             //use this code after, character = id*Statics.getLevel()-1;
-            character = id*1-1;
+            character = id*3-1;
             conversation = Statics.getConversation().get(character);
             GreenfootImage lines = new GreenfootImage(300, 200);
             a = new OptionA();
@@ -77,83 +78,136 @@ public class SideWorld extends World
             c = new OptionC();
             d = new OptionD();
             cf = new Coniform();
-            addObject(a, 150, 300);
-            addObject(b, 150, 500);
-            addObject(c, 1050, 300);
-            addObject(d, 1050, 500);
-            addObject(cf, 1050, 600);
-            changeLine(conversation.get(1));
+            addObject(a, 150, 400);
+            addObject(b, 150, 550);
+            addObject(c, 1050, 400);
+            addObject(d, 1050, 550);
+            addObject(cf, 1050, 650);
+            String tmp = changeLine(conversation.get(1));
+            conversationCentre = new Label(tmp, 25);
+            conversationCentre.setFillColor(Color.BLACK);
+            addObject(conversationCentre, 600, 400);
             rounds = 0;
             if(character == 0){
                 character1 = new GreenfootImage("BrightMac/tile000.png");
-                addObject(new Pony(character1), 600, 200);
+                addObject(new Pony(character1), 600, 100);
+            }else if(character == 1){
+                character1 = new GreenfootImage("PearButter/tile000.png");
+                addObject(new Pony(character1), 600, 100);
+            }else if(character == 2){
+                character1 = new GreenfootImage("GrannySmith/tile000.png");
+                addObject(new Pony(character1), 600, 100);
+            }else if(character == 3){
+                character1 = new GreenfootImage("Scootaloo/tile000.png");
+                addObject(new Pony(character1), 600, 100);
+            }else if(character == 4){
+                character1 = new GreenfootImage("SweetieBelle/tile000.png");
+                addObject(new Pony(character1), 600, 100);
+            }else if(character == 5){
+                character1 = new GreenfootImage("AppleBloom/tile000.png");
+                addObject(new Pony(character1), 600, 100);
+            }else if(character == 6){
+                character1 = new GreenfootImage("Palette/tile000.png");
+                addObject(new Pony(character1), 600, 100);
+            }else if(character == 7){
+                character1 = new GreenfootImage("Trixie/tile000.png");
+                addObject(new Pony(character1), 600, 100);
+            }else if(character == 8){
+                character1 = new GreenfootImage("LusterDawn/tile000.png");
+                addObject(new Pony(character1), 600, 100);
             }
             
         }
-        
+        sayMore = true;
         
     }
     
     public void act(){
-        chooseLine();
-        if(cf.isClick()){
-            sayIt = true;
+        if(id > 0){
+            if(sayMore){
+                chooseLine();
+            }
+            
+            if(cf.isClick()){
+                sayIt = true;
+                sayMore = true;
+            }
+            if(sayIt){
+                keepSpeak();
+                sayIt = false;
+            }
         }
-        if(sayIt){
-            keepSpeak();
-            sayIt = false;
-        }
+        
     }
     
-    public void addedToWorld(World w){
-        MouseInfo mouse = Greenfoot.getMouseInfo();
-    }
     
     public void chooseLine(){
         if(a.isClick()){
-            changeLine(conversation.get(2 + rounds*8));
-            rounds++;
+            String tmp = changeLine(conversation.get(2 + rounds*8));
+            conversationCentre = new Label(tmp, 25);
+            conversationCentre.setFillColor(Color.BLACK);
+            addObject(conversationCentre, 600, 400);
             toSay = conversation.get(6 + rounds*8);
             if(conversation.get(2 + rounds*8).substring(6,7).equals("F")){
                 done = true;
             }
-        }else if(b.isClick()){
-            changeLine(conversation.get(3 + rounds*8));
             rounds++;
+            sayMore = false;
+        }else if(b.isClick()){
+            String tmp = changeLine(conversation.get(3 + rounds*8));
+            conversationCentre = new Label(tmp, 25);
+            conversationCentre.setFillColor(Color.BLACK);
+            addObject(conversationCentre, 600, 400);
             toSay = conversation.get(7 + rounds*8);
             if(conversation.get(2 + rounds*8).substring(6,7).equals("F")){
                 done = true;
             }
-        }else if(c.isClick()){
-            changeLine(conversation.get(4 + rounds*8));
             rounds++;
+            sayMore = false;
+        }else if(c.isClick()){
+            String tmp = changeLine(conversation.get(4 + rounds*8));
+            conversationCentre = new Label(tmp, 25);
+            conversationCentre.setFillColor(Color.BLACK);
+            addObject(conversationCentre, 600, 400);
             toSay = conversation.get(8 + rounds*8);
             if(conversation.get(2 + rounds*8).substring(6,7).equals("F")){
                 done = true;
             }
-        }else if(d.isClick()){
-            changeLine(conversation.get(5 + rounds*8));
             rounds++;
+            sayMore = false;
+        }else if(d.isClick()){
+            String tmp = changeLine(conversation.get(5 + rounds*8));
+            conversationCentre = new Label(tmp, 25);
+            conversationCentre.setFillColor(Color.BLACK);
+            addObject(conversationCentre, 600, 400);
             toSay = conversation.get(9 + rounds*8);
             if(conversation.get(2 + rounds*8).substring(6,7).equals("F")){
                 done = true;
             }
+            rounds++;
+            sayMore = false;
         }
         
     }
     
     public void keepSpeak(){
-        changeLine(toSay);
+        removeObject(conversationCentre);
+        String tmp = changeLine(toSay);
+        conversationCentre = new Label(tmp, 25);
+        conversationCentre.setFillColor(Color.BLACK);
+        addObject(conversationCentre, 600, 400);
         if(done){
             //write some code to send the pny back
         }
     }
     
-    public void changeLine(String txt){
-        int num = txt.length()/80;
+    public String changeLine(String txt){
+        String tmp = "";
+        int num = txt.length()/65;
         for(int i = 0; i <= num; i++){
-            showText(txt.substring(Math.min(12 + i*80, txt.length()-1), Math.min(12 + (i+1)*80, txt.length()-1)), 600, 400+i*40);
+            tmp = tmp + txt.substring(Math.min(12 + i*65, txt.length()-1), Math.min(12 + (i+1)*65, txt.length()-1)) + "\n";
         }
+        return tmp;
     }
     
     public void ponyTalk(){
