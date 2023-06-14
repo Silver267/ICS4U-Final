@@ -18,7 +18,10 @@ import java.util.*;
  *          Boss continue release danmu for few seconds
  *          etc.
  *      Until all correct talks are slected, then proceed to next level.
- * 
+ *  Include BGM:
+ *      bgm-normal-battle for normal pony (talk only)
+ *      bgm-boss-pony for pony boss (danmu + talk)
+ *      bgm-boss-final for final boss (danmu)
  * 
  * @author (your name) 
  * @version (a version number or a date)
