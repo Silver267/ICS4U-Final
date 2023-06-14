@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
  * Write a description of class StartWorld here.
  * The starting world for this game. Introduces the background story and instructions for the user to better understand the game.
  * 
- * @author Molly Wu 
+ * @author Molly Wu & Yawen & Xuanxi
  * @version 6.9.2023
  */
 
