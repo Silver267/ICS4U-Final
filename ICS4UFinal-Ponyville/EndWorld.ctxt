@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=EndWorld
+comment0.text=\n\ Write\ a\ description\ of\ class\ BattleWorld\ here.\n\ \n\ @author\ Yawen\ Zhang\n\ @version\ 0.1\n
+comment1.params=result
+comment1.target=EndWorld(boolean)
+comment1.text=\n\ Constructor\ for\ objects\ of\ class\ BattleWorld.\n\ \n
+comment2.params=
+comment2.target=EndWorld()
+numComments=3

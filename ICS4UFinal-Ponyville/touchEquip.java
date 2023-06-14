@@ -129,6 +129,16 @@ public class touchEquip extends Actor{
                         animate(BrightMac, imageIndex);
                     }
                 }
+                if (Statics.getLevel() == 2) {
+                    if (animation) {
+                        animate(Scootaloo, imageIndex);
+                    }
+                }
+                if (Statics.getLevel() == 3) {
+                    if (animation) {
+                        animate(Palette, imageIndex);
+                    }
+                }
                 break;
             case 2:
                 if (Statics.getLevel() == 1) {
@@ -136,11 +146,31 @@ public class touchEquip extends Actor{
                         animate(PearButter, imageIndex);
                     }
                 }
+                if (Statics.getLevel() == 2) {
+                    if (animation) {
+                        animate(SweetieBelle, imageIndex);
+                    }
+                }
+                if (Statics.getLevel() == 3) {
+                    if (animation) {
+                        animate(Trixie, imageIndex);
+                    }
+                }
                 break;
             case 3:
                 if (Statics.getLevel() == 1) {
                     if (animation) {
                         animate(GrannySmith, imageIndex);
+                    }
+                }
+                if (Statics.getLevel() == 2) {
+                    if (animation) {
+                        animate(AppleBloom, imageIndex);
+                    }
+                }
+                if (Statics.getLevel() == 3) {
+                    if (animation) {
+                        animate(LusterDawn, imageIndex);
                     }
                 }
                 break;

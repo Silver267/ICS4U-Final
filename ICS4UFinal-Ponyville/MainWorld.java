@@ -62,7 +62,7 @@ public class MainWorld extends World{
     public void goBattle(int id){
         //todo
         unMusic();
-        SideWorld batle = new SideWorld();
+        SideWorld batle = new SideWorld(id);
         Statics.setOrb(Statics.getOrb()-1);
         Greenfoot.setWorld(batle);
     }
