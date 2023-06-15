@@ -9,10 +9,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class BattleScreen extends Screen
 {
     // Yawen
-    GreenfootImage image = new GreenfootImage(700, 400);
+    private GreenfootImage image;
     public BattleScreen(){
-        image.setColor(Color.BLUE);
-        image.fill();
+        image = new GreenfootImage("DialogueBox.png");
+        image.scale(700,460);
         setImage(image);
     }
     
