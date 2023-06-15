@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=Fluttershy
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ PonyBoss\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=Fluttershy()
+comment2.params=dx\ ang
+comment2.target=double\ phase1Method1(double,\ double)
+comment3.params=
+comment3.target=void\ phase1ATK()
+comment4.params=
+comment4.target=void\ die()
+comment5.params=
+comment5.target=void\ act()
+numComments=6

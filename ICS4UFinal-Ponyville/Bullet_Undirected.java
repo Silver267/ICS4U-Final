@@ -50,7 +50,8 @@ public class Bullet_Undirected extends Actor{
         }else{//else, decrease player hp when hitted the player.
             if(this.isTouching(HitBox.class)){
                 getWorld().removeObject(this);
-                Statics.setHp((-1));
+                Statics.setHP(Statics.getHP()-1);
+                //TODO: If HP <=0, send to start of the world.
                 return;
             }
         }

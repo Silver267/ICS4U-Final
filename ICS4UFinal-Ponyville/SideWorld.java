@@ -4,13 +4,9 @@ import java.util.*;
 /**
  * Write a description of class SideWorld here.
  * Bug List:
- *  If user pressed continue button without selecting anything, program will error.
- *  After pausing world / Resetting world, Statics.takeInWords() will error
- *  If exceed conversation limit, program will error (fixable by kicking player back to map)
- *  Need to somehow display which button corresponds to what respond.
- *  Make it look better.
- *  Currently buttons means preview - make button able to select other text
- *  Kick player back to world
+ *  Implement turn-based danmu
+ *  Implement many danmu
+ *  BGM (should be easy)
  *  According to planning:
  *      Except for final boss, all other danmu is by turns:
  *          Boss releases danmu for few seconds
@@ -53,7 +49,7 @@ public class SideWorld extends World
     private boolean done, sayIt, sayMore, start, change;//This boolean will check if the pony fail to talk heal the enemy, sayIt controls when the enemy will response, sayMore controls when can the character continue speak, start will tell the program to enable the continue button
     public SideWorld(int id)
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        // Create a new world with 600x500 cells with a cell size of 1x1 pixels.
         super(1200, 675, 1, false); 
         this.id = id;
         //id = 0, level boss, id = 1, 2, or 3, typical little pony, just talk heal. If static.getLevl = 1, level 1 enemies, 
@@ -80,7 +76,7 @@ public class SideWorld extends World
         
         setBackground(backGround);
         
-        addObject(new BattleScreen(), 600, 510);
+        
         
         a = new Option(new GreenfootImage("A.png"), new GreenfootImage("A1.png"), false);
         b = new Option(new GreenfootImage("B.png"), new GreenfootImage("B1.png"), false);
@@ -92,14 +88,16 @@ public class SideWorld extends World
             boss = new Boss();
             addObject(boss, 600, 150);
             hitBox = new HitBox();
-            addObject(hitBox, 400, 400);
+            addObject(hitBox, 500, 500);
             addObject(a, 150, 380);
             addObject(b, 150, 530);
             addObject(c, 1050, 380);
             addObject(d, 1050, 530);
             addObject(cf, 1050, 633);
             keepCount = true;
+            addObject(new Plane(4, 6, 2, 3, 0, 90), 600, 200);
         }else{
+            addObject(new BattleScreen(), 600, 510);
             talkOnly = new GreenfootSound("bgm-normal-battle.mp3");
             Statics.takeInWords();
             //use this code after, character = id*Statics.getLevel()-1;
@@ -117,7 +115,7 @@ public class SideWorld extends World
             String tmp = changeLine(conversation.get(1));
             conversationCentre = new Label(tmp, 25);
             conversationCentre.setFillColor(Color.BLACK);
-            addObject(conversationCentre, 600, 400);
+            addObject(conversationCentre, 600, 500);
             rounds = 0;
             if(character == 0){
                 character1 = new GreenfootImage("BrightMac/tile000.png");
@@ -208,7 +206,7 @@ public class SideWorld extends World
             String tmp = changeLine(toSay);
             conversationCentre = new Label(tmp, 25);
             conversationCentre.setFillColor(Color.BLACK);
-            addObject(conversationCentre, 600, 400);
+            addObject(conversationCentre, 600, 500);
             change = false;
             if(id == 0){
                 keepCount = true;
@@ -249,7 +247,7 @@ public class SideWorld extends World
             conversationCentre = new Label(tmp, 25);
             conversationCentre.setFillColor(Color.BLACK);
             removeObject(conversationCentre);
-            addObject(conversationCentre, 600, 400);
+            addObject(conversationCentre, 600, 500);
             horseSay = conversation.get(2 + rounds*8);
             toSay = conversation.get(6 + rounds*8);
             if(conversation.get(2 + rounds*8).substring(6,7).equals("F")){
@@ -266,7 +264,7 @@ public class SideWorld extends World
             String tmp = changeLine(conversation.get(3 + rounds*8));
             conversationCentre = new Label(tmp, 25);
             conversationCentre.setFillColor(Color.BLACK);
-            addObject(conversationCentre, 600, 400);
+            addObject(conversationCentre, 600, 500);
             horseSay = conversation.get(3 + rounds*8);
             toSay = conversation.get(7 + rounds*8);
             if(conversation.get(3 + rounds*8).substring(6,7).equals("F")){
@@ -282,7 +280,7 @@ public class SideWorld extends World
             String tmp = changeLine(conversation.get(4 + rounds*8));
             conversationCentre = new Label(tmp, 25);
             conversationCentre.setFillColor(Color.BLACK);
-            addObject(conversationCentre, 600, 400);
+            addObject(conversationCentre, 600, 500);
             horseSay = conversation.get(4 + rounds*8);
             toSay = conversation.get(8 + rounds*8);
             if(conversation.get(4 + rounds*8).substring(6,7).equals("F")){
@@ -299,7 +297,7 @@ public class SideWorld extends World
             String tmp = changeLine(conversation.get(5 + rounds*8));
             conversationCentre = new Label(tmp, 25);
             conversationCentre.setFillColor(Color.BLACK);
-            addObject(conversationCentre, 600, 400);
+            addObject(conversationCentre, 600, 500);
             horseSay = conversation.get(5 + rounds*8);
             toSay = conversation.get(9 + rounds*8);
             if(conversation.get(5 + rounds*8).substring(6,7).equals("F")){
@@ -318,19 +316,14 @@ public class SideWorld extends World
         String tmp = changeLine(toSay);
         conversationCentre = new Label(tmp, 25);
         conversationCentre.setFillColor(Color.BLACK);
-        addObject(conversationCentre, 600, 400);
+        addObject(conversationCentre, 600, 500);
         if(done){
             //write some code to send the pny back
         }
     }
     
     public String changeLine(String txt){
-        String tmp = "";
-        int num = txt.length()/65;
-        for(int i = 0; i <= num; i++){
-            tmp = tmp + txt.substring(Math.min(12 + i*65, txt.length()-1), Math.min(12 + (i+1)*65, txt.length()-1)) + "\n";
-        }
-        return tmp;
+        return SparkleEngine.wordWrap(txt.substring(12, txt.length()-1), new Font(25), 500);
     }
     
     public void ponyTalk(){
