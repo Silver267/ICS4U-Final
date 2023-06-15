@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class PonyBoss extends Enemy{
+public class Fluttershy extends Enemy{
     /**
      * Act - do whatever the PonyBoss wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -14,7 +14,7 @@ public class PonyBoss extends Enemy{
     private int x, cnt;
     private double prevAng;
     
-    public PonyBoss(){
+    public Fluttershy(){
         cnt = 0;
         x = 0;
         prevAng = 0;
@@ -48,8 +48,7 @@ public class PonyBoss extends Enemy{
     }
     
     public void act(){
-        x++;
-        
+        phase1ATK();
         // Add your action code here.
     }
 }
