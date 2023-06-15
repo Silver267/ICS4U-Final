@@ -38,6 +38,7 @@ public class SideWorld extends World
     private boolean checkSuccess;
     private Boss boss;
     private HitBox hitBox;
+    private Block b1,b2,b3,b4;
     private ArrayList<String> conversation;
     private int rounds, character, countTime, wrongTime;//countTime is used to count the time in current game, wrongTime counts the number of time the player hit the continue after they select the wrong choice
     private GreenfootImage character1;
@@ -101,7 +102,7 @@ public class SideWorld extends World
             talkOnly = new GreenfootSound("bgm-normal-battle.mp3");
             Statics.takeInWords();
             //use this code after, character = id*Statics.getLevel()-1;
-            character = id*Statics.getLevel()-1;
+            character = id+(Statics.getLevel()-1)*3-1;
             //character = id*3-1;
             conversation = Statics.getConversation().get(character);
            
