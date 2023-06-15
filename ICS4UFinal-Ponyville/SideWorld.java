@@ -4,13 +4,9 @@ import java.util.*;
 /**
  * Write a description of class SideWorld here.
  * Bug List:
- *  If user pressed continue button without selecting anything, program will error.
- *  After pausing world / Resetting world, Statics.takeInWords() will error
- *  If exceed conversation limit, program will error (fixable by kicking player back to map)
- *  Need to somehow display which button corresponds to what respond.
- *  Make it look better.
- *  Currently buttons means preview - make button able to select other text
- *  Kick player back to world
+ *  Implement turn-based danmu
+ *  Implement many danmu
+ *  BGM (should be easy)
  *  According to planning:
  *      Except for final boss, all other danmu is by turns:
  *          Boss releases danmu for few seconds
@@ -99,7 +95,7 @@ public class SideWorld extends World
             addObject(d, 1050, 530);
             addObject(cf, 1050, 633);
             keepCount = true;
-            addObject(new Plane(4, 6, 2, 3, 0), 600, 200);
+            addObject(new Plane(4, 6, 2, 3, 0, 90), 600, 200);
         }else{
             addObject(new BattleScreen(), 600, 510);
             talkOnly = new GreenfootSound("bgm-normal-battle.mp3");
