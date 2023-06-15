@@ -5,7 +5,7 @@ import greenfoot.*;
  * @author Xuanxi Jiang
  * @version 1.0
  */
-public class bullet_turn extends SuperSmoothMover{
+public class bullet_turn extends removableBullet{
     private int pict, power, size, facing;
     private double speed;
     private SideWorld sw;

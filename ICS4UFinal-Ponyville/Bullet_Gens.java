@@ -5,7 +5,7 @@ import greenfoot.*;
  * @author Xuanxi Jiang
  * @version 1.0
  */
-public class Bullet_Gens extends SuperSmoothMover{
+public class Bullet_Gens extends removableBullet{
     private int cnt, live, dx;
     private double subPixPosX, subPixPosY, subPixIncX, subPixIncY, dv, ang;
     

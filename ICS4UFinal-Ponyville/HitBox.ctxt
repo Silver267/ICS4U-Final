@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=HitBox
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ HitBox\ here.\r\n\ \r\n\ @author\ George\ Lu\r\n\ @version\ 2023/6/1\ \r\n
-comment1.params=
-comment1.target=HitBox()
+comment1.params=final1
+comment1.target=HitBox(boolean)
 comment2.params=
 comment2.target=void\ act()
 comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ HitBox\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n

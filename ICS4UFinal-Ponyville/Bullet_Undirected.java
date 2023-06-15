@@ -5,7 +5,7 @@ import greenfoot.*;
  * @author Xuanxi Jiang
  * @version 1.0
  */
-public class Bullet_Undirected extends Actor{
+public class Bullet_Undirected extends removableBullet{
     //Borrowed the concept of speed, friendly from Mr. Cohen
     private int pict, power, size, facing;
     //pict = 0 -> Enemy normal bullet
@@ -84,5 +84,9 @@ public class Bullet_Undirected extends Actor{
             return image;
         }
         return null;
+    }
+    
+    public void gone(){
+        
     }
 }

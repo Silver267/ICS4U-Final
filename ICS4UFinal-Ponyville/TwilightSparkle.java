@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class TwilightSparkle extends Enemy
 {
+    private GreenfootImage gf;
     /**
      * Act - do whatever the TwilightSparkle wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
