@@ -12,11 +12,11 @@ public class floatingPanel extends Actor{
     private int[] plC;
     private GreenfootImage[] img;
     
-    public floatingPanel(int[] plC){
+    public floatingPanel(int[] plC, int sel){
         this.plC = plC.clone();
         GreenfootImage timg = new GreenfootImage("textures/Box.png");
-        timg.scale(100, 40);
-        timg = SparkleEngine.drawLable(Color.BLACK, new Font(20), 18, 28, "press z", timg);
+        timg.scale(sel==2?160:100, 40);
+        timg = SparkleEngine.drawLable(Color.BLACK, new Font(20), sel==2 ? 14:18, 28, sel==2 ? "need more orb":"press z", timg);
         curTransparency = 75;
         fadeIn = true;
         img = new GreenfootImage[76];
