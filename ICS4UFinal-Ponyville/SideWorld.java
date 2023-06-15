@@ -37,6 +37,7 @@ public class SideWorld extends World
     private int successTime;
     private boolean checkSuccess;
     private Boss boss;
+    private boolean talk;
     private HitBox hitBox;
     private Block b1,b2,b3,b4;
     private ArrayList<String> conversation;
@@ -97,9 +98,9 @@ public class SideWorld extends World
        
         
         if(id == 0 ){//&& Statics.getLevel() == 4 add later
-            boss = new Boss();
-            addObject(boss, 600, 150);
-            hitBox = new HitBox();
+            //boss = new Boss();
+            //addObject(boss, 600, 150);
+            hitBox = new HitBox(false);
             addObject(hitBox, 500, 500);
             addObject(a, 150, 380);
             addObject(b, 150, 530);
@@ -107,25 +108,29 @@ public class SideWorld extends World
             addObject(d, 1050, 530);
             addObject(cf, 1050, 633);
             keepCount = true;
-            addObject(new Plane(4, 6, 2, 3, 0, 90), 600, 200);
+            //addObject(new Plane(4, 6, 2, 3, 0, 90), 600, 200);
             addObject(new HPBar(true), 200, 200);
-            addObject(new HPBar(false), 200, 400);
+            //addObject(new HPBar(false), 200, 400);
             
             
             Statics.takeInWords();
-            character = 9;
+            character = 10;
             conversation = Statics.getConversation().get(character);
             //character = 8 + Statics.getLevel();
             //conversation = Statics.getConversation().get(character); use after
             if(character == 9){
+                /*
                 for(String x:conversation){
                     System.out.println(x);
                 }
+                */
+            }else if(character == 10){
+                addObject(new PinkiePie(2, 1200), 600, 150);
             }else if(character == 11){
                 
-            }else if(character == 12){
-                
             }
+            
+            
             
             
             
@@ -185,6 +190,10 @@ public class SideWorld extends World
         
     }
     
+    public void changeTalk(boolean x){
+        talk = x;
+    }
+    
     public HitBox getHitBox(){
         return hitBox;
     }
@@ -202,7 +211,12 @@ public class SideWorld extends World
         
     }
     
-    
+    public void remAllBullets(){
+        ArrayList<removableBullet> re = (ArrayList<removableBullet>)(getObjects(removableBullet.class));
+        for(removableBullet x: re){
+            removeObject(x);
+        }
+    }
     
     public void stopped(){
         if(id == 0){
@@ -222,12 +236,10 @@ public class SideWorld extends World
             
             
         }else if(id == 0){
-            if(keepCount){
-                countTime++;
+            if(talk){
+                chooseLine();
             }
-            if(countTime > 600){
-                keepCount = false;
-            }
+            
         }
         
     }

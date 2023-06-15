@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.*;
 
 /**
  * Write a description of class PinkiePie here.
@@ -13,11 +14,16 @@ public class PinkiePie extends Enemy{
      */
     private int x, meth, timer, prevAng, cnt;
     private double ang; 
+    private SideWorld sw;
     
     //meth: which attack pattern will use 
+    private GreenfootImage gf;
     public PinkiePie(int meth, int duration){
         x = 0; this.meth = meth;
         cnt = 0; ang = 0; timer = duration;
+        gf = new GreenfootImage("MainPony/PP-1.png");
+        gf.scale(150, 150);
+        setImage(gf);
     }
     
     private void phase1Method1(){
@@ -52,6 +58,10 @@ public class PinkiePie extends Enemy{
         }
     }
     
+    public void addedToWorld(World w){
+        sw = (SideWorld)w;
+    }
+    
     private void phase2ATK(){
         if(cnt==0){
             phase2Method2();
@@ -75,7 +85,12 @@ public class PinkiePie extends Enemy{
                 phase2ATK();
                 break;
         }
-        if(timer==0)
+        if(timer==0){
+            sw.changeTalk(true);
+            ((SideWorld)getWorld()).remAllBullets();
+            
             getWorld().removeObject(this);
+        }
+            
     }
 }
