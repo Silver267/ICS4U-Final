@@ -19,6 +19,7 @@ public class Boss extends Enemy
         ball.scale(35,35);
         setImage(ball);
         time = 0;
+        hp = 3000;//1500 change pattern
         direction = new int[8];
         for(int i = 0; i < 4; i++){
             direction[i] = i*90;

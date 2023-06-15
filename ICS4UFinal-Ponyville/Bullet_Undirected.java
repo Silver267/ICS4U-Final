@@ -11,6 +11,7 @@ public class Bullet_Undirected extends Actor{
     //pict = 0 -> Enemy normal bullet
     //pict = 1 -> Player normal bullet
     private double speed;
+    private SideWorld sw;
     //facing is the side which the bullet is facing
     //for bullets which heads a straight line but initially facing the player.
     //power is the power of the bullet, depends how many hp (or shield) the target will take
@@ -31,33 +32,34 @@ public class Bullet_Undirected extends Actor{
         subPixIncX = Math.cos((facing)*(Math.PI/180))*speed;
         subPixIncY = Math.sin((facing)*(Math.PI/180))*speed;
     }
-/*
+    
+    public void addedToWorld(World w){
+        sw = (SideWorld)w;
+    }
+
     public void act(){
         //custom sub-pixel movement in replacemenent of move() which features accurate movement at angle.
         subPixPosX+=subPixIncX; subPixPosY+=subPixIncY;
         setLocation((int)subPixPosX, (int)subPixPosY);
         if(friendly){//If friendly bullet, decrease enemy hp when hitted the enemy.
-            if(this.isTouching(STGEnemy_Normal.class) && !STGStage_1.en.isReborn()){
+            if(this.isTouching(Boss.class)){
                 getWorld().removeObject(this);
-                STGStage_1.en.chHP(-power);
+                sw.getBoss().damage(-8);
                 return;
             }
         }else{//else, decrease player hp when hitted the player.
-            if(STGStage_1.clearBullets == true){
+            if(this.isTouching(HitBox.class)){
                 getWorld().removeObject(this);
-                return;
-            }
-            if(this.isTouching(STGPlayer_htBox.class) && !STGStage_1.pl.isInv()){
-                getWorld().removeObject(this);
-                STGStage_1.pl.chShield(-1);
+                Statics.setHP(Statics.getHP()-1);
+                //TODO: If HP <=0, send to start of the world.
                 return;
             }
         }
         if(isAtEdge() || this.getX()>1200)//If touching edge or touching information panel, remove itself.
             getWorld().removeObject(this);
     }
-*/
-    private GreenfootImage temp(){
+
+    private GreenfootImage temp(){//Draw image,doesn't matter
         if(pict==0){
             //Enemy bullet
             GreenfootImage image = new GreenfootImage(size*3/2, size*2/3);

@@ -17,7 +17,7 @@ public class HitBox extends SuperSmoothMover
         setImage(heart);
         time = 5;
         damageTime = 5;
-        hp = 100;
+        hp = 40;
     }
     /**
      * Act - do whatever the HitBox wants to do. This method is called whenever
@@ -55,9 +55,4 @@ public class HitBox extends SuperSmoothMover
         
     }
     
-    public void getHit(int x){
-        hp-=x;
-        
-        
-    }
 }
