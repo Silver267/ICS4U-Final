@@ -43,10 +43,18 @@ public class MainCh extends MovingInTurns{
         setImage(stand);
     }
     
+    /**
+     * Detect if the character is currently moving
+     * 
+     * @return boolean  If character is currently moving
+     */
     public boolean isMoving(){
         return moving;
     }
     
+    /**
+     * Displays the animation of character
+     */
     protected void display(){
         if(!moving){
             if(facingFront)

@@ -1,10 +1,11 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class MovingInTurns here.
+ * For things that moves in turns (only moves when player moves).
+ * Some common methods are displayed here.
  * 
  * @author Xuanxi Jiang
- * @version (a version number or a date)
+ * @version 1.0
  */
 public abstract class MovingInTurns extends SuperSmoothMover{
     protected double[][] dirs = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};

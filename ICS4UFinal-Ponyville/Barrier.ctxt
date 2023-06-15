@@ -1,8 +1,9 @@
 #BlueJ class context
 comment0.target=Barrier
-comment0.text=\n\ Write\ a\ description\ of\ class\ Barrier\ here.\n\ \n\ @author\ Xuanxi\ Jiang\n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\n\ Barrier\ that\ blocks\ both\ player\ and\ chaser.\n\ This\ is\ literally\ just\ a\ picture.\n\ \n\ @author\ Xuanxi\ Jiang\n\ @version\ 1.0\n
 comment1.params=w
 comment1.target=void\ addedToWorld(greenfoot.World)
 comment2.params=
 comment2.target=void\ decideLook()
+comment2.text=\n\ Decides\ the\ look\ of\ barrier\ according\ to\ current\ level.\n
 numComments=3
