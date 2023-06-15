@@ -10,7 +10,8 @@ public class LightBall extends StraightDart
 {
     private GreenfootImage lightBall;
     private Color color;
-    private boolean side;//This boolean will determine if this lightBall is from enemy
+    private SideWorld sw;
+    private boolean side, gone;//This boolean will determine if this lightBall is from enemy, true is from enemy, gone will determine if the pbject should be transparent
     public LightBall(boolean side, int direction){
         lightBall = new GreenfootImage("RedBall.png");
         lightBall.scale(15,15);
@@ -26,12 +27,43 @@ public class LightBall extends StraightDart
     public void act()
     {
         move(2.8);
+        
+        if(!gone){
+            damage();
+        }
+        if(gone){
+            lightBall.setTransparency(0);
+            setImage(lightBall);
+            System.out.println("serstdy");
+        }
         if(getX() > 1250 || getX() < -50 || getY() > 700 || getY() < -25){
             getWorld().removeObject(this);
         }
+        
+    }
+    
+    public void addedToWorld(World w){
+        sw = (SideWorld)w;
+        
     }
     
     public boolean getSide(){
         return side;
+    }
+    
+    public void damage(){
+        if(side){
+            if(isTouching(HitBox.class)){
+                Statics.setHP(Statics.getHP()-1);
+                gone = true;
+                
+            }
+            
+        }else{
+            if(isTouching(Boss.class)){
+                sw.getBoss().changeHp(8);
+            }
+        }
+        
     }
 }

@@ -78,7 +78,16 @@ public class SideWorld extends World
         setBackground(backGround);
         
         
-        
+        b1 = new Block(0);
+        b2 = new Block(0);
+        b3 = new Block(90);
+        b4 = new Block(90);
+        /*
+        addObject(b1, 600, 800);
+        addObject(b2, 600, -100);
+        addObject(b3, -100, 300);
+        addObject(b4, 1300, 300);
+        */
         a = new Option(new GreenfootImage("A.png"), new GreenfootImage("A1.png"), false);
         b = new Option(new GreenfootImage("B.png"), new GreenfootImage("B1.png"), false);
         c = new Option(new GreenfootImage("C.png"), new GreenfootImage("C1.png"),false);
@@ -196,6 +205,8 @@ public class SideWorld extends World
         }
         
     }
+    
+    
     
     /**
      * This method will allow the player to coniform the line they continue with

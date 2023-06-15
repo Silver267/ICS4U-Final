@@ -9,9 +9,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Block extends Actor
 {
     private GreenfootImage rect;
-    public Block(){
+    public Block(int r){
         rect = new GreenfootImage(1500, 10);
         setImage(rect);
+        if(r > 0){
+            setRotation(r);
+        }
     }
     /**
      * Act - do whatever the Block wants to do. This method is called whenever
