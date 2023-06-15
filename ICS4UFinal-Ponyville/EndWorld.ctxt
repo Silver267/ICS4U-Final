@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=EndWorld
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ BattleWorld\ here.\r\n\ \r\n\ @author\ Yawen\ Zhang\r\n\ @version\ 0.1\r\n
+comment0.text=\n\ Write\ a\ description\ of\ class\ BattleWorld\ here.\n\ \n\ @author\ Yawen\ Zhang\n\ @version\ 0.1\n
 comment1.params=result
 comment1.target=EndWorld(boolean)
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ BattleWorld.\r\n\ \r\n
+comment1.text=\n\ Constructor\ for\ objects\ of\ class\ BattleWorld.\n\ \n
 comment2.params=
 comment2.target=EndWorld()
 comment3.params=
