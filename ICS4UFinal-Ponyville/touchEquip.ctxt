@@ -1,14 +1,14 @@
 #BlueJ class context
 comment0.target=touchEquip
-comment0.text=\n\ The\ pony\n\ \n\ @author\ Ming\ &\ Yawen\n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ touchEquip\ here.\r\n\ \r\n\ @author\ Ming\ &\ Yawen\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=id
 comment1.target=touchEquip(int)
 comment2.params=ponyName
 comment2.target=void\ initImage(java.lang.String)
-comment2.text=\n\ Initialize\ image\ according\ to\ pony.\n
-comment3.params=
-comment3.target=void\ act()
-comment4.params=ponyName\ index
-comment4.target=void\ animate(greenfoot.GreenfootImage[],\ int)
-comment4.text=\n\ Animates\ (displays)\ the\ animation\ of\ ponies.\n
-numComments=5
+comment3.params=w
+comment3.target=void\ addedToWorld(greenfoot.World)
+comment4.params=
+comment4.target=void\ act()
+comment5.params=ponyName\ index
+comment5.target=void\ animate(greenfoot.GreenfootImage[],\ int)
+numComments=6
