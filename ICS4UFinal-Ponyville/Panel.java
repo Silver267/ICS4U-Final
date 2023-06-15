@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Panel here.
+ * The top panel that displays stats.
  * 
  * @author Xuanxi Jiang
- * @version (a version number or a date)
+ * @version 1.0
  */
 public class Panel extends Actor{
     private GreenfootImage base, orb,greyOrb;
@@ -28,6 +28,9 @@ public class Panel extends Actor{
         refresh();
     }
     
+    /**
+     * Refresh the number of orbs.
+     */
     public void refresh(){
         GreenfootImage proc = new GreenfootImage(base);
         for(int i=0; i<3; i++)

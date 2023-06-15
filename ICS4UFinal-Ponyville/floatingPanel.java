@@ -1,10 +1,11 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class floatingPanel here.
+ * A panel that hints the user to perform actions (either display z)
+ *                                                (or need more orbs)
  * 
  * @author Xuanxi Jiang
- * @version (a version number or a date)
+ * @version 1.0
  */
 public class floatingPanel extends Actor{
     private boolean fadeIn, fadeOut;

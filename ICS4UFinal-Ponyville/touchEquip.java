@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class touchEquip here.
+ * The pony
  * 
  * @author Ming & Yawen
  * @version (a version number or a date)
@@ -47,6 +47,9 @@ public class touchEquip extends Actor{
         initImage("LusterDawn");
     }
     
+    /**
+     * Initialize image according to pony.
+     */
     private void initImage(String ponyName) {
         if (ponyName.equals("BrightMac")) {
             for (int i = 0; i < imageLength; i++) {
@@ -102,12 +105,6 @@ public class touchEquip extends Actor{
                 LusterDawn[i].scale(60, 70);
             }
         }
-    }
-    
-    public void addedToWorld(World w){
-        //animationTimer1.mark();
-        //animationTimer2.mark();
-        //animationTimer3.mark();
     }
     
     public void act() {
@@ -177,6 +174,9 @@ public class touchEquip extends Actor{
         }
     }
     
+    /**
+     * Animates (displays) the animation of ponies.
+     */
     private void animate(GreenfootImage[] ponyName, int index){
         setImage(ponyName[index]);
     }

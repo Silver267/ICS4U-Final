@@ -7,8 +7,8 @@ import greenfoot.*;
  * Making the engine an actor to prevent repeatitively call dt = new Date().
  * 
  * @author Xuanxi Jiang
- * @version 0.4
- */
+ * @version 0.5
+*/
 public class SparkleEngine{
     /**
      * convert the given image to greyscale

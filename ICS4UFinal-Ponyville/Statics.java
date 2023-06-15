@@ -5,7 +5,7 @@ import java.io.*;
  * A class that stores static variables, could potentially be used for game saves.
  * 
  * @author Xuanxi Jiang
- * @version 0.1
+ * @version 1.0
  */
 public class Statics{
     //Current level (from 1 to 3), player position x, player position y.
@@ -22,6 +22,11 @@ public class Statics{
     private static int numberOfTalk;
     private static long startTime, bestTime;
     
+    /**
+     * Convert a time stored in miliseconds to string.
+     * 
+     * @return String   The converted time. displayed in hours, minutes, seconds.
+     */
     public static String timeToString(){
         long tmp = bestTime/1000;
         String hours, min, sec;
@@ -33,10 +38,16 @@ public class Statics{
         return (hours+" Hours, "+min+" Minutes, "+sec+" Seconds");
     }
     
+    /**
+     * Begin timer
+     */
     public static void begin(){
         startTime = System.currentTimeMillis();
     }
     
+    /**
+     * save the current calculated time in a file.
+     */
     public static void saveTime(){
         try{
             if(bestTime==-1)
@@ -53,6 +64,9 @@ public class Statics{
         }catch(IOException e){};
     }
     
+    /**
+     * Loads the currently stored time in a file
+     */
     public static long loadTime(){
         try{
             Scanner s = new Scanner(new FileReader("./save/save.txt"));
@@ -151,19 +165,36 @@ public class Statics{
         }
     }
     
+    /**
+     * Gets the talkStorage.
+     */
     public static ArrayList<ArrayList<String>> getConversation(){
         
         return talkStorage1;
     }
     
+    /**
+     * Gets if current pony should be on map.
+     * 
+     * @param id    The id of pony
+     * @return int  If = 1, pony should not stay.
+     */
     public static int getStay(int id){
         return ((stay>>id)&1);
     }
     
+    /**
+     * Rests all ponies, make all ponies stay oon map.
+     */
     public static void rsetStay(){
         stay = 0;
     }
     
+    /**
+     * Sets the pony with corresponding id to dissapear
+     * 
+     * @param id    The id of the pony.
+     */
     public static void setStay(int id){
         stay |= (1<<id);
     }
@@ -276,11 +307,4 @@ public class Statics{
     public static int[] getPlayerCoords(){
         return new int[]{ppX, ppY};
     }
-    
-    
-    /**
-     * below is changed by George
-     */
-    
-    
 }

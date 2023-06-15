@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 /**
- * Write a description of class MainWorld here.
+ * Main World, that is the world with the map and stuff.
  * 
  * @author Xuanxi Jiang
- * @version (a version number or a date)
+ * @version 1.0
  */
 public class MainWorld extends World{
     ShaderBox[][] sb;
@@ -41,6 +41,7 @@ public class MainWorld extends World{
         Statics.setActive(true);
         /**
          * BGM thoughts:
+         * Start: Prisoner to a Formula
          * 1 - Nectar Meadow (Pokemon SMD Music 037
          * 2 - Sun/Moon Disc 3 Music 37
          * 3 - XY Disc 2 Music 25
@@ -58,6 +59,11 @@ public class MainWorld extends World{
         update(); music();
     }
     
+    /**
+     * Go to corresponding battle world according to pony id.
+     * 
+     * @param id    The id of current pony (touchEquip)
+     */
     public void goBattle(int id){
         //todo
         unMusic();
@@ -65,6 +71,11 @@ public class MainWorld extends World{
         Greenfoot.setWorld(batle);
     }
     
+    /**
+     * Gets the map of mainWorld
+     * 
+     * @return CoordMap The one and only map in the main world.
+     */
     public CoordMap getMap(){
         return mp;
     }
@@ -81,10 +92,16 @@ public class MainWorld extends World{
         unMusic();
     }
     
+    /**
+     * Don't play music.
+     */
     private void unMusic(){
         bgm.stop();
     }
     
+    /**
+     * Play music.
+     */
     private void music(){
         bgm.playLoop();
     }
@@ -100,6 +117,11 @@ public class MainWorld extends World{
         }
     }
     
+    /**
+     * Action (executed every "turn" (the player decided to move or press z)).
+     * 
+     * @param plCoord   Player's current coordinate.
+     */
     public void action(int[] plCoord){
         ArrayList<Chaser> enemies = (ArrayList<Chaser>)getObjects(Chaser.class);
         for(Chaser c:enemies)
@@ -107,6 +129,9 @@ public class MainWorld extends World{
         spawnChaser();
     }
     
+    /**
+     * Spawn a chaser (the thing that chases player in main world)
+     */
     private void spawnChaser(){
         int spawnRate = Statics.getPlayerCoords()[0];
         double rate = (1.0-(spawnRate*0.01+0.2))*100;
@@ -128,6 +153,9 @@ public class MainWorld extends World{
         }
     }
     
+    /**
+     * Update the shaders of mainWorld (adjust transparency of shaderbox.)
+     */
     private void update(){
         for(int[] i:prv)
             sb[i[0]][i[1]].iluminate(0);
