@@ -41,11 +41,12 @@ public class SideWorld extends World
     private Boss boss;
     private HitBox hitBox;
     private ArrayList<String> conversation;
-    private int rounds, character;
+    private int rounds, character, countTime;//countTime is used to count the time in current game
     private GreenfootImage character1;
     private Option a, b, c, d, cf;
     private String toSay, horseSay;//This string will hold what the enmy will say next, the horseSay will hold what the horse maysay next
     private Label conversationCentre;//This label will show the conversation
+    private boolean keepCount;//This boolean will check if the time should keep count
     private boolean done, sayIt, sayMore, start, change;//This boolean will check if the pony fail to talk heal the enemy, sayIt controls when the enemy will response, sayMore controls when can the character continue speak, start will tell the program to enable the continue button
     public SideWorld(int id)
     {    
@@ -78,23 +79,32 @@ public class SideWorld extends World
         
         addObject(new BattleScreen(), 600, 510);
         
+        a = new Option(new GreenfootImage("A.png"), new GreenfootImage("A1.png"), false);
+        b = new Option(new GreenfootImage("B.png"), new GreenfootImage("B1.png"), false);
+        c = new Option(new GreenfootImage("C.png"), new GreenfootImage("C1.png"),false);
+        d = new Option(new GreenfootImage("D.png"), new GreenfootImage("D1.png"),false);
+        cf = new Option(new GreenfootImage("Continue.png"), new GreenfootImage("Continue1.png"),true);
+        
         if(id == 0){
             boss = new Boss();
             addObject(boss, 600, 150);
             hitBox = new HitBox();
             addObject(hitBox, 400, 400);
+            addObject(a, 150, 380);
+            addObject(b, 150, 530);
+            addObject(c, 1050, 380);
+            addObject(d, 1050, 530);
+            addObject(cf, 1050, 633);
+            keepCount = true;
         }else{
             talkOnly = new GreenfootSound("bgm-normal-battle.mp3");
             Statics.takeInWords();
             //use this code after, character = id*Statics.getLevel()-1;
+            
             character = id*3-1;
             conversation = Statics.getConversation().get(character);
             GreenfootImage lines = new GreenfootImage(300, 200);
-            a = new Option(new GreenfootImage("A.png"), false);
-            b = new Option(new GreenfootImage("B.png"), false);
-            c = new Option(new GreenfootImage("C.png"),false);
-            d = new Option(new GreenfootImage("D.png"),false);
-            cf = new Option(new GreenfootImage("Continue.png"),true);
+            
             addObject(a, 150, 380);
             addObject(b, 150, 530);
             addObject(c, 1050, 380);
@@ -140,11 +150,21 @@ public class SideWorld extends World
     }
     
     public void started(){
-        talkOnly.playLoop();
+        if(id == 0){
+            
+        }else{
+            talkOnly.playLoop();
+        }
+        
     }
     
     public void stopped(){
-        talkOnly.pause();
+        if(id == 0){
+            
+        }else{
+            talkOnly.pause();
+        }
+        
     }
     
     public void act(){
@@ -153,17 +173,13 @@ public class SideWorld extends World
             if(start){
                 coniformeed();
             }
-            
-            /*
-            if(cf.isClick()){
-                sayIt = true;
-                sayMore = true;
+        }else if(id == 0){
+            if(keepCount){
+                countTime++;
             }
-            if(sayIt){
-                keepSpeak();
-                sayIt = false;
+            if(countTime > 600){
+                keepCount = false;
             }
-            */
         }
         
     }
@@ -180,7 +196,14 @@ public class SideWorld extends World
             conversationCentre.setFillColor(Color.BLACK);
             addObject(conversationCentre, 600, 400);
             change = false;
+            if(id == 0){
+                keepCount = true;
+            }
         }
+    }
+    
+    public int getCountTime(){
+        return countTime;
     }
     
     /**

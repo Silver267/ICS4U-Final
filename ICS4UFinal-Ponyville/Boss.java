@@ -13,6 +13,7 @@ public class Boss extends Enemy
     private int time, time1;
     private int[] direction;
     private boolean exist, reverse;
+    private SideWorld sw;
     public Boss(){
         ball = new GreenfootImage("blackball.png");
         ball.scale(35,35);
@@ -33,29 +34,30 @@ public class Boss extends Enemy
      */
     public void act()
     {
-        roundShoot(0);
-        roundShoot(1);
-        roundShoot(2);
-        roundShoot(3);
-        if(time1 > 750){
-            roundShoot(4);
-            roundShoot(5);
-            roundShoot(6);
-            roundShoot(7);
+        if(sw.getCountTime() % 600 != 0){
+            roundShoot(0);
+            roundShoot(1);
+            roundShoot(2);
+            roundShoot(3);
+            if(time1 > 750){
+                roundShoot(4);
+                roundShoot(5);
+                roundShoot(6);
+                roundShoot(7);
+            }
+            time--;
+            time1++;
+            skyKill();
         }
-        time--;
-        time1++;
-        skyKill();
+        
     }
     
     public void addedToWorld(World w){
         exist = true;
+        sw = (SideWorld)w;
     }
     
     public void roundShoot(int x){
-        
-        
-        
         if(time1 < 300){
             direction[x]++;
             if(time % 5 == 0 && exist){
