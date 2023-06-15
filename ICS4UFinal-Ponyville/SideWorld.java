@@ -35,6 +35,7 @@ public class SideWorld extends World
      * 
      */
     private GreenfootImage back;
+    private GreenfootSound talkOnly, damnAndTalk, justDamn;
     private BattleBox[][] box;
     private int id;
     private Boss boss;
@@ -42,14 +43,10 @@ public class SideWorld extends World
     private ArrayList<String> conversation;
     private int rounds, character;
     private GreenfootImage character1;
-    private OptionA a;
-    private OptionB b;
-    private OptionC c;
-    private OptionD d;
-    private Coniform cf;
+    private Option a, b, c, d, cf;
     private String toSay, horseSay;//This string will hold what the enmy will say next, the horseSay will hold what the horse maysay next
     private Label conversationCentre;//This label will show the conversation
-    private boolean done, sayIt, sayMore, start;//This boolean will check if the pony fail to talk heal the enemy, sayIt controls when the enemy will response, sayMore controls when can the character continue speak, start will tell the program to enable the continue button
+    private boolean done, sayIt, sayMore, start, change;//This boolean will check if the pony fail to talk heal the enemy, sayIt controls when the enemy will response, sayMore controls when can the character continue speak, start will tell the program to enable the continue button
     public SideWorld(int id)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -87,21 +84,22 @@ public class SideWorld extends World
             hitBox = new HitBox();
             addObject(hitBox, 400, 400);
         }else{
+            talkOnly = new GreenfootSound("bgm-normal-battle.mp3");
             Statics.takeInWords();
             //use this code after, character = id*Statics.getLevel()-1;
             character = id*3-1;
             conversation = Statics.getConversation().get(character);
             GreenfootImage lines = new GreenfootImage(300, 200);
-            a = new OptionA();
-            b = new OptionB();
-            c = new OptionC();
-            d = new OptionD();
-            cf = new Coniform();
-            addObject(a, 150, 400);
-            addObject(b, 150, 550);
-            addObject(c, 1050, 400);
-            addObject(d, 1050, 550);
-            addObject(cf, 1050, 650);
+            a = new Option(new GreenfootImage("A.png"), false);
+            b = new Option(new GreenfootImage("B.png"), false);
+            c = new Option(new GreenfootImage("C.png"),false);
+            d = new Option(new GreenfootImage("D.png"),false);
+            cf = new Option(new GreenfootImage("Continue.png"),true);
+            addObject(a, 150, 380);
+            addObject(b, 150, 530);
+            addObject(c, 1050, 380);
+            addObject(d, 1050, 530);
+            addObject(cf, 1050, 633);
             String tmp = changeLine(conversation.get(1));
             conversationCentre = new Label(tmp, 25);
             conversationCentre.setFillColor(Color.BLACK);
@@ -141,6 +139,14 @@ public class SideWorld extends World
         
     }
     
+    public void started(){
+        talkOnly.playLoop();
+    }
+    
+    public void stopped(){
+        talkOnly.pause();
+    }
+    
     public void act(){
         if(id > 0){
             chooseLine();
@@ -166,13 +172,14 @@ public class SideWorld extends World
      * This method will allow the player to coniform the line they continue with
      */
     public void coniformeed(){
-        if(cf.isClick()){
+        if(cf.isClick() && change){
             rounds++;
             removeObject(conversationCentre);
             String tmp = changeLine(toSay);
             conversationCentre = new Label(tmp, 25);
             conversationCentre.setFillColor(Color.BLACK);
             addObject(conversationCentre, 600, 400);
+            change = false;
         }
     }
     
@@ -194,7 +201,7 @@ public class SideWorld extends World
                 done = true;
                 //write code to kick player out
             }
-            
+            change = true;
 
         }else if(b.isClick()){
             start = true;
@@ -208,6 +215,7 @@ public class SideWorld extends World
             if(tmp.substring(6,7).equals("F")){
                 done = true;
             }
+            change = true;
         }else if(c.isClick()){
             start = true;
             removeObject(conversationCentre);
@@ -221,6 +229,7 @@ public class SideWorld extends World
             if(tmp.substring(6,7).equals("F")){
                 done = true;
             }
+            change = true;
         }else if(d.isClick()){
             start = true;
             removeObject(conversationCentre);
@@ -233,6 +242,7 @@ public class SideWorld extends World
             if(tmp.substring(6,7).equals("F")){
                 done = true;
             }
+            change = true;
         }
         
     }
