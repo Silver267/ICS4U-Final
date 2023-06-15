@@ -129,31 +129,31 @@ public class SideWorld extends World
             rounds = 0;
             if(character == 0){
                 character1 = new GreenfootImage("BrightMac/tile000.png");
-                addObject(new Pony(character1), 600, 100);
+                addObject(new Pony(character1), 600, 200);
             }else if(character == 1){
                 character1 = new GreenfootImage("PearButter/tile000.png");
-                addObject(new Pony(character1), 600, 100);
+                addObject(new Pony(character1), 600, 200);
             }else if(character == 2){
                 character1 = new GreenfootImage("GrannySmith/tile000.png");
-                addObject(new Pony(character1), 600, 100);
+                addObject(new Pony(character1), 600, 200);
             }else if(character == 3){
                 character1 = new GreenfootImage("Scootaloo/tile000.png");
-                addObject(new Pony(character1), 600, 100);
+                addObject(new Pony(character1), 600, 200);
             }else if(character == 4){
                 character1 = new GreenfootImage("SweetieBelle/tile000.png");
-                addObject(new Pony(character1), 600, 100);
+                addObject(new Pony(character1), 600, 200);
             }else if(character == 5){
                 character1 = new GreenfootImage("AppleBloom/tile000.png");
-                addObject(new Pony(character1), 600, 100);
+                addObject(new Pony(character1), 600, 200);
             }else if(character == 6){
                 character1 = new GreenfootImage("Palette/tile000.png");
-                addObject(new Pony(character1), 600, 100);
+                addObject(new Pony(character1), 600, 200);
             }else if(character == 7){
                 character1 = new GreenfootImage("Trixie/tile000.png");
-                addObject(new Pony(character1), 600, 100);
+                addObject(new Pony(character1), 600, 200);
             }else if(character == 8){
                 character1 = new GreenfootImage("LusterDawn/tile000.png");
-                addObject(new Pony(character1), 600, 100);
+                addObject(new Pony(character1), 600, 2000);
             }
             
         }

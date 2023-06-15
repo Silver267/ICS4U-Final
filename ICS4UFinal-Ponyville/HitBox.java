@@ -10,6 +10,7 @@ public class HitBox extends SuperSmoothMover
 {
     private GreenfootImage heart;
     private SideWorld sw;
+    private boolean start;
     private int time, damageTime;//time is for the gap between each shoot, damageTime is for the gap between each damage
     private int hp;
     public HitBox(){
@@ -18,8 +19,7 @@ public class HitBox extends SuperSmoothMover
         setImage(heart);
         time = 5;
         damageTime = 5;
-        hp = 100000;
-        Statics.setHP(40);
+        Statics.setHP(100000);
     }
     /**
      * Act - do whatever the HitBox wants to do. This method is called whenever
@@ -32,10 +32,14 @@ public class HitBox extends SuperSmoothMover
         time--;
         damageTime--;
         dead();
+        
+        success();
+        
     }
     
-    public void addedWorld(World w){
+    public void addedToWorld(World w){
         sw = (SideWorld)w;
+        start = true;
     }
     
     public void move(){
@@ -59,7 +63,7 @@ public class HitBox extends SuperSmoothMover
     
     public void shoot(){
         if(Greenfoot.isKeyDown("z") && (time % 5 == 0)){
-            getWorld().addObject(new LightBall(true, 270), getX(), getY());
+            getWorld().addObject(new LightBall(false, 270), getX(), getY());
         }
         
     }
@@ -73,8 +77,11 @@ public class HitBox extends SuperSmoothMover
     }
     
     public void success(){
-        if(sw.getBoss().getHp() <= 0){
+        System.out.println(start );
+        if(start && sw.getBoss().getHp() < 0 ){
+            
             Greenfoot.setWorld(new EndWorld());
+            
         }
     }
     

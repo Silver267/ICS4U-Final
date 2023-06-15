@@ -34,7 +34,7 @@ public class LightBall extends StraightDart
         if(gone){
             lightBall.setTransparency(0);
             setImage(lightBall);
-            System.out.println("serstdy");
+            
         }
         if(getX() > 1250 || getX() < -50 || getY() > 700 || getY() < -25){
             getWorld().removeObject(this);
@@ -62,6 +62,7 @@ public class LightBall extends StraightDart
         }else{
             if(isTouching(Boss.class)){
                 sw.getBoss().changeHp(8);
+                gone = true;
             }
         }
         
