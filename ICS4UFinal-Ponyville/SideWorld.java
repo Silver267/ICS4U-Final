@@ -94,7 +94,9 @@ public class SideWorld extends World
         d = new Option(new GreenfootImage("D.png"), new GreenfootImage("D1.png"),false);
         cf = new Option(new GreenfootImage("Continue.png"), new GreenfootImage("Continue1.png"),true);
         
-        if(id == 0){
+       
+        
+        if(id == 0 ){//&& Statics.getLevel() == 4 add later
             boss = new Boss();
             addObject(boss, 600, 150);
             hitBox = new HitBox();
@@ -106,7 +108,29 @@ public class SideWorld extends World
             addObject(cf, 1050, 633);
             keepCount = true;
             addObject(new Plane(4, 6, 2, 3, 0, 90), 600, 200);
-        }else{
+            addObject(new HPBar(true), 200, 200);
+            addObject(new HPBar(false), 200, 400);
+            
+            
+            Statics.takeInWords();
+            character = 9;
+            conversation = Statics.getConversation().get(character);
+            //character = 8 + Statics.getLevel();
+            //conversation = Statics.getConversation().get(character); use after
+            if(character == 9){
+                for(String x:conversation){
+                    System.out.println(x);
+                }
+            }else if(character == 11){
+                
+            }else if(character == 12){
+                
+            }
+            
+            
+            
+            
+        }else {//&& Statics.getLevel() == 4 add later
             addObject(new BattleScreen(), 600, 510);
             talkOnly = new GreenfootSound("bgm-normal-battle.mp3");
             Statics.takeInWords();
@@ -177,6 +201,8 @@ public class SideWorld extends World
         }
         
     }
+    
+    
     
     public void stopped(){
         if(id == 0){

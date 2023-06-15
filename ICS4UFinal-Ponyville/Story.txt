@@ -1,63 +1,3 @@
-Start,FlutterShy,X
-enemy,S,0,X,I always wanted to be kind to my friends, but I'm too shy and too scared that I don't truly express what I want to say. I feel like they are always disappointed at me...
-horse,T,1,X,No, no, I even heard your friends talking good things about you!
-horse,F,1,X,Yea yea yea it's ok, not a big deal.
-horse,F,1,X,You wanna get a drink?
-horse,T,1,X,We are all flawless, it's the flaws that make you guys friends!
-enemy,T,1,X,...really? I hope that's what they really think...
-enemy,F,1,X,It is really is a big deal, I want to be with my friends.
-enemy,F,1,X,No thank you.
-enemy,T,1,X,...really? I hope that's what they really think...
-horse,T,2,X,Yea! Of course! You need to be confident in you and your friends!
-horse,F,2,X,You lame, just go ask them!!
-horse,T,2,X,It's our flaws that make us who we are, and friends are there to help you overcome it!
-horse,F,2,X,Just switch a friend group then.
-enemy,T,2,X,Ok...Phew...I will ask AppleJack out for an afternoon tea to celebrate harvest then!
-enemy,F,2,X,......
-enemy,T,2,X,Ok...Phew...I will ask AppleJack out for an afternoon tea to celebrate harvest then!
-enemy,F,2,X,I don't want to lose my friends...
-End,FlutterSHy,X
-
-Start,PinkiePie,X
-enemy,S,0,X,I screwed up the party! I thought Rainbow Dash loved my pies!!! But I just found out she never actually ate any of them and SHE DOESN'T EVEN LIKE PIES!!! I'm so upset...
-horse,F,1,X,Oh, I like pies, can I have some?
-horse,F,1,X,I'm sure you are bad at baking then.
-horse,T,1,X,Have you ever asked her why she doesn't like pies?
-horse,T,1,X,Maybe she has other reasons?
-enemy,F,1,X,NO!! Those are only for my friend Rainbow Dash!!
-enemy,F,1,X,Of course not! All the ponies love my pies!!
-enemy,T,1,X,Yea...I just went back from asking, she said high calories food is not recommended before flying.
-enemy,T,1,X,Yea...I just went back from asking, she said high calories food is not recommended before flying.
-horse,T,2,X,See! She doesn't want to hurt your feelings so she pretended she likes pies!
-horse,F,2,X,She knows how to fly?!! Teach me!!
-horse,F,2,X,Nah, it's just an excuse, she's lying.
-horse,F,2,X,Next time just force her to eat the pies in front of you then.
-enemy,T,2,X,Yea that might be the case, then she should just tell me!! Anyways, I feel better now, and I will be the first pony who bakes low calories pie!!!
-enemy,F,2,X,We are solving a serious issue here!
-enemy,F,2,X,Best Friend Never Lies!!!
-enemy,F,2,X,I don't want to hurt her! I just want her to try out my pies!
-End,PinkiePie,X
-
-Start,Rarity,X
-enemy,S,0,X,Excuse me?!! Do I see a 35kg?!! I will not fit into my dancing dress to the party!!! I need to stop eating for the rest of the week!!
-horse,F,1,X,Just don't go then!
-horse,F,1,X,Oh yea that's for sure your fault.
-horse,T,1,X,That dress is so skinny!
-horse,T,1,X,Excuse ME?!! 35kg, that's like SO light.
-enemy,F,1,X,I MUST GO!!!
-enemy,F,1,X,AGHH...I know!!!
-enemy,T,1,X,I know it is! But every fashion pony is like that so I have to follow the trend too...
-enemy,T,1,X,I know it is! But every fashion pony is like that so I have to follow the trend too...
-horse,F,2,X,Ok, cool.
-horse,F,2,X,I don't really like fashion ponies to be honest.
-horse,T,2,X,But that's just the trend, your appearance shouldn't be determined by it.
-horse,T,2,X,Don't follow the trend, follow yourself! That is what makes you unique!
-enemy,F,2,X,......
-enemy,F,2,X,......
-enemy,T,2,X,I know that...but sometimes it's just hard to be the only one out there. I used to come up with my own ideas on designs, but when ponies started to do the same thing, I lost my courage of being unique. I miss the past times so much, do you think it will be a good idea to follow my own heart again?
-enemy,T,2,X,I know that...but sometimes it's just hard to be the only one out there. I used to come up with my own ideas on designs, but when ponies started to do the same thing, I lost my courage of being unique. I miss the past times so much, do you think it will be a good idea to follow my own heart again?
-End,Rarity,X
-
 Start,BrightMac,X
 enemy,S,0,X,Wake up at 4 AM, load up all the apples at 5 AM, go to the market at 6 AM; return home at 11 PM, then check all the apples, go to sleep at 1 AM...
 horse,T,1,X,What kind of schedule is that!
@@ -253,3 +193,63 @@ enemy,T,2,X,Phew, alright, that makes it better; but next time, I WILL be the on
 enemy,F,2,X,I AM 16! Excuse me!
 enemy,F,2,X,I can't chill, goodbye!
 End,LusterDawn,X
+
+Start,FlutterShy,X
+enemy,S,0,X,I always wanted to be kind to my friends, but I'm too shy and too scared that I don't truly express what I want to say. I feel like they are always disappointed at me...
+horse,T,1,X,No, no, I even heard your friends talking good things about you!
+horse,F,1,X,Yea yea yea it's ok, not a big deal.
+horse,F,1,X,You wanna get a drink?
+horse,T,1,X,We are all flawless, it's the flaws that make you guys friends!
+enemy,T,1,X,...really? I hope that's what they really think...
+enemy,F,1,X,It is really is a big deal, I want to be with my friends.
+enemy,F,1,X,No thank you.
+enemy,T,1,X,...really? I hope that's what they really think...
+horse,T,2,X,Yea! Of course! You need to be confident in you and your friends!
+horse,F,2,X,You lame, just go ask them!!
+horse,T,2,X,It's our flaws that make us who we are, and friends are there to help you overcome it!
+horse,F,2,X,Just switch a friend group then.
+enemy,T,2,X,Ok...Phew...I will ask AppleJack out for an afternoon tea to celebrate harvest then!
+enemy,F,2,X,......
+enemy,T,2,X,Ok...Phew...I will ask AppleJack out for an afternoon tea to celebrate harvest then!
+enemy,F,2,X,I don't want to lose my friends...
+End,FlutterSHy,X
+
+Start,PinkiePie,X
+enemy,S,0,X,I screwed up the party! I thought Rainbow Dash loved my pies!!! But I just found out she never actually ate any of them and SHE DOESN'T EVEN LIKE PIES!!! I'm so upset...
+horse,F,1,X,Oh, I like pies, can I have some?
+horse,F,1,X,I'm sure you are bad at baking then.
+horse,T,1,X,Have you ever asked her why she doesn't like pies?
+horse,T,1,X,Maybe she has other reasons?
+enemy,F,1,X,NO!! Those are only for my friend Rainbow Dash!!
+enemy,F,1,X,Of course not! All the ponies love my pies!!
+enemy,T,1,X,Yea...I just went back from asking, she said high calories food is not recommended before flying.
+enemy,T,1,X,Yea...I just went back from asking, she said high calories food is not recommended before flying.
+horse,T,2,X,See! She doesn't want to hurt your feelings so she pretended she likes pies!
+horse,F,2,X,She knows how to fly?!! Teach me!!
+horse,F,2,X,Nah, it's just an excuse, she's lying.
+horse,F,2,X,Next time just force her to eat the pies in front of you then.
+enemy,T,2,X,Yea that might be the case, then she should just tell me!! Anyways, I feel better now, and I will be the first pony who bakes low calories pie!!!
+enemy,F,2,X,We are solving a serious issue here!
+enemy,F,2,X,Best Friend Never Lies!!!
+enemy,F,2,X,I don't want to hurt her! I just want her to try out my pies!
+End,PinkiePie,X
+
+Start,Rarity,X
+enemy,S,0,X,Excuse me?!! Do I see a 35kg?!! I will not fit into my dancing dress to the party!!! I need to stop eating for the rest of the week!!
+horse,F,1,X,Just don't go then!
+horse,F,1,X,Oh yea that's for sure your fault.
+horse,T,1,X,That dress is so skinny!
+horse,T,1,X,Excuse ME?!! 35kg, that's like SO light.
+enemy,F,1,X,I MUST GO!!!
+enemy,F,1,X,AGHH...I know!!!
+enemy,T,1,X,I know it is! But every fashion pony is like that so I have to follow the trend too...
+enemy,T,1,X,I know it is! But every fashion pony is like that so I have to follow the trend too...
+horse,F,2,X,Ok, cool.
+horse,F,2,X,I don't really like fashion ponies to be honest.
+horse,T,2,X,But that's just the trend, your appearance shouldn't be determined by it.
+horse,T,2,X,Don't follow the trend, follow yourself! That is what makes you unique!
+enemy,F,2,X,......
+enemy,F,2,X,......
+enemy,T,2,X,I know that...but sometimes it's just hard to be the only one out there. I used to come up with my own ideas on designs, but when ponies started to do the same thing, I lost my courage of being unique. I miss the past times so much, do you think it will be a good idea to follow my own heart again?
+enemy,T,2,X,I know that...but sometimes it's just hard to be the only one out there. I used to come up with my own ideas on designs, but when ponies started to do the same thing, I lost my courage of being unique. I miss the past times so much, do you think it will be a good idea to follow my own heart again?
+End,Rarity,X
