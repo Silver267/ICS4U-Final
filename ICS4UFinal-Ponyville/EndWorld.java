@@ -17,7 +17,7 @@ public class EndWorld extends World
     {    
         // Create a new world with 1200x675 cells with a cell size of 1x1 pixels.
         super(1200, 675, 1, false);
-        
+        Statics.saveTime();
         if (result) {
             setBackground(new GreenfootImage("images/EndWorldGood.jpg"));
         } else {

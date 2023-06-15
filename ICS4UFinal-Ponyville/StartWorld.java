@@ -35,6 +35,8 @@ public class StartWorld extends World
         // Resizing the image to world size.
         img = new GreenfootImage("StartWorld.jpg");
         img.scale(1200, 675);
+        if(Statics.loadTime()!=-1)
+            addObject(new Frame(), 900, 600);
         setBackground(img);
         instructionOne = new Label("prev    next", 30);
         bgm = new GreenfootSound("bgm-start.mp3");
@@ -73,7 +75,7 @@ public class StartWorld extends World
         Statics.setActive(false);
         Statics.setOrb(3);
         Statics.rsetStay();
-        unMusic();
+        unMusic(); Statics.begin();
         Greenfoot.setWorld(new MainWorld());
     }
     

@@ -20,7 +20,51 @@ public class Statics{
     private static Scanner sc;
     private static boolean moreLine;
     private static int numberOfTalk;
+    private static long startTime, bestTime;
     
+    public static String timeToString(){
+        long tmp = bestTime/1000;
+        String hours, min, sec;
+        hours = ((Long)(tmp/3600)).toString();
+        tmp%=3600;
+        min = ((Long)(tmp/60)).toString();
+        tmp%=60;
+        sec = ((Long)(tmp)).toString();
+        return (hours+" Hours, "+min+" Minutes, "+sec+" Seconds");
+    }
+    
+    public static void begin(){
+        startTime = System.currentTimeMillis();
+    }
+    
+    public static void saveTime(){
+        try{
+            if(bestTime==-1)
+                bestTime = Long.MAX_VALUE;
+            System.out.println(System.currentTimeMillis());
+            System.out.println(startTime);
+            long tmp = System.currentTimeMillis()-startTime;
+            PrintWriter pw = new PrintWriter(new FileWriter("./save/save.txt"));
+            if(tmp<bestTime)
+                pw.println(tmp);
+            else
+                pw.println(bestTime);
+            pw.close();
+        }catch(IOException e){};
+    }
+    
+    public static long loadTime(){
+        try{
+            Scanner s = new Scanner(new FileReader("./save/save.txt"));
+            if(!s.hasNextLine()){
+                s.close();
+                return bestTime = -1;
+            }
+            bestTime = Long.parseLong(s.nextLine());
+            s.close();
+        }catch(FileNotFoundException e){}
+        return bestTime;
+    }
     
     /**
      * This method will return the startline array
