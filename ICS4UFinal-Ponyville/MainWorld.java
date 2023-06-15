@@ -20,7 +20,6 @@ public class MainWorld extends World{
         super(1200, 675, 1, false);
         //Delete this line when implementing multi-world
         Statics.setMP(100);
-        Statics.setOrb(3);
         havePanel = false;
         sb = new ShaderBox[20][11];
         mp = new CoordMap(Statics.getLevel(), 20, 11, 1200, 675);

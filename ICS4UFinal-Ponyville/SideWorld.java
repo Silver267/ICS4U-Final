@@ -38,14 +38,17 @@ public class SideWorld extends World
     private GreenfootSound talkOnly, damnAndTalk, justDamn;
     private BattleBox[][] box;
     private int id, time, limit;//time is used to find the length of time the player get kick out, limit is the limit to number of rounds
+    private int successTime;
+    private boolean checkSuccess;
     private Boss boss;
     private HitBox hitBox;
     private ArrayList<String> conversation;
-    private int rounds, character, countTime;//countTime is used to count the time in current game
+    private int rounds, character, countTime, wrongTime;//countTime is used to count the time in current game, wrongTime counts the number of time the player hit the continue after they select the wrong choice
     private GreenfootImage character1;
     private Option a, b, c, d, cf;
     private String toSay, horseSay;//This string will hold what the enmy will say next, the horseSay will hold what the horse maysay next
     private Label conversationCentre;//This label will show the conversation
+    private boolean startCount;//This will check whther the system can start count the number of times the continute is hit
     private boolean keepCount, remove;//This boolean will check if the time should keep count, remove will tell if the four oprions are removed
     private boolean done, sayIt, sayMore, start, change;//This boolean will check if the pony fail to talk heal the enemy, sayIt controls when the enemy will response, sayMore controls when can the character continue speak, start will tell the program to enable the continue button
     public SideWorld(int id)
@@ -206,12 +209,26 @@ public class SideWorld extends World
             if(id == 0){
                 keepCount = true;
             }
-            
+            if(rounds == limit){
+                checkSuccess = true;
+            }
         }
-        if(cf.isClick() && done){
-            System.out.println(Statics.getLevel());
+        if(cf.isClick() && checkSuccess){
+            successTime++;
+        }
+        if(cf.isClick() && startCount){
+            wrongTime++;
+        }
+        if(cf.isClick() && done && wrongTime == 2){
             Greenfoot.setWorld(new MainWorld());
         }
+        if(cf.isClick() && successTime >= 2 && !done){
+            Statics.setOrb(Statics.getOrb()+1);
+            System.out.println("sus");
+            Statics.setStay(id);
+            Greenfoot.setWorld(new MainWorld());
+        }
+        
     }
     
     public int getCountTime(){
@@ -235,6 +252,7 @@ public class SideWorld extends World
             System.out.println(conversation.get(2 + rounds*8).substring(6,7).equals("F"));
             if(conversation.get(2 + rounds*8).substring(6,7).equals("F")){
                 done = true;
+                startCount = true;
             }else{
                 done = false;
             }
@@ -252,7 +270,7 @@ public class SideWorld extends World
             System.out.println(conversation.get(3 + rounds*8).substring(6,7).equals("F"));
             if(conversation.get(3 + rounds*8).substring(6,7).equals("F")){
                 done = true;
-                
+                startCount = true;
             }else{
                 done = false;
             }
@@ -260,7 +278,6 @@ public class SideWorld extends World
         }else if(c.isClick() && rounds < limit){
             start = true;
             removeObject(conversationCentre);
-            /**FIX THIS: kick the player back**/
             String tmp = changeLine(conversation.get(4 + rounds*8));
             conversationCentre = new Label(tmp, 25);
             conversationCentre.setFillColor(Color.BLACK);
@@ -270,6 +287,7 @@ public class SideWorld extends World
             System.out.println(conversation.get(4 + rounds*8).substring(6,7).equals("F"));
             if(conversation.get(4 + rounds*8).substring(6,7).equals("F")){
                 done = true;
+                startCount = true;
             }else{
                 done = false;
             }
@@ -287,6 +305,7 @@ public class SideWorld extends World
             System.out.println(conversation.get(5 + rounds*8).substring(6,7));
             if(conversation.get(5 + rounds*8).substring(6,7).equals("F")){
                 done = true;
+                startCount = true;
             }else{
                 done = false;
             }
