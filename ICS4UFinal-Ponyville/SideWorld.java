@@ -110,6 +110,26 @@ public class SideWorld extends World
             addObject(new Plane(4, 6, 2, 3, 0, 90), 600, 200);
             addObject(new HPBar(true), 200, 200);
             addObject(new HPBar(false), 200, 400);
+            
+            
+            Statics.takeInWords();
+            character = 9;
+            conversation = Statics.getConversation().get(character);
+            //character = 8 + Statics.getLevel();
+            //conversation = Statics.getConversation().get(character); use after
+            if(character == 9){
+                for(String x:conversation){
+                    System.out.println(x);
+                }
+            }else if(character == 11){
+                
+            }else if(character == 12){
+                
+            }
+            
+            
+            
+            
         }else {//&& Statics.getLevel() == 4 add later
             addObject(new BattleScreen(), 600, 510);
             talkOnly = new GreenfootSound("bgm-normal-battle.mp3");

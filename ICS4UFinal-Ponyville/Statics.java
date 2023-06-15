@@ -15,7 +15,6 @@ public class Statics{
     //below is use to read in all the conversations
     private static ArrayList<String> talkStorage;
     private static ArrayList<ArrayList<String>> talkStorage1;//talkStorage1 is to store each conversation one by one 
-    private static ArrayList<ArrayList<String[][]>> talkStorage2;//talekStorage2 is to store the conversation by the choice
     private static String[] startLine;//this array will contain the first line of all the conversation
     private static Scanner sc;
     private static boolean moreLine;
@@ -101,7 +100,6 @@ public class Statics{
         }
         talkStorage = new ArrayList<String>();
         talkStorage1 = new ArrayList<ArrayList<String>>();
-        talkStorage2 = new ArrayList<ArrayList<String[][]>>();
         
         
         try{
