@@ -9,6 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class HitBox extends SuperSmoothMover
 {
     private GreenfootImage heart;
+    private SideWorld sw;
+    private boolean start;
     private int time, damageTime;//time is for the gap between each shoot, damageTime is for the gap between each damage
     private int hp;
     public HitBox(){
@@ -17,7 +19,7 @@ public class HitBox extends SuperSmoothMover
         setImage(heart);
         time = 5;
         damageTime = 5;
-        hp = 40;
+        Statics.setHP(100000);
     }
     /**
      * Act - do whatever the HitBox wants to do. This method is called whenever
@@ -29,30 +31,58 @@ public class HitBox extends SuperSmoothMover
         shoot();
         time--;
         damageTime--;
+        dead();
+        
+        success();
+        
+    }
+    
+    public void addedToWorld(World w){
+        sw = (SideWorld)w;
+        start = true;
     }
     
     public void move(){
-        int x = getX(), y = getY();
         if(Greenfoot.isKeyDown("w")){
-            y -= 1.5;
+            setRotation(270);
+            move(2);
         }
         if(Greenfoot.isKeyDown("a")){
-            x -= 1.5;
+            setRotation(180);
+            move(2);
         }
         if(Greenfoot.isKeyDown("s")){
-            y += 1.5;
+            setRotation(90);
+            move(2);
         }
         if(Greenfoot.isKeyDown("d")){
-            x += 1.5;
+            setRotation(0);
+            move(2);
         }
-        setLocation(x,y);
     }
     
     public void shoot(){
         if(Greenfoot.isKeyDown("z") && (time % 5 == 0)){
-            getWorld().addObject(new LightBall(true, 270), getX(), getY());
+            getWorld().addObject(new LightBall(false, 270), getX(), getY());
         }
         
+    }
+    
+    public void dead(){
+        if(Statics.getHP() <= 0){
+            Statics.setLevel(2);
+            Greenfoot.setWorld(new MainWorld());
+            
+        }
+    }
+    
+    public void success(){
+        System.out.println(start );
+        if(start && sw.getBoss().getHp() < 0 ){
+            
+            Greenfoot.setWorld(new EndWorld());
+            
+        }
     }
     
 }

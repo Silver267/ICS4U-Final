@@ -19,7 +19,7 @@ public class Boss extends Enemy
         ball.scale(35,35);
         setImage(ball);
         time = 0;
-        hp = 3000;//1500 change pattern
+        hp = 5;//1500 change pattern
         direction = new int[8];
         for(int i = 0; i < 4; i++){
             direction[i] = i*90;
@@ -50,7 +50,16 @@ public class Boss extends Enemy
             time1++;
             skyKill();
         }
+        System.out.println("BOSS" + hp);
         
+    }
+    
+    public void changeHp(int x){
+        hp -= x;
+    }
+    
+    public int getHp(){
+        return hp;
     }
     
     public void addedToWorld(World w){
@@ -62,22 +71,22 @@ public class Boss extends Enemy
         if(time1 < 300){
             direction[x]++;
             if(time % 5 == 0 && exist){
-            getWorld().addObject(new LightBall(false, direction[x]), getX(), getY());
+            getWorld().addObject(new LightBall(true, direction[x]), getX(), getY());
         }
         }else if(time1 < 600){
             direction[x]+=2;
             if(time % 4 == 0 && exist){
-            getWorld().addObject(new LightBall(false, direction[x]), getX(), getY());
+            getWorld().addObject(new LightBall(true, direction[x]), getX(), getY());
         }
         }else if(time1 < 900){
             direction[x]+=3;
             if(time % 3 == 0 && exist){
-            getWorld().addObject(new LightBall(false, direction[x]), getX(), getY());
+            getWorld().addObject(new LightBall(true, direction[x]), getX(), getY());
         }
         }else if(time1 < 1200){
             direction[x]-=2;
             if(time % 4 == 0 && exist){
-                getWorld().addObject(new LightBall(false, direction[x]), getX(), getY());
+                getWorld().addObject(new LightBall(true, direction[x]), getX(), getY());
             }
         }else if(time1 < 1500){
             direction[x]--;
@@ -96,11 +105,13 @@ public class Boss extends Enemy
     public void skyKill(){
         if(time1 % 600 == 0){
             Random r = new Random();
-            int x = 336 + (1 + r.nextInt(9))*66;
-            int y = 655 - (1 + r.nextInt(9))*40;
+            int x = 336 + (1 + r.nextInt(8))*66;
+            int y = 655 - (1 + r.nextInt(8))*40;
             getWorld().addObject(new Bomb(), x, y);
         }
         
         
     }
+    
+    
 }

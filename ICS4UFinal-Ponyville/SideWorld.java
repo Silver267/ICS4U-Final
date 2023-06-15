@@ -78,7 +78,16 @@ public class SideWorld extends World
         setBackground(backGround);
         
         
-        
+        b1 = new Block(0);
+        b2 = new Block(0);
+        b3 = new Block(90);
+        b4 = new Block(90);
+        /*
+        addObject(b1, 600, 800);
+        addObject(b2, 600, -100);
+        addObject(b3, -100, 300);
+        addObject(b4, 1300, 300);
+        */
         a = new Option(new GreenfootImage("A.png"), new GreenfootImage("A1.png"), false);
         b = new Option(new GreenfootImage("B.png"), new GreenfootImage("B1.png"), false);
         c = new Option(new GreenfootImage("C.png"), new GreenfootImage("C1.png"),false);
@@ -120,31 +129,31 @@ public class SideWorld extends World
             rounds = 0;
             if(character == 0){
                 character1 = new GreenfootImage("BrightMac/tile000.png");
-                addObject(new Pony(character1), 600, 100);
+                addObject(new Pony(character1), 600, 200);
             }else if(character == 1){
                 character1 = new GreenfootImage("PearButter/tile000.png");
-                addObject(new Pony(character1), 600, 100);
+                addObject(new Pony(character1), 600, 200);
             }else if(character == 2){
                 character1 = new GreenfootImage("GrannySmith/tile000.png");
-                addObject(new Pony(character1), 600, 100);
+                addObject(new Pony(character1), 600, 200);
             }else if(character == 3){
                 character1 = new GreenfootImage("Scootaloo/tile000.png");
-                addObject(new Pony(character1), 600, 100);
+                addObject(new Pony(character1), 600, 200);
             }else if(character == 4){
                 character1 = new GreenfootImage("SweetieBelle/tile000.png");
-                addObject(new Pony(character1), 600, 100);
+                addObject(new Pony(character1), 600, 200);
             }else if(character == 5){
                 character1 = new GreenfootImage("AppleBloom/tile000.png");
-                addObject(new Pony(character1), 600, 100);
+                addObject(new Pony(character1), 600, 200);
             }else if(character == 6){
                 character1 = new GreenfootImage("Palette/tile000.png");
-                addObject(new Pony(character1), 600, 100);
+                addObject(new Pony(character1), 600, 200);
             }else if(character == 7){
                 character1 = new GreenfootImage("Trixie/tile000.png");
-                addObject(new Pony(character1), 600, 100);
+                addObject(new Pony(character1), 600, 200);
             }else if(character == 8){
                 character1 = new GreenfootImage("LusterDawn/tile000.png");
-                addObject(new Pony(character1), 600, 100);
+                addObject(new Pony(character1), 600, 2000);
             }
             
         }
@@ -196,6 +205,8 @@ public class SideWorld extends World
         }
         
     }
+    
+    
     
     /**
      * This method will allow the player to coniform the line they continue with
