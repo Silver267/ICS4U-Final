@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=floatingPanel
-comment0.text=\n\ Write\ a\ description\ of\ class\ floatingPanel\ here.\n\ \n\ @author\ Xuanxi\ Jiang\n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\n\ A\ panel\ that\ hints\ the\ user\ to\ perform\ actions\ (either\ display\ z)\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (or\ need\ more\ orbs)\n\ \n\ @author\ Xuanxi\ Jiang\n\ @version\ 1.0\n
 comment1.params=plC\ sel
 comment1.target=floatingPanel(int[],\ int)
 comment2.params=

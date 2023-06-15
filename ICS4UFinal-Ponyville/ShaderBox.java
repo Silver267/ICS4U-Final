@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class ShaderBox here.
+ * Shader box, the box that acts as a "cover" to cover up the real maze.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Xuanxi Jiang
+ * @version 1.0
  */
 public class ShaderBox extends Actor{
     GreenfootImage blk, realImg;
@@ -17,6 +17,11 @@ public class ShaderBox extends Actor{
         this.setImage(blk);
     }
     
+    /**
+     * Iluminate the shader box
+     * 
+     * @param perc  The percentage of transparency of shaderBox.
+     */
     public void iluminate(int perc){
         realImg = new GreenfootImage(SparkleEngine.setTransparency(blk, perc));
         this.setImage(realImg);

@@ -1,10 +1,11 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Barrier here.
+ * Barrier that blocks both player and chaser.
+ * This is literally just a picture.
  * 
  * @author Xuanxi Jiang
- * @version (a version number or a date)
+ * @version 1.0
  */
 public class Barrier extends Actor{
     
@@ -15,6 +16,9 @@ public class Barrier extends Actor{
         setImage(img);
     }
     
+    /**
+     * Decides the look of barrier according to current level.
+     */
     private void decideLook(){
         img = new GreenfootImage("Barriers/"+Statics.getLevel()+".png");
         img.scale(((MainWorld)getWorld()).getMap().getSz()[0], ((MainWorld)getWorld()).getMap().getSz()[1]);

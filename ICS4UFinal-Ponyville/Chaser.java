@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 /**
- * Write a description of class Chaser here.
+ * The thing that chases your character in the main game.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Xuanxi Jiang
+ * @version 1.0
  */
 public class Chaser extends MovingInTurns{
     
@@ -30,6 +30,9 @@ public class Chaser extends MovingInTurns{
         setImage(cc);
     }
     
+    /**
+     * Implementing the move() method in superclass.
+     */
     protected void move(){
         if(!moving && cnt>0 && !curstk.isEmpty()){
             moving = true;
@@ -40,6 +43,9 @@ public class Chaser extends MovingInTurns{
             shift(((MainWorld)getWorld()).getMap().getMaps(new int[]{getX(), getY()}));
     }
     
+    /**
+     * Implementing the display() method in superclass.
+     */
     protected void display(){
         if(hp!=prehp){
             setImage(ccdamaging);
@@ -53,23 +59,45 @@ public class Chaser extends MovingInTurns{
         }
     }
     
+    /**
+     * Damage self
+     */
     public void damage(){
         hp--;
     }
     
+    /**
+     * Gets self's current HP
+     */
     public int getHP(){
         return hp;
     }
     
+    /**
+     * Action (get a working shortest path to the player's coordinates.)
+     * 
+     * @param plCoord   The player's current coord (target of bfs)
+     */
     public void action(int[] plCoord){
         decide(plCoord);
         cnt = 2;
     }
 
+    /**
+     * Retuns where self is currently at.
+     * 
+     * @return int[]    The place where self is currently at. {x, y}
+     */
     public int[] where(){
         return ((MainWorld)getWorld()).getMap().getMaps(new int[]{getX(), getY()});
     }
     
+    /**
+     * Check if current node is able to travel.
+     * 
+     * @param cur   The array which stores the node that is going to be detected
+     * @return boolean  If the current node could be visited
+     */
     private boolean chk(int[] cur){
         if(cur[0]<0 || cur[1]<0 || cur[0]>=20 || cur[1]>=11)
             return false;
@@ -78,6 +106,12 @@ public class Chaser extends MovingInTurns{
         return true;
     }
     
+    /**
+     * BFS algorithm that detects the player's coordinates and provides
+     * a working list of nodes stored in a stack. (FILO to reverse tracking)
+     * 
+     * @param plCoord   the player's current coord
+     */
     private void decide(int[] plCoord){
         int[] ccoord = ((MainWorld)getWorld()).getMap().getMaps(new int[]{getX(), getY()});
         Queue<int[]> q = new LinkedList<int[]>();
