@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class EndWorld extends World
 {
+    private boolean end;
     Label instruction;
     /**
      * Constructor for objects of class BattleWorld.
@@ -25,6 +26,10 @@ public class EndWorld extends World
         }
     }
     
+    public void setEnd(){
+        end = true;
+    }
+    
     public EndWorld()
     {
         super(1200, 675, 1, false);
@@ -37,8 +42,11 @@ public class EndWorld extends World
     }
     
     public void act() {
-        if (Greenfoot.isKeyDown("z")) {
+        if (Greenfoot.isKeyDown("z") && !end) {
             Greenfoot.setWorld(new SideWorld(3));
+        }else{
+            
         }
+        
     }
 }
