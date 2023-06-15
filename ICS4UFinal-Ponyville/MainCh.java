@@ -82,8 +82,10 @@ public class MainCh extends MovingInTurns{
                 magicSE.stop();
             }else if(Greenfoot.isKeyDown("z")){
                 if(((MainWorld)getWorld()).getMap().getNode(gridPos).getType()>2 && Statics.getStay(((MainWorld)getWorld()).getMap().getNode(gridPos).getType()-3)==0){
-                    ((MainWorld)getWorld()).goBattle(((MainWorld)getWorld()).getMap().getNode(gridPos).getType()-3);
-                    return;
+                    if(!(((MainWorld)getWorld()).getMap().getNode(gridPos).getType()==3 && Statics.getOrb()>0)){
+                        ((MainWorld)getWorld()).goBattle(((MainWorld)getWorld()).getMap().getNode(gridPos).getType()-3);
+                        return;
+                    }                    
                 }else if(!pressedZ){
                     ((MainWorld)getWorld()).action(gridPos);
                     pressedZ = true;

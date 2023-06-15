@@ -152,7 +152,7 @@ public class MainWorld extends World{
                             havePanel = false;
                         }else if(!havePanel && mp.getNode(currCoords).getType()>2 && Statics.getStay(mp.getNode(currCoords).getType()-3)==0){
                             havePanel = true;
-                            addObject(new floatingPanel(currCoords), mp.getPixes(currCoords)[0], mp.getPixes(currCoords)[1]);
+                            addObject(new floatingPanel(currCoords, (mp.getNode(currCoords).getType()==3 && Statics.getOrb()>0) ? 2:1), currCoords[0]==19?mp.getPixes(currCoords)[0]-70:mp.getPixes(currCoords)[0], mp.getPixes(currCoords)[1]);
                         }
                     }
                 }

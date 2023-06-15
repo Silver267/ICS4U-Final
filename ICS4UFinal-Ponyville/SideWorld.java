@@ -101,8 +101,8 @@ public class SideWorld extends World
             talkOnly = new GreenfootSound("bgm-normal-battle.mp3");
             Statics.takeInWords();
             //use this code after, character = id*Statics.getLevel()-1;
-            //character = id*Statics.getLevel()-1;
-            character = id*3-1;
+            character = id*Statics.getLevel()-1;
+            //character = id*3-1;
             conversation = Statics.getConversation().get(character);
            
             GreenfootImage lines = new GreenfootImage(300, 200);
