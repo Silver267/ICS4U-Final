@@ -38,6 +38,9 @@ public class Statics{
      * This method should be call at the start of game
      */
     public static void takeInWords(){
+        if(talkStorage!=null && !talkStorage.isEmpty()){
+            return;
+        }
         talkStorage = new ArrayList<String>();
         talkStorage1 = new ArrayList<ArrayList<String>>();
         talkStorage2 = new ArrayList<ArrayList<String[][]>>();
@@ -76,7 +79,7 @@ public class Statics{
             boolean go = true;
             ArrayList<String> tmp = new ArrayList<String>();
             while(go){
-                //System.out.println(talkStorage.size());
+                
                 /**FIX THIS**/
                 String tmp1 = talkStorage.get(c);
                 tmp.add(tmp1);
@@ -100,50 +103,12 @@ public class Statics{
         
         for(int i = 0; i < talkStorage1.size(); i++){
             startLine[i] = talkStorage1.get(i).get(1).substring(12);
-            ArrayList<String[][]> tmp = new ArrayList<String[][]>();
-            //int size = Integer.parseInt(talkStorage1.get(i).get(talkStorage1.size()-2).substring(8,9));
-            //System.out.println(talkStorage1.get(i).get(talkStorage1.size()));
-            //System.out.println(size);
-            String[][] tmp1 = new String[4][4];//this is correct option for horse
-            String[][] tmp2 = new String[4][4];//this is the wrong option for horse
-            String[][] tmp3 = new String[4][4];//this is the correct option for enemy
-            String[][] tmp4 = new String[4][4];//this is the wrong option for enemy
-            int c1, c2, c3, c4, c5;
-            c1 = c2 = c3 = c4 = c5 = 0;
             
-            for(int j = 2; j < talkStorage1.get(i).size(); j++){
-                String tmp5 = talkStorage1.get(i).get(j);
-                if(tmp5.substring(0,1).equals("h")){
-                    if(tmp5.substring(6,7).equals("T")){
-                        tmp1[c5][c1] = tmp5.substring(11);
-                        c1++;
-                    }else{
-                        tmp2[c5][c2] = tmp5.substring(11);
-                        c2++;
-                    }
-                }else{
-                    if(tmp5.substring(6,7).equals("T")){
-                        tmp3[c5][c3] = tmp5.substring(11);
-                        c3++;
-                    }else{
-                        tmp4[c5][c4] = tmp5.substring(11);
-                        c4++;
-                    }
-                }
-                if((j-2) % 8 == 0 && j != 2){
-                    c1 = c2 = c3 = c4 = 0;
-                    c5++;
-                }
-            }
-            tmp.add(tmp1);
-            tmp.add(tmp2);
-            tmp.add(tmp3);
-            tmp.add(tmp4);
-            talkStorage2.add(tmp);
         }
     }
     
     public static ArrayList<ArrayList<String>> getConversation(){
+        
         return talkStorage1;
     }
     

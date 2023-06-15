@@ -23,7 +23,7 @@ import java.util.*;
  *      bgm-boss-pony for pony boss (danmu + talk)
  *      bgm-boss-final for final boss (danmu)
  * 
- * @author (your name) 
+ * @author George && Ming
  * @version (a version number or a date)
  */
 public class SideWorld extends World
@@ -37,7 +37,7 @@ public class SideWorld extends World
     private GreenfootImage back;
     private GreenfootSound talkOnly, damnAndTalk, justDamn;
     private BattleBox[][] box;
-    private int id;
+    private int id, time, limit;//time is used to find the length of time the player get kick out, limit is the limit to number of rounds
     private Boss boss;
     private HitBox hitBox;
     private ArrayList<String> conversation;
@@ -46,7 +46,7 @@ public class SideWorld extends World
     private Option a, b, c, d, cf;
     private String toSay, horseSay;//This string will hold what the enmy will say next, the horseSay will hold what the horse maysay next
     private Label conversationCentre;//This label will show the conversation
-    private boolean keepCount;//This boolean will check if the time should keep count
+    private boolean keepCount, remove;//This boolean will check if the time should keep count, remove will tell if the four oprions are removed
     private boolean done, sayIt, sayMore, start, change;//This boolean will check if the pony fail to talk heal the enemy, sayIt controls when the enemy will response, sayMore controls when can the character continue speak, start will tell the program to enable the continue button
     public SideWorld(int id)
     {    
@@ -100,11 +100,12 @@ public class SideWorld extends World
             talkOnly = new GreenfootSound("bgm-normal-battle.mp3");
             Statics.takeInWords();
             //use this code after, character = id*Statics.getLevel()-1;
-            
-            character = id*3-1;
+            character = id*Statics.getLevel()-1;
+            //character = id*3-1;
             conversation = Statics.getConversation().get(character);
+           
             GreenfootImage lines = new GreenfootImage(300, 200);
-            
+            limit = Integer.parseInt(conversation.get(conversation.size()-2).substring(8,9));
             addObject(a, 150, 380);
             addObject(b, 150, 530);
             addObject(c, 1050, 380);
@@ -173,6 +174,8 @@ public class SideWorld extends World
             if(start){
                 coniformeed();
             }
+            
+            
         }else if(id == 0){
             if(keepCount){
                 countTime++;
@@ -199,6 +202,11 @@ public class SideWorld extends World
             if(id == 0){
                 keepCount = true;
             }
+            
+        }
+        if(cf.isClick() && done){
+            System.out.println(Statics.getLevel());
+            Greenfoot.setWorld(new MainWorld());
         }
     }
     
@@ -210,7 +218,7 @@ public class SideWorld extends World
      * This method will allow the player to choose the lines
      */
     public void chooseLine(){
-        if(a.isClick()){
+        if(a.isClick() && rounds < limit ){
             start = true;
             removeObject(conversationCentre);
             String tmp = changeLine(conversation.get(2 + rounds*8));
@@ -220,13 +228,15 @@ public class SideWorld extends World
             addObject(conversationCentre, 600, 400);
             horseSay = conversation.get(2 + rounds*8);
             toSay = conversation.get(6 + rounds*8);
-            if(tmp.substring(6,7).equals("F")){
+            System.out.println(conversation.get(2 + rounds*8).substring(6,7).equals("F"));
+            if(conversation.get(2 + rounds*8).substring(6,7).equals("F")){
                 done = true;
-                //write code to kick player out
+            }else{
+                done = false;
             }
             change = true;
 
-        }else if(b.isClick()){
+        }else if(b.isClick() && rounds < limit ){
             start = true;
             removeObject(conversationCentre);
             String tmp = changeLine(conversation.get(3 + rounds*8));
@@ -235,11 +245,15 @@ public class SideWorld extends World
             addObject(conversationCentre, 600, 400);
             horseSay = conversation.get(3 + rounds*8);
             toSay = conversation.get(7 + rounds*8);
-            if(tmp.substring(6,7).equals("F")){
+            System.out.println(conversation.get(2 + rounds*8).substring(6,7).equals("F"));
+            if(conversation.get(2 + rounds*8).substring(6,7).equals("F")){
                 done = true;
+                
+            }else{
+                done = false;
             }
             change = true;
-        }else if(c.isClick()){
+        }else if(c.isClick() && rounds < limit){
             start = true;
             removeObject(conversationCentre);
             /**FIX THIS: kick the player back**/
@@ -249,11 +263,15 @@ public class SideWorld extends World
             addObject(conversationCentre, 600, 400);
             horseSay = conversation.get(4 + rounds*8);
             toSay = conversation.get(8 + rounds*8);
-            if(tmp.substring(6,7).equals("F")){
+            System.out.println(conversation.get(2 + rounds*8).substring(6,7).equals("F"));
+            if(conversation.get(2 + rounds*8).substring(6,7).equals("F")){
                 done = true;
+            }else{
+                done = false;
             }
+            
             change = true;
-        }else if(d.isClick()){
+        }else if(d.isClick() && rounds < limit){
             start = true;
             removeObject(conversationCentre);
             String tmp = changeLine(conversation.get(5 + rounds*8));
@@ -262,8 +280,11 @@ public class SideWorld extends World
             addObject(conversationCentre, 600, 400);
             horseSay = conversation.get(5 + rounds*8);
             toSay = conversation.get(9 + rounds*8);
-            if(tmp.substring(6,7).equals("F")){
+            System.out.println(conversation.get(2 + rounds*8).substring(6,7).equals("F"));
+            if(conversation.get(2 + rounds*8).substring(6,7).equals("F")){
                 done = true;
+            }else{
+                done = false;
             }
             change = true;
         }
