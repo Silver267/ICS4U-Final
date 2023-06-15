@@ -237,6 +237,7 @@ public class SideWorld extends World
             
         }else if(id == 0){
             if(talk){
+                
                 chooseLine();
             }
             
