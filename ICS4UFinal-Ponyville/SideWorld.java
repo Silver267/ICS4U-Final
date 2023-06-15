@@ -30,6 +30,7 @@ public class SideWorld extends World
      * Constructor for objects of class SideWorld.
      * 
      */
+    private GreenfootImage hpOfMain, hpOfBoss;
     private GreenfootImage back;
     private GreenfootSound talkOnly, damnAndTalk, justDamn;
     private BattleBox[][] box;
@@ -94,7 +95,9 @@ public class SideWorld extends World
         d = new Option(new GreenfootImage("D.png"), new GreenfootImage("D1.png"),false);
         cf = new Option(new GreenfootImage("Continue.png"), new GreenfootImage("Continue1.png"),true);
         
-        if(id == 0){
+        hpOfMain = SparkleEngine.drawProgressBar(Statics.getHP(), Statics.getHP(), 150, 15, Color.RED, Color.BLACK);
+        
+        if(id == 0 && Statics.getLevel() == 4){
             boss = new Boss();
             addObject(boss, 600, 150);
             hitBox = new HitBox();
@@ -106,7 +109,7 @@ public class SideWorld extends World
             addObject(cf, 1050, 633);
             keepCount = true;
             addObject(new Plane(4, 6, 2, 3, 0, 90), 600, 200);
-        }else{
+        }else if(!(Statics.getLevel() == 4)){
             addObject(new BattleScreen(), 600, 510);
             talkOnly = new GreenfootSound("bgm-normal-battle.mp3");
             Statics.takeInWords();
@@ -156,6 +159,10 @@ public class SideWorld extends World
                 addObject(new Pony(character1), 600, 2000);
             }
             
+        }else if(Statics.getLevel() == 4){
+            hpOfBoss = SparkleEngine.drawProgressBar(getBoss().getHp(), getBoss().getHp(), 150, 15, Color.RED, Color.BLACK);
+            addObject(hpOfMain, 200, 100);
+            addObject(hpOfBoss, 200, 100);
         }
         sayMore = true;
         
@@ -175,6 +182,10 @@ public class SideWorld extends World
         }else{
             talkOnly.playLoop();
         }
+        
+    }
+    
+    public void hp(){
         
     }
     

@@ -64,7 +64,7 @@ public class LightRay extends Weapon
     //if have time, create an animation to make a smooth transition
     
     public void damageThem(){
-        if(damageTime%15 == 0){
+        if(damageTime%5 == 0){
             if(isTouching(HitBox.class)){
                 Statics.setHP(Statics.getHP()-1);
             }
