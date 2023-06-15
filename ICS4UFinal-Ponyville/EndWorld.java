@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class EndWorld extends World
 {
+    Label instruction;
     /**
      * Constructor for objects of class BattleWorld.
      * 
@@ -30,6 +31,14 @@ public class EndWorld extends World
         
         if (Statics.getLevel() == 3) {
             setBackground(new GreenfootImage("images/9.jpg"));
+        }
+        instruction = new Label("Press z to enter Battle World!", 30);
+        addObject(instruction, 600, 580);
+    }
+    
+    public void act() {
+        if (Greenfoot.isKeyDown("z")) {
+            Greenfoot.setWorld(new SideWorld(3));
         }
     }
 }

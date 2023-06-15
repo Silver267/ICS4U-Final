@@ -12,9 +12,12 @@ public class MainCh extends MovingInTurns{
     private GreenfootImage stand, standBack;
     private GreenfootImage[] walk = new GreenfootImage[16], walkBack = new GreenfootImage[16];
     private floatingPanel fp;
+    private GreenfootSound magicSE;
     
     public MainCh(){
         spd = 1.5;
+        magicSE = new GreenfootSound("SE/lightSound.wav");
+        magicSE.setVolume(85);
     }
     
     public void addedToWorld(World w){
@@ -76,6 +79,7 @@ public class MainCh extends MovingInTurns{
             if(detect(gridPos)){
                 targMP = Math.min(100, Statics.getMP()+25);
                 ((MainWorld)getWorld()).action(gridPos);
+                magicSE.stop();
             }else if(Greenfoot.isKeyDown("z")){
                 if(((MainWorld)getWorld()).getMap().getNode(gridPos).getType()>2 && Statics.getStay(((MainWorld)getWorld()).getMap().getNode(gridPos).getType()-3)==0){
                     ((MainWorld)getWorld()).goBattle(((MainWorld)getWorld()).getMap().getNode(gridPos).getType()-3);
@@ -84,14 +88,17 @@ public class MainCh extends MovingInTurns{
                     ((MainWorld)getWorld()).action(gridPos);
                     pressedZ = true;
                 }
+                magicSE.stop();
             }else if(Greenfoot.isKeyDown("alt") && Statics.getMP()>0){
                 magic = Math.min(magic+2, 100);
                 if(magic==100){
                     ((MainWorld)getWorld()).damage();
                     Statics.setMP(Math.max(Statics.getMP()-1, 0));
                     targMP = Statics.getMP();
+                    magicSE.play();
                 }
             }else{
+                magicSE.stop();
                 magic = Math.max(magic-2, 0);
             }
         }
