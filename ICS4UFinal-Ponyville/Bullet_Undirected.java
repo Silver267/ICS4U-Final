@@ -55,8 +55,17 @@ public class Bullet_Undirected extends Actor{
                 return;
             }
         }
-        if(isAtEdge() || this.getX()>1200)//If touching edge or touching information panel, remove itself.
+        if(isEdge())//If touching edge or touching information panel, remove itself.
             getWorld().removeObject(this);
+    }
+    
+    private boolean isEdge(){
+        int x = getX(), y = getY();
+        if(x<-100 || y<-100)
+            return true;
+        if(x>1700 || y>775)
+            return true;
+        return false;
     }
 
     private GreenfootImage temp(){//Draw image,doesn't matter
@@ -72,24 +81,6 @@ public class Bullet_Undirected extends Actor{
         if(pict==1){
             //Player's bullet
             GreenfootImage image = new GreenfootImage("Star.png");
-            return image;
-        }
-        if(pict==2){
-            //Enemy stage 4 bullet (1)
-            GreenfootImage image = new GreenfootImage(size*3/2, size*2/3);
-            image.setColor(new Color(40, 55, 71));
-            image.fillOval(0, 0, size*3/2, size*2/3);
-            image.setColor(Color.WHITE);
-            image.drawOval(0, 0, size*3/2, size*2/3);
-            return image;
-        }
-        if(pict==3){
-            //Enemy stage 4 bullet (2)
-            GreenfootImage image = new GreenfootImage(size*3/2, size*2/3);
-            image.setColor(new Color(21, 67, 96));
-            image.fillOval(0, 0, size*3/2, size*2/3);
-            image.setColor(Color.WHITE);
-            image.drawOval(0, 0, size*3/2, size*2/3);
             return image;
         }
         return null;
