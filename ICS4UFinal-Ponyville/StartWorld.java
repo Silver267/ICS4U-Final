@@ -68,7 +68,7 @@ public class StartWorld extends World
     }
     
     public void moveWorld(){
-        Statics.setLevel(1);
+        Statics.setLevel(3);
         Statics.setHP(40);
         Statics.setActive(false);
         Statics.setOrb(3);
