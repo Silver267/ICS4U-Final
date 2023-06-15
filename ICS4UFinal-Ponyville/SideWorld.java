@@ -150,6 +150,10 @@ public class SideWorld extends World
         
     }
     
+    public HitBox getHitBox(){
+        return hitBox;
+    }
+    
     public void started(){
         if(id == 0){
             
@@ -245,8 +249,8 @@ public class SideWorld extends World
             addObject(conversationCentre, 600, 400);
             horseSay = conversation.get(3 + rounds*8);
             toSay = conversation.get(7 + rounds*8);
-            System.out.println(conversation.get(2 + rounds*8).substring(6,7).equals("F"));
-            if(conversation.get(2 + rounds*8).substring(6,7).equals("F")){
+            System.out.println(conversation.get(3 + rounds*8).substring(6,7).equals("F"));
+            if(conversation.get(3 + rounds*8).substring(6,7).equals("F")){
                 done = true;
                 
             }else{
@@ -263,8 +267,8 @@ public class SideWorld extends World
             addObject(conversationCentre, 600, 400);
             horseSay = conversation.get(4 + rounds*8);
             toSay = conversation.get(8 + rounds*8);
-            System.out.println(conversation.get(2 + rounds*8).substring(6,7).equals("F"));
-            if(conversation.get(2 + rounds*8).substring(6,7).equals("F")){
+            System.out.println(conversation.get(4 + rounds*8).substring(6,7).equals("F"));
+            if(conversation.get(4 + rounds*8).substring(6,7).equals("F")){
                 done = true;
             }else{
                 done = false;
@@ -280,8 +284,8 @@ public class SideWorld extends World
             addObject(conversationCentre, 600, 400);
             horseSay = conversation.get(5 + rounds*8);
             toSay = conversation.get(9 + rounds*8);
-            System.out.println(conversation.get(2 + rounds*8).substring(6,7).equals("F"));
-            if(conversation.get(2 + rounds*8).substring(6,7).equals("F")){
+            System.out.println(conversation.get(5 + rounds*8).substring(6,7));
+            if(conversation.get(5 + rounds*8).substring(6,7).equals("F")){
                 done = true;
             }else{
                 done = false;
