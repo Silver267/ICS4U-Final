@@ -192,6 +192,7 @@ public class SideWorld extends World
             toSay = conversation.get(6 + rounds*8);
             if(tmp.substring(6,7).equals("F")){
                 done = true;
+                Greenfoot.setWorld(new MainWorld());
                 //write code to kick player out
             }
             
@@ -207,6 +208,7 @@ public class SideWorld extends World
             toSay = conversation.get(7 + rounds*8);
             if(tmp.substring(6,7).equals("F")){
                 done = true;
+                Greenfoot.setWorld(new MainWorld());
             }
         }else if(c.isClick()){
             start = true;
@@ -220,6 +222,7 @@ public class SideWorld extends World
             toSay = conversation.get(8 + rounds*8);
             if(tmp.substring(6,7).equals("F")){
                 done = true;
+                Greenfoot.setWorld(new MainWorld());
             }
         }else if(d.isClick()){
             start = true;
@@ -232,6 +235,7 @@ public class SideWorld extends World
             toSay = conversation.get(9 + rounds*8);
             if(tmp.substring(6,7).equals("F")){
                 done = true;
+                Greenfoot.setWorld(new MainWorld());
             }
         }
         
@@ -244,6 +248,15 @@ public class SideWorld extends World
         conversationCentre.setFillColor(Color.BLACK);
         addObject(conversationCentre, 600, 400);
         if(done){
+            if(id==0){
+                Statics.setLevel(Statics.getLevel()+1);
+                Statics.setActive(false);
+                Statics.rsetStay();
+                Greenfoot.setWorld(new MainWorld());
+            }else{
+                Statics.setStay(id);
+                Greenfoot.setWorld(new MainWorld());
+            }
             //write some code to send the pny back
         }
     }
