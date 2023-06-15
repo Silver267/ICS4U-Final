@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=SideWorld
-comment0.text=\n\ Write\ a\ description\ of\ class\ SideWorld\ here.\n\ Bug\ List\:\n\ \ Implement\ turn-based\ danmu\n\ \ Implement\ many\ danmu\n\ \ BGM\ (should\ be\ easy)\n\ \ According\ to\ planning\:\n\ \ \ \ \ \ Except\ for\ final\ boss,\ all\ other\ danmu\ is\ by\ turns\:\n\ \ \ \ \ \ \ \ \ \ Boss\ releases\ danmu\ for\ few\ seconds\n\ \ \ \ \ \ \ \ \ \ Go\ to\ talk\ to\ boss\ (one\ exchange\ dialogue)\n\ \ \ \ \ \ \ \ \ \ Boss\ continue\ release\ danmu\ for\ few\ seconds\n\ \ \ \ \ \ \ \ \ \ etc.\n\ \ \ \ \ \ Until\ all\ correct\ talks\ are\ slected,\ then\ proceed\ to\ next\ level.\n\ \ Include\ BGM\:\n\ \ \ \ \ \ bgm-normal-battle\ for\ normal\ pony\ (talk\ only)\n\ \ \ \ \ \ bgm-boss-pony\ for\ pony\ boss\ (danmu\ +\ talk)\n\ \ \ \ \ \ bgm-boss-final\ for\ final\ boss\ (danmu)\n\ \n\ @author\ George\ &&\ Ming\n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ SideWorld\ here.\r\n\ Bug\ List\:\r\n\ \ Implement\ turn-based\ danmu\r\n\ \ Implement\ many\ danmu\r\n\ \ BGM\ (should\ be\ easy)\r\n\ \ According\ to\ planning\:\r\n\ \ \ \ \ \ Except\ for\ final\ boss,\ all\ other\ danmu\ is\ by\ turns\:\r\n\ \ \ \ \ \ \ \ \ \ Boss\ releases\ danmu\ for\ few\ seconds\r\n\ \ \ \ \ \ \ \ \ \ Go\ to\ talk\ to\ boss\ (one\ exchange\ dialogue)\r\n\ \ \ \ \ \ \ \ \ \ Boss\ continue\ release\ danmu\ for\ few\ seconds\r\n\ \ \ \ \ \ \ \ \ \ etc.\r\n\ \ \ \ \ \ Until\ all\ correct\ talks\ are\ slected,\ then\ proceed\ to\ next\ level.\r\n\ \ Include\ BGM\:\r\n\ \ \ \ \ \ bgm-normal-battle\ for\ normal\ pony\ (talk\ only)\r\n\ \ \ \ \ \ bgm-boss-pony\ for\ pony\ boss\ (danmu\ +\ talk)\r\n\ \ \ \ \ \ bgm-boss-final\ for\ final\ boss\ (danmu)\r\n\ \r\n\ @author\ George\ &&\ Ming\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=id
 comment1.target=SideWorld(int)
 comment10.params=
@@ -21,10 +21,10 @@ comment6.params=
 comment6.target=void\ act()
 comment7.params=
 comment7.target=void\ coniformeed()
-comment7.text=\n\ This\ method\ will\ allow\ the\ player\ to\ coniform\ the\ line\ they\ continue\ with\n
+comment7.text=\r\n\ This\ method\ will\ allow\ the\ player\ to\ coniform\ the\ line\ they\ continue\ with\r\n
 comment8.params=
 comment8.target=int\ getCountTime()
 comment9.params=
 comment9.target=void\ chooseLine()
-comment9.text=\n\ This\ method\ will\ allow\ the\ player\ to\ choose\ the\ lines\n
+comment9.text=\r\n\ This\ method\ will\ allow\ the\ player\ to\ choose\ the\ lines\r\n
 numComments=13
