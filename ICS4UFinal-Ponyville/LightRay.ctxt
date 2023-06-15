@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=LightRay
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ LightRay\ here.\r\n\ \r\n\ @author\ George\ Lu\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=direction\ width\ warnTime
-comment1.target=LightRay(int,\ int,\ int)
+comment1.params=direction\ width\ warnTime\ duration
+comment1.target=LightRay(int,\ int,\ int,\ int)
 comment2.params=w
 comment2.target=void\ addedToWorld(greenfoot.World)
 comment3.params=
@@ -12,4 +12,6 @@ comment4.params=
 comment4.target=void\ warnIt()
 comment5.params=
 comment5.target=void\ damageThem()
-numComments=6
+comment6.params=
+comment6.target=void\ remove()
+numComments=7

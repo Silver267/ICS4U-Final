@@ -50,7 +50,6 @@ public class Boss extends Enemy
             time1++;
             skyKill();
         }
-        System.out.println("BOSS" + hp);
         
     }
     

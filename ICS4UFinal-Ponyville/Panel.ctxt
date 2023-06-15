@@ -1,9 +1,8 @@
 #BlueJ class context
 comment0.target=Panel
-comment0.text=\n\ The\ top\ panel\ that\ displays\ stats.\n\ \n\ @author\ Xuanxi\ Jiang\n\ @version\ 1.0\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Panel\ here.\r\n\ \r\n\ @author\ Xuanxi\ Jiang\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=w
 comment1.target=void\ addedToWorld(greenfoot.World)
 comment2.params=
 comment2.target=void\ refresh()
-comment2.text=\n\ Refresh\ the\ number\ of\ orbs.\n
 numComments=3
