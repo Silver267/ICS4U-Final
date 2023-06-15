@@ -223,8 +223,7 @@ public class SideWorld extends World
             Greenfoot.setWorld(new MainWorld());
         }
         if(cf.isClick() && successTime >= 2 && !done){
-            Statics.setOrb(Statics.getOrb()+1);
-            System.out.println("sus");
+            Statics.setOrb(Statics.getOrb()-1);
             Statics.setStay(id);
             Greenfoot.setWorld(new MainWorld());
         }
@@ -249,7 +248,6 @@ public class SideWorld extends World
             addObject(conversationCentre, 600, 400);
             horseSay = conversation.get(2 + rounds*8);
             toSay = conversation.get(6 + rounds*8);
-            System.out.println(conversation.get(2 + rounds*8).substring(6,7).equals("F"));
             if(conversation.get(2 + rounds*8).substring(6,7).equals("F")){
                 done = true;
                 startCount = true;
@@ -267,7 +265,6 @@ public class SideWorld extends World
             addObject(conversationCentre, 600, 400);
             horseSay = conversation.get(3 + rounds*8);
             toSay = conversation.get(7 + rounds*8);
-            System.out.println(conversation.get(3 + rounds*8).substring(6,7).equals("F"));
             if(conversation.get(3 + rounds*8).substring(6,7).equals("F")){
                 done = true;
                 startCount = true;
@@ -284,7 +281,6 @@ public class SideWorld extends World
             addObject(conversationCentre, 600, 400);
             horseSay = conversation.get(4 + rounds*8);
             toSay = conversation.get(8 + rounds*8);
-            System.out.println(conversation.get(4 + rounds*8).substring(6,7).equals("F"));
             if(conversation.get(4 + rounds*8).substring(6,7).equals("F")){
                 done = true;
                 startCount = true;
@@ -302,7 +298,6 @@ public class SideWorld extends World
             addObject(conversationCentre, 600, 400);
             horseSay = conversation.get(5 + rounds*8);
             toSay = conversation.get(9 + rounds*8);
-            System.out.println(conversation.get(5 + rounds*8).substring(6,7));
             if(conversation.get(5 + rounds*8).substring(6,7).equals("F")){
                 done = true;
                 startCount = true;

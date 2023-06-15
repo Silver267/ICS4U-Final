@@ -31,7 +31,7 @@ public class Bullet_Undirected extends Actor{
         subPixIncX = Math.cos((facing)*(Math.PI/180))*speed;
         subPixIncY = Math.sin((facing)*(Math.PI/180))*speed;
     }
-
+/*
     public void act(){
         //custom sub-pixel movement in replacemenent of move() which features accurate movement at angle.
         subPixPosX+=subPixIncX; subPixPosY+=subPixIncY;
@@ -56,7 +56,7 @@ public class Bullet_Undirected extends Actor{
         if(isAtEdge() || this.getX()>1200)//If touching edge or touching information panel, remove itself.
             getWorld().removeObject(this);
     }
-    
+*/
     private GreenfootImage temp(){
         if(pict==0){
             //Enemy bullet
