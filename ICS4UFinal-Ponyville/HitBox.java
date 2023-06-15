@@ -19,7 +19,7 @@ public class HitBox extends SuperSmoothMover
         setImage(heart);
         time = 5;
         damageTime = 5;
-        Statics.setHP(100000);
+        Statics.setHP(10000);
     }
     /**
      * Act - do whatever the HitBox wants to do. This method is called whenever

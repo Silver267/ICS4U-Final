@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=MovingInTurns
-comment0.text=\n\ For\ things\ that\ moves\ in\ turns\ (only\ moves\ when\ player\ moves).\n\ Some\ common\ methods\ are\ displayed\ here.\n\ \n\ @author\ Xuanxi\ Jiang\n\ @version\ 1.0\n
+comment0.text=\r\n\ For\ things\ that\ moves\ in\ turns\ (only\ moves\ when\ player\ moves).\r\n\ Some\ common\ methods\ are\ displayed\ here.\r\n\ \r\n\ @author\ Xuanxi\ Jiang\r\n\ @version\ 1.0\r\n
 comment1.params=
 comment1.target=void\ act()
 comment2.params=
@@ -9,8 +9,8 @@ comment3.params=
 comment3.target=void\ display()
 comment4.params=gridPos
 comment4.target=void\ shift(int[])
-comment4.text=\n\ Animation\ that\ moves\ the\ character\ towards\ the\ target\ grid\ (so\ the\ character\ does\ not\ appear\ to\ be\ "teleported"\ to\ grids.\n\ \n\ @param\ gridPos\ \ \ The\ current\ position\ of\ character\ on\ grid\ {x,\ y}\n
+comment4.text=\r\n\ Animation\ that\ moves\ the\ character\ towards\ the\ target\ grid\ (so\ the\ character\ does\ not\ appear\ to\ be\ "teleported"\ to\ grids.\r\n\ \r\n\ @param\ gridPos\ \ \ The\ current\ position\ of\ character\ on\ grid\ {x,\ y}\r\n
 comment5.params=gridPos
 comment5.target=void\ rsetPos(int[])
-comment5.text=\n\ Set\ the\ position\ of\ character\ on\ grid\ to\ the\ target\ grid.\n\ Used\ by\ shift()\ method\ when\ the\ target\ position\ (animation)\ is\ reached\ or\ exceeded.\n
+comment5.text=\r\n\ Set\ the\ position\ of\ character\ on\ grid\ to\ the\ target\ grid.\r\n\ Used\ by\ shift()\ method\ when\ the\ target\ position\ (animation)\ is\ reached\ or\ exceeded.\r\n
 numComments=6
