@@ -14,11 +14,20 @@ public class StartWorld extends World
     GreenfootImage img;
     private int count = 0;
     private Label instructionOne;
-    
+    private GreenfootSound bgm;
     /**
      * Constructor for objects of class StartWorld.
      * 
      */
+    
+    private void unMusic(){
+        bgm.stop();
+    }
+    
+    private void music(){
+        bgm.playLoop();
+    }
+    
     public StartWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -28,6 +37,16 @@ public class StartWorld extends World
         img.scale(1200, 675);
         setBackground(img);
         instructionOne = new Label("prev    next", 30);
+        bgm = new GreenfootSound("bgm-start.mp3");
+        bgm.stop(); bgm.setVolume(70);
+    }
+    
+    public void started(){
+        music();
+    }
+    
+    public void stopped(){
+        unMusic();
     }
     
     public void act(){
@@ -54,6 +73,7 @@ public class StartWorld extends World
         Statics.setActive(false);
         Statics.setOrb(3);
         Statics.rsetStay();
+        unMusic();
         Greenfoot.setWorld(new MainWorld());
     }
     
