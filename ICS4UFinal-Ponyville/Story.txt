@@ -250,6 +250,6 @@ horse,T,2,X,That's why I'm here! You did your best, and now it's my time to shin
 horse,T,2,X,I'm Flurry Heart, and I will take up the responsibility of defeating darkness!
 enemy,F,2,X,......
 enemy,F,2,X,......
-enemy,T,2,X,Oh my dear princess! Moving on you have to face the Discord of Darkness, it is very cunning yet powerful. But I have faith in you, good luck!
-enemy,T,2,X,Oh my dear princess! Moving on you have to face the Discord of Darkness, it is very cunning yet powerful. But I have faith in you, good luck!
+enemy,T,2,X,Oh my dear princess! Moving on you have to face the Discord of Darkness, it is very cunning yet powerful. But I have faith in you, good luck! By the way... when fighting that creature, don't hesitate to use "z" key to fire at it!
+enemy,T,2,X,Oh my dear princess! Moving on you have to face the Discord of Darkness, it is very cunning yet powerful. But I have faith in you, good luck! By the way... when fighting that creature, don't hesitate to use "z" key to fire at it!
 End,TwilightSparkle,X

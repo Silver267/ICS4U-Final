@@ -11,7 +11,6 @@ import java.io.FileNotFoundException;
  *  Additional notes:
  *      The keys to move around is not "wasd", instead, its the arrow keys (up, down, left, right)
  *      These keys are the same keys that you will use in battle when dodging bullets.
- *      When confronting the final boss, you must empty all its HP value to successfully pass. To do this, you can shoot bullets by pressing the "z" button.
  * 
  * @author Molly Wu & Yawen & Xuanxi
  * @version 6.9.2023
