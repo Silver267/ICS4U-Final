@@ -12,14 +12,14 @@ public class PinkiePie extends Enemy{
      * Act - do whatever the PinkiePie wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    private int x, meth, timer, prevAng, cnt;
+    private int x, meth, timer, prevAng, cnt, cnt2;
     private double ang; 
     private SideWorld sw;
     
     //meth: which attack pattern will use 
     private GreenfootImage gf;
     public PinkiePie(int meth, int duration){
-        x = 0; this.meth = meth;
+        x = 0; this.meth = meth; cnt2 = 0;
         cnt = 0; ang = 0; timer = duration;
         gf = new GreenfootImage("MainPony/PP-1.png");
         gf.scale(150, 150);
@@ -64,14 +64,16 @@ public class PinkiePie extends Enemy{
     
     private void phase2ATK(){
         if(cnt==0){
-            phase2Method2();
-            cnt = 120;
+            phase2Method1();
+            cnt = 60;
         }else{
             cnt--;
         }
-        if(cnt%60==0){
-            x++;
-            phase2Method1();
+        if(cnt2==0){
+            phase2Method2();
+            cnt2 = 180;
+        }else{
+            cnt2--;
         }
     }
     

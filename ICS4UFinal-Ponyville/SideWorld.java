@@ -37,13 +37,16 @@ public class SideWorld extends World
     private int successTime;
     private boolean checkSuccess;
     private Boss boss;
-    private boolean talk;
+    private boolean talk, needAdd;//needAdd will determine if an new pony is needed
+    private boolean keepSpeak;
     private HitBox hitBox;
+    private String continue1;//continue1 will store the sentence the pony didn;t finish
     private Block b1,b2,b3,b4;
     private ArrayList<String> conversation;
     private int rounds, character, countTime, wrongTime;//countTime is used to count the time in current game, wrongTime counts the number of time the player hit the continue after they select the wrong choice
     private GreenfootImage character1;
     private Option a, b, c, d, cf;
+    private int first, rounds1;
     private String toSay, horseSay;//This string will hold what the enmy will say next, the horseSay will hold what the horse maysay next
     private Label conversationCentre;//This label will show the conversation
     private boolean startCount;//This will check whther the system can start count the number of times the continute is hit
@@ -114,20 +117,21 @@ public class SideWorld extends World
             
             
             Statics.takeInWords();
-            character = 10;
+            character = 11;
             conversation = Statics.getConversation().get(character);
+            
+            rounds = 0;
+            limit = Integer.parseInt(conversation.get(conversation.size()-2).substring(8,9));
+            System.out.println("limit" + limit);
             //character = 8 + Statics.getLevel();
             //conversation = Statics.getConversation().get(character); use after
             if(character == 9){
-                /*
-                for(String x:conversation){
-                    System.out.println(x);
-                }
-                */
-            }else if(character == 10){
-                addObject(new PinkiePie(2, 1200), 600, 150);
-            }else if(character == 11){
+               
                 
+            }else if(character == 10){
+                addObject(new PinkiePie(Greenfoot.getRandomNumber(2)+1, 120), 600, 800);
+            }else if(character == 11){
+                addObject(new TwilightSparkle(Greenfoot.getRandomNumber(2)+1, 1200), 600, 150);
             }
             
             
@@ -237,7 +241,28 @@ public class SideWorld extends World
             
         }else if(id == 0){
             if(talk){
+                if(first == 0){
+                    String tmp = Statics.getStartLine()[character];
+                    conversationCentre = new Label(changeLine(tmp), 25);
+                    addObject(conversationCentre, 600, 500);
+                    first = 2;
+                }
+                if(rounds == 1 && !keepSpeak){
+                    continue1 = changeLine(toSay);
+                    conversationCentre = new Label(continue1, 25);
+                    conversationCentre.setFillColor(Color.BLACK);
+                    addObject(conversationCentre, 600, 500);
+                    keepSpeak = true;
+                }
+                if(rounds == 2 && !keepSpeak){
+                    keepSpeak = true;
+                    continue1 = changeLine(toSay);
+                    conversationCentre = new Label(continue1, 25);
+                    conversationCentre.setFillColor(Color.BLACK);
+                    addObject(conversationCentre, 600, 500);
+                }
                 chooseLine();
+                coniformeed();
             }
             
         }
@@ -251,34 +276,134 @@ public class SideWorld extends World
      */
     public void coniformeed(){
         if(cf.isClick() && change){
-            rounds++;
+            if(id > 0){
+                rounds++;
+            }
+            
+            if(id == 0){
+                if(!done){
+                    rounds++;
+                }
+            }
             removeObject(conversationCentre);
-            String tmp = changeLine(toSay);
-            conversationCentre = new Label(tmp, 25);
-            conversationCentre.setFillColor(Color.BLACK);
-            addObject(conversationCentre, 600, 500);
+            if(id > 0){
+                continue1 = changeLine(toSay);
+                conversationCentre = new Label(continue1, 25);
+                conversationCentre.setFillColor(Color.BLACK);
+                addObject(conversationCentre, 600, 500);
+            }
             change = false;
             if(id == 0){
-                keepCount = true;
+                if(done){
+                    wrongTime++;
+                }
             }
             if(rounds == limit){
                 checkSuccess = true;
             }
+            needAdd = true;
+            keepSpeak = false;
         }
-        if(cf.isClick() && checkSuccess){
-            successTime++;
+        
+        if(id > 0){
+            if(cf.isClick() && checkSuccess){
+                successTime++;
+            }
+            if(cf.isClick() && startCount){
+                wrongTime++;
+            }
+            if(cf.isClick() && done && wrongTime == 2){
+                Greenfoot.setWorld(new MainWorld());
+            }
+            if(cf.isClick() && successTime >= 2 && !done){
+                Statics.setOrb(Statics.getOrb()-1);
+                Statics.setStay(id);
+                Greenfoot.setWorld(new MainWorld());
+            }
         }
-        if(cf.isClick() && startCount){
-            wrongTime++;
+        if(id == 0){
+            
+            if(rounds == 1 && needAdd){
+                removeObject(conversationCentre);
+                if(character == 10){
+                    addObject(new PinkiePie(1, 120), 600, 150);
+                }else if(character == 11){
+                    addObject(new TwilightSparkle(Greenfoot.getRandomNumber(2)+1, 1200), 600, 150);
+                }
+                
+                wrongTime = 0;
+                done = false;
+                needAdd = false;
+                talk = false;
+            }
+            if(cf.isClick() && checkSuccess){
+                successTime++;
+            }
+            if(cf.isClick() && successTime >= 2 && !done){
+                talk = false;
+                if(character == 9){
+                    
+                }else if(character == 10){
+                    removeObject(conversationCentre);
+                    wrongTime = 0;
+                    done = false;
+
+                    Statics.setLevel(Statics.getLevel()+1);
+                    Statics.rsetStay();
+                    Statics.setOrb(3);
+                    Statics.setHP(40);
+                    Statics.setActive(false);
+                    Greenfoot.setWorld(new MainWorld());
+                }else if(character == 11){
+                    removeObject(conversationCentre);
+                    wrongTime = 0;
+                    done = false;
+
+                    Statics.setLevel(Statics.getLevel()+1);
+                    Statics.rsetStay();
+                    Statics.setOrb(3);
+                    Statics.setHP(40);
+                    Statics.setActive(false);
+                    Greenfoot.setWorld(new MainWorld());
+                    
+                }
+            }
+            if(wrongTime == 2 && done && cf.isClick()){
+                talk = false;
+                if(character == 9){
+                    
+                }else if(character == 10){
+                    removeObject(conversationCentre);
+                    if(character == 10){
+                        addObject(new PinkiePie(2, 120), 600, 150);
+                    }
+                    
+                    if(first == 2){
+                        first = 0;
+                    }
+                    wrongTime = 0;
+                    done = false;
+                }else if(character == 11){
+                    removeObject(conversationCentre);
+                    if(character == 11){
+                        addObject(new TwilightSparkle(Greenfoot.getRandomNumber(2)+1, 1200), 600, 150);
+                    }
+                    
+                    if(first == 2){
+                        first = 0;
+                    }
+                    wrongTime = 0;
+                    done = false;
+                    
+                }
+            }
+            
+            if(cf.isClick() && done){
+                wrongTime++;
+            }
+            
         }
-        if(cf.isClick() && done && wrongTime == 2){
-            Greenfoot.setWorld(new MainWorld());
-        }
-        if(cf.isClick() && successTime >= 2 && !done){
-            Statics.setOrb(Statics.getOrb()-1);
-            Statics.setStay(id);
-            Greenfoot.setWorld(new MainWorld());
-        }
+        
         
     }
     
@@ -307,6 +432,7 @@ public class SideWorld extends World
                 done = false;
             }
             change = true;
+            
 
         }else if(b.isClick() && rounds < limit ){
             start = true;
@@ -324,6 +450,7 @@ public class SideWorld extends World
                 done = false;
             }
             change = true;
+            
         }else if(c.isClick() && rounds < limit){
             start = true;
             removeObject(conversationCentre);
@@ -341,6 +468,7 @@ public class SideWorld extends World
             }
             
             change = true;
+            
         }else if(d.isClick() && rounds < limit){
             start = true;
             removeObject(conversationCentre);
@@ -357,6 +485,7 @@ public class SideWorld extends World
                 done = false;
             }
             change = true;
+            
         }
         
     }
