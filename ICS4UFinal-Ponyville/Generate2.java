@@ -26,8 +26,8 @@ public class Generate2 extends removableBullet{
                 return;
             }
             if(x%24==0){
-                for(int i=0; i<6; i++){
-                    getWorld().addObject(new Bullet_Undirected(0, 2.5, (int)(Greenfoot.getRandomNumber(30)+i*60), 1, 15, getX(), getY(), false), getX(), getY());
+                for(int i=0; i<4; i++){
+                    getWorld().addObject(new Bullet_Undirected(0, 2.5, (int)(Greenfoot.getRandomNumber(30)+i*90), 1, 15, getX(), getY(), false), getX(), getY());
                 }
             }
             x--;

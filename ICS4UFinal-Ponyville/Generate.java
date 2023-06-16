@@ -34,7 +34,7 @@ public class Generate extends removableBullet{
             }
             if(x<180 && x%15==0){
                 for(int i=0; i<12; i++){
-                    getWorld().addObject(new Bullet_Undirected(0, 3, (int)(x+i*30), 1, 15, getX(), getY(), false), getX(), getY());
+                    getWorld().addObject(new Bullet_Undirected(0, 3, (int)(x/3+i*30), 1, 15, getX(), getY(), false), getX(), getY());
                 }
             }
             x--;

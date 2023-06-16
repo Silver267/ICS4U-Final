@@ -16,6 +16,7 @@ public class BallTest extends Enemy{
     private double prevAng;
     private boolean rev;
     private SideWorld sw;
+    private boolean addSidePlane;
     
     //meth: which attack pattern will use 
     private GreenfootImage gf;
@@ -29,10 +30,6 @@ public class BallTest extends Enemy{
     
     private double phase1Method1(double prev){
         x++;
-        if(this.getY()>675/8){
-            setLocation(this.getX(), this.getY()-2);
-            return 0;
-        }else{
             if(prev<-7){//swing the "lines" of bullets, reverse swing if necessary.
                 prev = -7;
                 rev = true;
@@ -64,8 +61,6 @@ public class BallTest extends Enemy{
                 }
             }
             return prev;
-        }
-
     }
     
     private void phase1ATK(){
@@ -79,13 +74,26 @@ public class BallTest extends Enemy{
     
     public void addedToWorld(World w){
         sw = (SideWorld)w;
+        
     }
+    
+    private void phase2ATK(){
+        if(!addSidePlane){
+            sw.addObject(new SidePlane(), getX() - 200, getY());
+            sw.addObject(new SidePlane(), getX() + 200, getY());
+            addSidePlane = true;
+        }
+    }
+    
     
     public void act(){
         timer--;
         switch(meth){
             case 1:
                 phase1ATK();
+                break;
+            case 2:
+                phase2ATK();
                 break;
         }
         if(timer==0){

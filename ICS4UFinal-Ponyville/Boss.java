@@ -9,107 +9,109 @@ import java.util.*;
  */
 public class Boss extends Enemy
 {
-    private GreenfootImage ball;
-    private int time, time1;
-    private int[] direction;
-    private boolean exist, reverse;
-    private SideWorld sw;
-    public Boss(){
-        ball = new GreenfootImage("blackball.png");
-        ball.scale(35,35);
-        setImage(ball);
-        time = 0;
-        hp = 3000;//1500 change pattern
-        direction = new int[8];
-        for(int i = 0; i < 4; i++){
-            direction[i] = i*90;
-        }
-        for(int i = 4; i < 8;i++){
-            direction[i] = 45 + (i-4)*90;
-        }
-        reverse = false;
-    }
     /**
-     * Act - do whatever the Boss wants to do. This method is called whenever
+     * Act - do whatever the PinkiePie wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public void act()
-    {
-        if(sw.getCountTime() % 600 != 0){
-            roundShoot(0);
-            roundShoot(1);
-            roundShoot(2);
-            roundShoot(3);
-            if(time1 > 750){
-                roundShoot(4);
-                roundShoot(5);
-                roundShoot(6);
-                roundShoot(7);
-            }
-            time--;
-            time1++;
-            skyKill();
-        }
-        
-    }
+    private int x, meth, timer, cnt;
+    private double prevAng;
+    private boolean rev;
+    private SideWorld sw;
+    private boolean addSidePlane;
     
-    public void changeHp(int x){
-        hp -= x;
+    //meth: which attack pattern will use 
+    private GreenfootImage gf;
+    public Boss(int meth){
+        x = 0; this.meth = meth;
+        cnt = 0; prevAng = 0;
+        gf = new GreenfootImage("MainPony/FS-1.png");
+        gf.scale(150, 150); rev = false;
+        setImage(gf);
     }
     
     public int getHp(){
         return hp;
     }
     
-    public void addedToWorld(World w){
-        exist = true;
-        sw = (SideWorld)w;
+    public void changeHp(int x){
+        hp -= x;
     }
     
-    public void roundShoot(int x){
-        if(time1 < 300){
-            direction[x]++;
-            if(time % 5 == 0 && exist){
-            getWorld().addObject(new LightBall(true, direction[x]), getX(), getY());
-        }
-        }else if(time1 < 600){
-            direction[x]+=2;
-            if(time % 4 == 0 && exist){
-            getWorld().addObject(new LightBall(true, direction[x]), getX(), getY());
-        }
-        }else if(time1 < 900){
-            direction[x]+=3;
-            if(time % 3 == 0 && exist){
-            getWorld().addObject(new LightBall(true, direction[x]), getX(), getY());
-        }
-        }else if(time1 < 1200){
-            direction[x]-=2;
-            if(time % 4 == 0 && exist){
-                getWorld().addObject(new LightBall(true, direction[x]), getX(), getY());
+    private double phase1Method1(double prev){
+        x++;
+            if(prev<-7){//swing the "lines" of bullets, reverse swing if necessary.
+                prev = -7;
+                rev = true;
+            }else if(prev>7){
+                prev = 7;
+                rev = false;
             }
-        }else if(time1 < 1500){
-            direction[x]--;
-            if(time % 5 == 0 && exist){
-                getWorld().addObject(new LightBall(false, direction[x]), getX(), getY());
+            prev += (rev ? 1 : -1);
+            int xpos = 600, ypos = this.getY();
+            for(int i=0; i<3; i++){//generating the 4 "lines" of bullets on the side
+                int theta = (i-1)*80;
+                getWorld().addObject(new Bullet_Undirected(0, 11, (int)(90+prev)+theta, 8, 17, xpos-xpos/3, ypos-50, false), xpos-xpos/3, ypos-50);
+                getWorld().addObject(new Bullet_Undirected(0, 11, (int)(90-prev)+theta, 8, 17, xpos+xpos/3, ypos-50, false), xpos+xpos/3, ypos-50);
+                getWorld().addObject(new Bullet_Undirected(0, 11, (int)(90+prev)+theta, 8, 17, xpos-3*(xpos/4), ypos+150, false), xpos-3*(xpos/4), ypos+150);
+                getWorld().addObject(new Bullet_Undirected(0, 11, (int)(90-prev)+theta, 8, 17, xpos+3*(xpos/4), ypos+150, false), xpos+3*(xpos/4), ypos+150);
             }
+            if(prev%7==0 && prev!=0){//The other bullets
+                int tmp = (int)(Math.random()*18);
+                if(timer<4500){//The two "rings" of bullets
+                    for(int i=0; i<20; i++){
+                        getWorld().addObject(new Bullet_Undirected(0, (2.13+x/867.0), i*18+tmp, 8, 17, xpos-3*(xpos/4), ypos+150, false), xpos-3*(xpos/4), ypos+150);
+                        getWorld().addObject(new Bullet_Undirected(0, (2.13+x/867.0), i*18-tmp, 8, 17, xpos+3*(xpos/4), ypos+150, false), xpos+3*(xpos/4), ypos+150);
+                    }
+                }
+                if(prev>0){//The bullets which aims to player
+                    int dx = ((SideWorld)getWorld()).getHitBox().getX()-getX();
+                    int dy = ((SideWorld)getWorld()).getHitBox().getY()-getY();
+                    getWorld().addObject(new Bullet_Undirected(0, 5, (int)(Math.toDegrees(Math.atan2(dy, dx))), 1, 18, getX(), getY(), false), getX(), getY());
+                }
+            }
+            return prev;
+    }
+    
+    private void phase1ATK(){
+        if(cnt==0){
+            cnt = 2;
+            prevAng = phase1Method1(prevAng);
         }else{
-            time1 = 0;
+            cnt--;
         }
-        
-        
-        
-    
     }
     
-    public void skyKill(){
-        if(time1 % 600 == 0){
-            Random r = new Random();
-            int x = 336 + (1 + r.nextInt(8))*66;
-            int y = 655 - (1 + r.nextInt(8))*40;
-            getWorld().addObject(new Bomb(), x, y);
+    public void addedToWorld(World w){
+        sw = (SideWorld)w;
+        
+    }
+    
+    private void phase2ATK(){
+        if(!addSidePlane){
+            sw.addObject(new SidePlane(), getX() - 200, getY());
+            sw.addObject(new SidePlane(), getX() + 200, getY());
+            addSidePlane = true;
         }
-        
-        
+    }
+    
+    
+    public void act(){
+        timer--;
+        switch(meth){
+            case 1:
+                phase1ATK();
+                break;
+            case 2:
+                phase2ATK();
+                break;
+        }
+        if(timer==0){
+            sw.changeTalk(true);
+            ((SideWorld)getWorld()).remAllBullets();
+            
+            getWorld().removeObject(this);
+        }
+            
     }
     
     
