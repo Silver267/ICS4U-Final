@@ -36,6 +36,9 @@ import java.io.FileNotFoundException;
  * <ul>Talk: An Eternal Prison (Pokemon XY)</ul>
  * <ul>Final Panel: Don't Ever Forget (Pokemon Mystery Dungeon: Explorers of Sky)</ul>
  * 
+ * <h1>Sound Effect Citations:</h1>
+ * <p> All sound effects are taken from LuaSTG-EX-Plus.</p>
+ * <p> Except for 'lightSound', which is taken from public domain.</p>
  * @author Molly Wu & Yawen & Xuanxi
  * @version 6.9.2023
  */
