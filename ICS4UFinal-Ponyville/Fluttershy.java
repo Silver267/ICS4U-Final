@@ -37,10 +37,30 @@ public class Fluttershy extends Enemy{
         }
     }
     
+    private void phase2Method1(){
+        double fx = x*x*0.7;
+        ang = ang+fx;
+        for(int i=0; i<3; i++){
+            getWorld().addObject(new Bullet_Undirected(0, 1.5, (int)(i*120+ang), 8, 17, getX(), getY(), false), getX(), getY());            
+        }
+        for(int i=0; i<3; i++){
+            getWorld().addObject(new Bullet_Undirected(0, 3, (int)(i*120+ang+10), 8, 17, getX(), getY(), false), getX(), getY());            
+        }
+    }
+    
     private void phase1ATK(){
         if(cnt==0){
             phase1Method1();
-            x++; cnt = 1;
+            x++; cnt = 4;
+        }else{
+            cnt--;
+        }
+    }
+    
+    private void phase2ATK(){
+        if(cnt==0){
+            x++; cnt = 8;
+            phase2Method1();
         }else{
             cnt--;
         }
@@ -55,6 +75,9 @@ public class Fluttershy extends Enemy{
         switch(meth){
             case 1:
                 phase1ATK();
+                break;
+            case 2:
+                phase2ATK();
                 break;
         }
         if(timer==0){
