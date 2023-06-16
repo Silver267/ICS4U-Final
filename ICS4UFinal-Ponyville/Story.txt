@@ -193,6 +193,7 @@ enemy,T,2,X,Phew, alright, that makes it better; but next time, I WILL be the on
 enemy,F,2,X,I AM 16! Excuse me!
 enemy,F,2,X,I can't chill, goodbye!
 End,LusterDawn,X
+
 Start,FlutterShy,X
 enemy,S,0,X,I always wanted to be kind to my friends, but I'm too shy and too scared that I don't truly express what I want to say. I feel like they are always disappointed at me...
 horse,T,1,X,No, no, I even heard your friends talking good things about you!

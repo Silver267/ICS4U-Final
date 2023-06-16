@@ -81,7 +81,7 @@ public class SideWorld extends World
         
         setBackground(backGround);
         
-        
+        setPaintOrder(Enemy.class);
         b1 = new Block(0);
         b2 = new Block(0);
         b3 = new Block(90);
@@ -98,11 +98,11 @@ public class SideWorld extends World
         d = new Option(new GreenfootImage("D.png"), new GreenfootImage("D1.png"),false);
         cf = new Option(new GreenfootImage("Continue.png"), new GreenfootImage("Continue1.png"),true);
         
+        
+        
        
         
-        if(id == 0 ){//&& Statics.getLevel() == 4 add later
-            //boss = new Boss();
-            //addObject(boss, 600, 150);
+        if(id == 0 && Statics.getLevel() != 4){// add later
             hitBox = new HitBox(false);
             addObject(hitBox, 500, 500);
             addObject(a, 150, 380);
@@ -111,25 +111,24 @@ public class SideWorld extends World
             addObject(d, 1050, 530);
             addObject(cf, 1050, 633);
             keepCount = true;
-            //addObject(new Plane(4, 6, 2, 3, 0, 90), 600, 200);
+            
             addObject(new HPBar(true), 200, 200);
             //addObject(new HPBar(false), 200, 400);
             
             
             Statics.takeInWords();
-            character = 11;
-            conversation = Statics.getConversation().get(character);
+            System.out.println(character);
             
+            character = 8 + Statics.getLevel();
+            conversation = Statics.getConversation().get(character); //use after
             rounds = 0;
-            limit = Integer.parseInt(conversation.get(conversation.size()-2).substring(8,9));
-            System.out.println("limit" + limit);
-            //character = 8 + Statics.getLevel();
-            //conversation = Statics.getConversation().get(character); use after
+            limit = Integer.parseInt(conversation.get(conversation.size()-2).substring(8,9)); 
+            System.out.println(character);
+            
             if(character == 9){
-               
-                
+                addObject(new Fluttershy(Greenfoot.getRandomNumber(2)+1, 600), 600, 150);
             }else if(character == 10){
-                addObject(new PinkiePie(Greenfoot.getRandomNumber(2)+1, 120), 600, 800);
+                addObject(new PinkiePie(Greenfoot.getRandomNumber(2)+1, 800), 600, 150);
             }else if(character == 11){
                 addObject(new TwilightSparkle(Greenfoot.getRandomNumber(2)+1, 1200), 600, 150);
             }
@@ -139,13 +138,14 @@ public class SideWorld extends World
             
             
             
-        }else {//&& Statics.getLevel() == 4 add later
+        }else if(Statics.getLevel() != 4){
             addObject(new BattleScreen(), 600, 510);
             talkOnly = new GreenfootSound("bgm-normal-battle.mp3");
             Statics.takeInWords();
             //use this code after, character = id*Statics.getLevel()-1;
+            //character = 8;
             character = id+(Statics.getLevel()-1)*3-1;
-            //character = id*3-1;
+            
             conversation = Statics.getConversation().get(character);
            
             GreenfootImage lines = new GreenfootImage(300, 200);
@@ -186,9 +186,16 @@ public class SideWorld extends World
                 addObject(new Pony(character1), 600, 200);
             }else if(character == 8){
                 character1 = new GreenfootImage("LusterDawn/tile000.png");
-                addObject(new Pony(character1), 600, 2000);
+                addObject(new Pony(character1), 600, 200);
             }
             
+        }else{
+            addObject(boss = new Boss(2), 600, 200);
+            addObject(new HPBar(true), 200, 200);
+            addObject(new HPBar(false), 200, 400);
+            hitBox = new HitBox(true);
+            addObject(new BattleScreen(), 600, 510);
+            addObject(hitBox, 500, 500);
         }
         sayMore = true;
         
@@ -325,8 +332,10 @@ public class SideWorld extends World
             
             if(rounds == 1 && needAdd){
                 removeObject(conversationCentre);
-                if(character == 10){
-                    addObject(new PinkiePie(1, 120), 600, 150);
+                if(character == 9){
+                    addObject(new Fluttershy(Greenfoot.getRandomNumber(2)+1, 600), 600, 150);
+                }else if(character == 10){
+                    addObject(new PinkiePie(Greenfoot.getRandomNumber(2)+1, 800), 600, 150);
                 }else if(character == 11){
                     addObject(new TwilightSparkle(Greenfoot.getRandomNumber(2)+1, 1200), 600, 150);
                 }
@@ -341,61 +350,36 @@ public class SideWorld extends World
             }
             if(cf.isClick() && successTime >= 2 && !done){
                 talk = false;
-                if(character == 9){
-                    
-                }else if(character == 10){
-                    removeObject(conversationCentre);
-                    wrongTime = 0;
-                    done = false;
-
-                    Statics.setLevel(Statics.getLevel()+1);
-                    Statics.rsetStay();
-                    Statics.setOrb(3);
-                    Statics.setHP(40);
-                    Statics.setActive(false);
+                removeObject(conversationCentre);
+                wrongTime = 0;
+                done = false;
+                Statics.setLevel(Statics.getLevel()+1);
+                Statics.rsetStay();
+                Statics.setOrb(3);
+                Statics.setHP(40);
+                Statics.setActive(false);
+                if(character != 11)
                     Greenfoot.setWorld(new MainWorld());
-                }else if(character == 11){
-                    removeObject(conversationCentre);
-                    wrongTime = 0;
-                    done = false;
-
-                    Statics.setLevel(Statics.getLevel()+1);
-                    Statics.rsetStay();
-                    Statics.setOrb(3);
-                    Statics.setHP(40);
-                    Statics.setActive(false);
-                    Greenfoot.setWorld(new MainWorld());
+                else
+                    Greenfoot.setWorld(new SideWorld(0));
                     
-                }
+                    //switch to final battle
             }
             if(wrongTime == 2 && done && cf.isClick()){
                 talk = false;
+                removeObject(conversationCentre);
                 if(character == 9){
-                    
+                    addObject(new Fluttershy(Greenfoot.getRandomNumber(2)+1, 600), 600, 150);
                 }else if(character == 10){
-                    removeObject(conversationCentre);
-                    if(character == 10){
-                        addObject(new PinkiePie(2, 120), 600, 150);
-                    }
-                    
-                    if(first == 2){
-                        first = 0;
-                    }
-                    wrongTime = 0;
-                    done = false;
+                    addObject(new PinkiePie(Greenfoot.getRandomNumber(2)+1, 800), 600, 150);
                 }else if(character == 11){
-                    removeObject(conversationCentre);
-                    if(character == 11){
-                        addObject(new TwilightSparkle(Greenfoot.getRandomNumber(2)+1, 1200), 600, 150);
-                    }
-                    
-                    if(first == 2){
-                        first = 0;
-                    }
-                    wrongTime = 0;
-                    done = false;
-                    
+                    addObject(new TwilightSparkle(Greenfoot.getRandomNumber(2)+1, 1200), 600, 150);
                 }
+                if(first == 2){
+                    first = 0;
+                }
+                wrongTime = 0;
+                done = false;
             }
             
             if(cf.isClick() && done){
@@ -403,8 +387,6 @@ public class SideWorld extends World
             }
             
         }
-        
-        
     }
     
     public int getCountTime(){
@@ -432,8 +414,6 @@ public class SideWorld extends World
                 done = false;
             }
             change = true;
-            
-
         }else if(b.isClick() && rounds < limit ){
             start = true;
             removeObject(conversationCentre);
@@ -450,7 +430,6 @@ public class SideWorld extends World
                 done = false;
             }
             change = true;
-            
         }else if(c.isClick() && rounds < limit){
             start = true;
             removeObject(conversationCentre);

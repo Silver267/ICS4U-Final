@@ -19,34 +19,12 @@ public class EndWorld extends World
         // Create a new world with 1200x675 cells with a cell size of 1x1 pixels.
         super(1200, 675, 1, false);
         Statics.saveTime();
-        if (result) {
-            setBackground(new GreenfootImage("images/EndWorldGood.jpg"));
-        } else {
-            setBackground(new GreenfootImage("images/EndWorldBad.jpg"));
-        }
+        GreenfootImage img = new GreenfootImage(result?"EndWorldGood.jpg":"EndWorldBad.jpg");
+        img.scale(1200, 675);
+        setBackground(img);
     }
     
     public void setEnd(){
         end = true;
-    }
-    
-    public EndWorld()
-    {
-        super(1200, 675, 1, false);
-        
-        if (Statics.getLevel() == 3) {
-            setBackground(new GreenfootImage("images/9.jpg"));
-        }
-        instruction = new Label("Press z to enter Battle World!", 30);
-        addObject(instruction, 600, 580);
-    }
-    
-    public void act() {
-        if (Greenfoot.isKeyDown("z") && !end) {
-            Greenfoot.setWorld(new SideWorld(3));
-        }else{
-            
-        }
-        
     }
 }

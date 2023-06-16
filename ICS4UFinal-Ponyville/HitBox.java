@@ -84,7 +84,7 @@ public class HitBox extends SuperSmoothMover
     
     public void success(){
         if(final1 && start && sw.getBoss().getHp() < 0){
-            EndWorld ew = new EndWorld();
+            EndWorld ew = new EndWorld(true);
             ew.setEnd();
             Greenfoot.setWorld(ew);
             

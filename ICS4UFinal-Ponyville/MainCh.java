@@ -118,7 +118,7 @@ public class MainCh extends MovingInTurns{
         }   
         //if fail, use this commnd
         if(Statics.getHP()<=0){
-            Statics.setHP(50);
+            Statics.setHP(40);
             Statics.setActive(false);
             getWorld().stopped();
             Greenfoot.setWorld(new MainWorld());
