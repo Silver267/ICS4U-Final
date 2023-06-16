@@ -45,6 +45,10 @@ public class TwilightSparkle extends Enemy{
         }
     }
     
+    public void addedToWorld(World w){
+        sw = (SideWorld)w;
+    }
+    
     public void act(){
         timer--;
         switch(meth){

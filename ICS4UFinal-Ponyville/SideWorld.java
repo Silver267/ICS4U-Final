@@ -117,7 +117,7 @@ public class SideWorld extends World
             
             
             Statics.takeInWords();
-            character = 10;
+            character = 11;
             conversation = Statics.getConversation().get(character);
             
             rounds = 0;
@@ -126,15 +126,12 @@ public class SideWorld extends World
             //character = 8 + Statics.getLevel();
             //conversation = Statics.getConversation().get(character); use after
             if(character == 9){
-                /*
-                for(String x:conversation){
-                    System.out.println(x);
-                }
-                */
-            }else if(character == 10){
-                addObject(new PinkiePie(2, 120), 600, 150);
-            }else if(character == 11){
+               
                 
+            }else if(character == 10){
+                addObject(new PinkiePie(Greenfoot.getRandomNumber(2)+1, 120), 600, 800);
+            }else if(character == 11){
+                addObject(new TwilightSparkle(Greenfoot.getRandomNumber(2)+1, 1200), 600, 150);
             }
             
             
@@ -328,7 +325,12 @@ public class SideWorld extends World
             
             if(rounds == 1 && needAdd){
                 removeObject(conversationCentre);
-                addObject(new PinkiePie(2, 120), 600, 150);
+                if(character == 10){
+                    addObject(new PinkiePie(1, 120), 600, 150);
+                }else if(character == 11){
+                    addObject(new TwilightSparkle(Greenfoot.getRandomNumber(2)+1, 1200), 600, 150);
+                }
+                
                 wrongTime = 0;
                 done = false;
                 needAdd = false;
@@ -353,6 +355,16 @@ public class SideWorld extends World
                     Statics.setActive(false);
                     Greenfoot.setWorld(new MainWorld());
                 }else if(character == 11){
+                    removeObject(conversationCentre);
+                    wrongTime = 0;
+                    done = false;
+
+                    Statics.setLevel(Statics.getLevel()+1);
+                    Statics.rsetStay();
+                    Statics.setOrb(3);
+                    Statics.setHP(40);
+                    Statics.setActive(false);
+                    Greenfoot.setWorld(new MainWorld());
                     
                 }
             }
@@ -362,13 +374,26 @@ public class SideWorld extends World
                     
                 }else if(character == 10){
                     removeObject(conversationCentre);
-                    addObject(new PinkiePie(2, 120), 600, 150);
+                    if(character == 10){
+                        addObject(new PinkiePie(2, 120), 600, 150);
+                    }
+                    
                     if(first == 2){
                         first = 0;
                     }
                     wrongTime = 0;
                     done = false;
                 }else if(character == 11){
+                    removeObject(conversationCentre);
+                    if(character == 11){
+                        addObject(new TwilightSparkle(Greenfoot.getRandomNumber(2)+1, 1200), 600, 150);
+                    }
+                    
+                    if(first == 2){
+                        first = 0;
+                    }
+                    wrongTime = 0;
+                    done = false;
                     
                 }
             }
