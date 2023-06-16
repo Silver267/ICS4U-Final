@@ -190,7 +190,7 @@ public class SideWorld extends World
             }
             
         }else{
-            addObject(boss = new Boss(2), 600, 200);
+            addObject(boss = new Boss(), 600, 200);
             addObject(new HPBar(true), 200, 200);
             addObject(new HPBar(false), 200, 400);
             hitBox = new HitBox(true);

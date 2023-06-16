@@ -13,7 +13,7 @@ public class Boss extends Enemy
      * Act - do whatever the PinkiePie wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    private int x, meth, timer, cnt;
+    private int x, cnt;
     private double prevAng;
     private boolean rev;
     private SideWorld sw;
@@ -21,10 +21,10 @@ public class Boss extends Enemy
     
     //meth: which attack pattern will use 
     private GreenfootImage gf;
-    public Boss(int meth){
-        x = 0; this.meth = meth;
+    public Boss(){
+        x = 0; hp = 3000;
         cnt = 0; prevAng = 0;
-        gf = new GreenfootImage("MainPony/FS-1.png");
+        gf = new GreenfootImage("blackball.png");
         gf.scale(150, 150); rev = false;
         setImage(gf);
     }
@@ -57,12 +57,10 @@ public class Boss extends Enemy
             }
             if(prev%7==0 && prev!=0){//The other bullets
                 int tmp = (int)(Math.random()*18);
-                if(timer<4500){//The two "rings" of bullets
                     for(int i=0; i<20; i++){
                         getWorld().addObject(new Bullet_Undirected(0, (2.13+x/867.0), i*18+tmp, 8, 17, xpos-3*(xpos/4), ypos+150, false), xpos-3*(xpos/4), ypos+150);
                         getWorld().addObject(new Bullet_Undirected(0, (2.13+x/867.0), i*18-tmp, 8, 17, xpos+3*(xpos/4), ypos+150, false), xpos+3*(xpos/4), ypos+150);
                     }
-                }
                 if(prev>0){//The bullets which aims to player
                     int dx = ((SideWorld)getWorld()).getHitBox().getX()-getX();
                     int dy = ((SideWorld)getWorld()).getHitBox().getY()-getY();
@@ -96,22 +94,10 @@ public class Boss extends Enemy
     
     
     public void act(){
-        timer--;
-        switch(meth){
-            case 1:
-                phase1ATK();
-                break;
-            case 2:
-                phase2ATK();
-                break;
-        }
-        if(timer==0){
-            sw.changeTalk(true);
-            ((SideWorld)getWorld()).remAllBullets();
-            
-            getWorld().removeObject(this);
-        }
-            
+        if(hp>1500)
+            phase1ATK();
+        else
+            phase2ATK();
     }
     
     
