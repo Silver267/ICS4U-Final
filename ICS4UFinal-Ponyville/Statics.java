@@ -158,7 +158,7 @@ public class Statics{
        
         
         for(int i = 0; i < talkStorage1.size(); i++){
-            startLine[i] = talkStorage1.get(i).get(1).substring(12);
+            startLine[i] = talkStorage1.get(i).get(1);
             
         }
     }
