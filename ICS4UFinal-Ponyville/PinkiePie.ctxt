@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=PinkiePie
-comment0.text=\r\n\ Pinkie\ pie\ that\ releases\ bullets\r\n\ \r\n\ @author\ Xuanxi\ Jiang\r\n\ @version\ 1.0\r\n
+comment0.text=\n\ Pinkie\ pie\ that\ releases\ bullets\n\ \n\ @author\ Xuanxi\ Jiang\n\ @version\ 1.0\n
 comment1.params=meth\ duration
 comment1.target=PinkiePie(int,\ int)
 comment2.params=

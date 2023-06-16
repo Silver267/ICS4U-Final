@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Generate2
-comment0.text=\r\n\ Thing\ that\ generates\ bullets\ (used\ as\ Twilight's\ second\ attack)\r\n\ \r\n\ @author\ Xuanxi\ Jiang\r\n\ @version\ 1.0\r\n
+comment0.text=\n\ Thing\ that\ generates\ bullets\ (used\ as\ Twilight's\ second\ attack)\n\ \n\ @author\ Xuanxi\ Jiang\n\ @version\ 1.0\n
 comment1.params=activeCnt
 comment1.target=Generate2(int)
 comment2.params=

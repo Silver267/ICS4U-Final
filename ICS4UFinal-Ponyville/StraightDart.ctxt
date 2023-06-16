@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=StraightDart
-comment0.text=\r\n\ Darts\ that\ goes\ in\ straight\ lines.\r\n\ \r\n\ @author\ George\ Liu\r\n\ @version\ 1.0\r\n
+comment0.text=\n\ Darts\ that\ goes\ in\ straight\ lines.\n\ \n\ @author\ George\ Liu\n\ @version\ 1.0\n
 comment1.params=
 comment1.target=void\ act()
-comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ StraightDart\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment1.text=\n\ Act\ -\ do\ whatever\ the\ StraightDart\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
 numComments=2

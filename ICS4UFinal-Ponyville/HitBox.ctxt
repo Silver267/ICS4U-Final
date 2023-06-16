@@ -1,11 +1,11 @@
 #BlueJ class context
 comment0.target=HitBox
-comment0.text=\r\n\ Player's\ hit\ box\ at\ battle\ screen.\r\n\ \r\n\ @author\ George\ Lu\r\n\ @version\ 2023/6/1\ \r\n
+comment0.text=\n\ Player's\ hit\ box\ at\ battle\ screen.\n\ \n\ @author\ George\ Lu\n\ @version\ 2023/6/1\ \n
 comment1.params=final1
 comment1.target=HitBox(boolean)
 comment2.params=
 comment2.target=void\ act()
-comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ HitBox\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment2.text=\n\ Act\ -\ do\ whatever\ the\ HitBox\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
 comment3.params=w
 comment3.target=void\ addedToWorld(greenfoot.World)
 comment4.params=x\ y
