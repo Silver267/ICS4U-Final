@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class LightBall here.
+ * Essentially Bullet_Undirected implemted another way.
  * 
  * @author George Lu
- * @version (a version number or a date)
+ * @version 1.0
  */
 public class LightBall extends StraightDart
 {

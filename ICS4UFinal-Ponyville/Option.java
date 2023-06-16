@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Option here.
+ * The 'A, B, C, D' keys.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author George Liu
+ * @version 1.0
  */
 public class Option extends BattleScreen
 {
@@ -24,14 +24,6 @@ public class Option extends BattleScreen
         }
         
         setImage(gf);
-    }
-    /**
-     * Act - do whatever the Option wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
-    {
-        
     }
     
     public boolean isClick(){

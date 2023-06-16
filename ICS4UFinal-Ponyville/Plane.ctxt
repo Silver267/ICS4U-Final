@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Plane
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Plane\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ thing\ that\ Boss\ is\ supposed\ to\ call\ at\ the\ second\ phase\r\n\ \r\n\ @author\ George\ Liu\r\n\ @version\ 1.0\r\n
 comment1.params=shoot\ bs\ os\ ts\ path\ direction
 comment1.target=Plane(int,\ double,\ double,\ double,\ int,\ int)
 comment2.params=

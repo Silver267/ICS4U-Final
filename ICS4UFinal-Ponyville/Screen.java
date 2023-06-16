@@ -4,7 +4,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * Write a description of class Screen here.
  * 
  * @author George Lu
- * @version (a version number or a date)
+ * @version 1.0
  */
 public class Screen extends SuperSmoothMover
 {

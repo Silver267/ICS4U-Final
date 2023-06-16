@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class sidePlane here.
+ * The thing that Boss calls at the second phase
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author George Liu
+ * @version 1.0
  */
 public class SidePlane extends Enemy
 {

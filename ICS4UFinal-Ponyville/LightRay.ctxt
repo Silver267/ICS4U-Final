@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=LightRay
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ LightRay\ here.\r\n\ \r\n\ @author\ George\ Lu\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ laser\r\n\ \r\n\ @author\ George\ Lu\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=direction\ width\ warnTime\ duration
 comment1.target=LightRay(int,\ int,\ int,\ int)
 comment2.params=w

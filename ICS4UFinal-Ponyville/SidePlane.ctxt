@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=SidePlane
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ sidePlane\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ thing\ that\ Boss\ calls\ at\ the\ second\ phase\r\n\ \r\n\ @author\ George\ Liu\r\n\ @version\ 1.0\r\n
 comment1.params=
 comment1.target=SidePlane()
 comment2.params=

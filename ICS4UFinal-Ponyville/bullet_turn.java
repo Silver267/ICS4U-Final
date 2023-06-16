@@ -1,6 +1,7 @@
 import greenfoot.*;
 /**
  * Undirected bullet (goes in a straight line and will not automatically aim to target)
+ * However this bullet will turn every few whiles
  * 
  * @author Xuanxi Jiang
  * @version 1.0

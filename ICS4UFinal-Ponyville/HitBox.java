@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class HitBox here.
+ * Player's hit box at battle screen.
  * 
  * @author George Lu
  * @version 2023/6/1 

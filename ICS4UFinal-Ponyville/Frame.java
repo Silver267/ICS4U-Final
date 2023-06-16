@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Frame here.
+ * Frame that displays the best time of pass.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Xuanxi Jiang
+ * @version 1.0
  */
 public class Frame extends Actor{
     /**

@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Fluttershy
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ PinkiePie\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Fluttershy\ that\ release\ bullets\r\n\ \r\n\ @author\ Xuanxi\ Jiang\r\n\ @version\ 1.0\r\n
 comment1.params=meth\ duration
 comment1.target=Fluttershy(int,\ int)
 comment2.params=

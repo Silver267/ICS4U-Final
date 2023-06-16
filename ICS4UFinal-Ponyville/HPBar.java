@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class HPBar here.
+ * HP Bar of either player or boss at battle screen.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author George Liu
+ * @version 1.0
  */
 public class HPBar extends SuperSmoothMover
 {
@@ -39,7 +39,7 @@ public class HPBar extends SuperSmoothMover
         hp();
     }
     
-    public void hp(){
+    private void hp(){
         if(side){
             hpC = Statics.getHP();
             hpBar = SparkleEngine.drawProgressBar(hpI, hpC, 150, 15, Color.RED, Color.BLACK);

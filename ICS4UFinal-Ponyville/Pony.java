@@ -1,22 +1,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Pony here.
+ * The pony icon at normal (non-boss) battles.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author George Liu
+ * @version 1.0
  */
 public class Pony extends BattleScreen
 {
     public Pony(GreenfootImage image){
         setImage(image);
-    }
-    /**
-     * Act - do whatever the Pony wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
-    {
-        // Add your action code here.
     }
 }

@@ -39,16 +39,6 @@ public class MainWorld extends World{
             }
         }
         Statics.setActive(true);
-        /**
-         * BGM thoughts:
-         * Start: Prisoner to a Formula
-         * 1 - Nectar Meadow (Pokemon SMD Music 037
-         * 2 - Sun/Moon Disc 3 Music 37
-         * 3 - XY Disc 2 Music 25
-         * Boss Battle: The Bitter Cold Stage 2
-         * Final Boss: Battle (Ultra Necrozma)
-         * Talk: An Eternal Prison
-         */
         bgm = new GreenfootSound("bgm-l-"+Statics.getLevel()+".mp3");
         bgm.stop(); bgm.setVolume(70);
         addObject(new Panel(), 1200/2, (getMap().getSz()[1]+4)/2);

@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class ProgressBar here.
+ * HP/MP bar for player
  * 
  * @author Yawen
  * @version 20230606

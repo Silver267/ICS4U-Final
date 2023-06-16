@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class battleBox here.
+ * The box that displays the boundary of player's movement.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Xuanxi Jiang
+ * @version 1.0
  */
 public class battleBox extends Actor{
     public battleBox(){

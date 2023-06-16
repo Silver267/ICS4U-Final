@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Generate2 here.
+ * Thing that generates bullets (used as Twilight's second attack)
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Xuanxi Jiang
+ * @version 1.0
  */
 public class Generate2 extends removableBullet{
     private int activeCnt, x;

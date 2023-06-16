@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class MainCh here.
+ * Your main character in the maze.
  * 
  * @author Xuanxi Jiang
- * @version (a version number or a date)
+ * @version 1.0
  */
 public class MainCh extends MovingInTurns{
     private int magic, targMP;

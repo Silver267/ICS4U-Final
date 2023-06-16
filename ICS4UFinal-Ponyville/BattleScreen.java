@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class BattleScreen here.
+ * The dialogue box that appears in normal battles.
  * 
  * @author George Lu
  * @version 2023/6/1 11:52

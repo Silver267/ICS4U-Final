@@ -4,7 +4,7 @@ import java.io.*;
  * Map, contains map and various methods that a map needs
  * Created when WarWorld is created, reflects map.
  * 
- * @author Thomas
+ * @author Xuanxi Jiang
  * @version 1.0
  */
 public class CoordMap{
@@ -82,7 +82,7 @@ public class CoordMap{
     }
     
     //Fastreader
-    public static class FastReader {
+    private static class FastReader {
         BufferedReader br;
         StringTokenizer st;
         public FastReader(FileReader in) {

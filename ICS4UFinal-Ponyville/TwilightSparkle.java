@@ -2,16 +2,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 
 /**
- * Write a description of class PinkiePie here.
+ * Twilight that releases bullets.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Xuanxi Jiang
+ * @version 1.0
  */
 public class TwilightSparkle extends Enemy{
-    /**
-     * Act - do whatever the PinkiePie wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     private int x, meth, timer, prevAng, cnt;
     private double ang; 
     private SideWorld sw;

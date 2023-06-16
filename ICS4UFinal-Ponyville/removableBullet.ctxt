@@ -1,7 +1,4 @@
 #BlueJ class context
 comment0.target=removableBullet
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ removableBullet\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=
-comment1.target=void\ act()
-comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ removableBullet\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
-numComments=2
+comment0.text=\r\n\ Bullets\ that\ should\ be\ removed\ once\ the\ turn\ is\ finished.\r\n\ This\ class\ is\ built\ for\ the\ ease\ of\ erasing\ bullets\ using\ arrayList,\ so\ it\ should\ be\ empty.\r\n\ \r\n\ @author\ Xuanxi\ Jiang\r\n\ @version\ 1.0\r\n
+numComments=1

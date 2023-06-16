@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=HPBar
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ HPBar\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ HP\ Bar\ of\ either\ player\ or\ boss\ at\ battle\ screen.\r\n\ \r\n\ @author\ George\ Liu\r\n\ @version\ 1.0\r\n
 comment1.params=side
 comment1.target=HPBar(boolean)
 comment2.params=w

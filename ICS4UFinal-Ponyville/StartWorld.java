@@ -2,15 +2,25 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.io.FileNotFoundException;
 
 /**
- * Write a description of class StartWorld here.
- * The starting world for this game. Introduces the background story and instructions for the user to better understand the game.
+ * <p>Write a description of class StartWorld here.
+ * <p>The starting world for this game. Introduces the background story and instructions for the user to better understand the game.
  * 
- * Notes:
- * This is a release-preview version of the game, some features are not polished, and there are some errors in the introduction screen too.
+ * <p>Notes:
+ * <p>This is a release-preview version of the game, some features are not polished, and there are some errors in the introduction screen too.
  * 
- *  Additional notes:
- *      The keys to move around is not "wasd", instead, its the arrow keys (up, down, left, right)
- *      These keys are the same keys that you will use in battle when dodging bullets.
+ *  <p>Additional notes:
+ *      <p>The keys to move around is not "wasd", instead, its the arrow keys (up, down, left, right)
+ *      <p>These keys are the same keys that you will use in battle when dodging bullets.
+ * 
+ * <p>BGM Citations:
+ *  <p>Beginning: Prisoner to a Formula (Pokemon
+ *  <p>1st map - Nectar Meadow (Pokemon SMD Music 037)
+ *  <p>2nd map - Sun/Moon Disc 3 Music 37
+ *  <p>3rd map - XY Disc 2 Music 25
+ *  <p>Boss Battle: The Bitter Cold Stage 2
+ *  <p>Final Boss: Battle (Ultra Necrozma)
+ *  <p>Talk: An Eternal Prison (Pokemon XY)
+ *  <p>Final Panel: Don't Ever Forget (Pokemon Mystery Dungeon: Explorers of Sky)
  * 
  * @author Molly Wu & Yawen & Xuanxi
  * @version 6.9.2023

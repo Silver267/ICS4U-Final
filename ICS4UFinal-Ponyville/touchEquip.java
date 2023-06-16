@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * The pony
+ * The pony that appears in the map, there should be three of them.
  * 
  * @author Ming & Yawen
- * @version (a version number or a date)
+ * @version 1.0
  */
 public class touchEquip extends Actor{
     private GreenfootImage img;

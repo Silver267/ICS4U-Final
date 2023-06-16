@@ -2,17 +2,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 
 /**
- * Write a description of class Boss here.
+ * Final boss that releases bullets and shifts to phase 2 when hp is lower than 3000.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Various
+ * @version 1.0
  */
 public class Boss extends Enemy
 {
-    /**
-     * Act - do whatever the PinkiePie wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     private int x, cnt;
     private double prevAng;
     private boolean rev;

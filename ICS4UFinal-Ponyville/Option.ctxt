@@ -1,11 +1,8 @@
 #BlueJ class context
 comment0.target=Option
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Option\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ 'A,\ B,\ C,\ D'\ keys.\r\n\ \r\n\ @author\ George\ Liu\r\n\ @version\ 1.0\r\n
 comment1.params=gf\ gf1\ check
 comment1.target=Option(greenfoot.GreenfootImage,\ greenfoot.GreenfootImage,\ boolean)
 comment2.params=
-comment2.target=void\ act()
-comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ Option\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
-comment3.params=
-comment3.target=boolean\ isClick()
-numComments=4
+comment2.target=boolean\ isClick()
+numComments=3

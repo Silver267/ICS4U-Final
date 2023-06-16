@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class PageIcon here.
+ * Essentially something that displays left and right keys on starting world.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author various
+ * @version 1.0
  */
 public class PageIcon extends Actor
 {

@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Weapon here.
+ * Weapons that enemies may use to attack.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author George Liu
+ * @version 1.0
  */
 public class Weapon extends removableBullet
 {

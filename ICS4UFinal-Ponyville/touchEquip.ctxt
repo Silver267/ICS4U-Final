@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=touchEquip
-comment0.text=\r\n\ The\ pony\r\n\ \r\n\ @author\ Ming\ &\ Yawen\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ pony\ that\ appears\ in\ the\ map,\ there\ should\ be\ three\ of\ them.\r\n\ \r\n\ @author\ Ming\ &\ Yawen\r\n\ @version\ 1.0\r\n
 comment1.params=id
 comment1.target=touchEquip(int)
 comment2.params=ponyName
