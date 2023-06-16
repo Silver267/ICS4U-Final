@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 /**
  * <p>The starting world of this game. Introduces the background story and instruction on how to play.
  * <h1>Game Instruction</h1>
- * <p>*** Must new StartWorld() every time before playing.</p>
+ * <p>*** Must new StartWorld() every time before playing ***</p>
  * <h3>1. For MainWorld (Map Maze):</h3>
  * <p><strong>¡ü¡ý¡û¡ú</strong> to move in the map.
  * <strong>'z'</strong> to allure the chaser to come closer.
@@ -26,7 +26,7 @@ import java.io.FileNotFoundException;
  * <p><strong>Press 'z'</strong> to attack the Boss.
  * <p>Goal: survive & kill the Boss.
  * 
- * <h1>BGM Citations:</h1>
+ * <h1>Background Music Citations:</h1>
  * <ul>Beginning: Prisoner to a Formula (Pokemon)</ul>
  * <ul>1st map - Nectar Meadow (Pokemon SMD Music 037)</ul>
  * <ul>2nd map - Vast Poni Canyon - Sun/Moon Disc 3 Music 37</ul>
@@ -37,8 +37,24 @@ import java.io.FileNotFoundException;
  * <ul>Final Panel: Don't Ever Forget (Pokemon Mystery Dungeon: Explorers of Sky)</ul>
  * 
  * <h1>Sound Effect Citations:</h1>
- * <p> All sound effects are taken from LuaSTG-EX-Plus.</p>
- * <p> Except for 'lightSound', which is taken from public domain.</p>
+ * <ul>All sound effects are taken from LuaSTG-EX-Plus.</ul>
+ * <ul> Except for 'lightSound', which is taken from public domain.</ul>
+ * 
+ * <h1>Graphics Citations:</h1>
+ * <ul>Farm Land: https://www.deviantart.com/the-mystery-of-doom/art/Vector-School-Grounds-294405567</ul>
+ * <ul>Track Field: https://www.vectorstock.com/royalty-free-vector/cartoon-running-track-stadium-vector-17932997</ul>
+ * <ul>Library Floor: https://www.freepik.com/free-photos-vectors/cartoon-floor</ul>
+ * <ul>Start World: https://www.pinterest.ca/pin/535154368199443510</ul>
+ * <ul>Little Pony Logo: https://www.dafont.com/forum/read/331756/my-little-pony</ul>
+ * <ul>Ponies: https://pony.town/</ul>
+ * <ul>Light Circle: https://www.pngegg.com/en/png-wrhcb</ul>
+ * <ul>Tree: https://www.vecteezy.com/png/13743345-pixel-art-tree-icon</ul>
+ * <ul>Portal: https://www.tukuppt.com/muban/yaxxwdkx.html</ul>
+ * <ul>Scroll: https://www.freepik.com/free-vector/realistic-open-parchment-scroll-transparent_39845337.htm#query=old%20scroll&position=0&from_view=keyword&track=ais</ul>
+ * <ul>Evil Character: https://kiray96.artstation.com/projects/5801xJ</ul>
+ * <ul>Ball: https://es.pixilart.com/art/crystal-ball-a971851e516e3b3</ul>
+ * <ul>Next Buttom: https://www.flaticon.com/free-icon/next-button_3318722</ul>
+ * 
  * @author Molly Wu & Yawen & Xuanxi
  * @version 6.9.2023
  */
