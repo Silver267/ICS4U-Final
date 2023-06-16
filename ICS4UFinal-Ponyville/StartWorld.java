@@ -5,6 +5,14 @@ import java.io.FileNotFoundException;
  * Write a description of class StartWorld here.
  * The starting world for this game. Introduces the background story and instructions for the user to better understand the game.
  * 
+ * Notes:
+ * This is a release-preview version of the game, some features are not polished, and there are some errors in the introduction screen too.
+ * 
+ *  Additional notes:
+ *      The keys to move around is not "wasd", instead, its the arrow keys (up, down, left, right)
+ *      These keys are the same keys that you will use in battle when dodging bullets.
+ *      When confronting the final boss, you must empty all its HP value to successfully pass. To do this, you can shoot bullets by pressing the "z" button.
+ * 
  * @author Molly Wu & Yawen & Xuanxi
  * @version 6.9.2023
  */
@@ -15,6 +23,7 @@ public class StartWorld extends World
     private int count = 0;
     private Label instructionOne;
     private GreenfootSound bgm;
+    private Frame f;
     /**
      * Constructor for objects of class StartWorld.
      * 
@@ -36,7 +45,7 @@ public class StartWorld extends World
         img = new GreenfootImage("StartWorld.jpg");
         img.scale(1200, 675);
         if(Statics.loadTime()!=-1)
-            addObject(new Frame(), 900, 600);
+            addObject(f = new Frame(), 900, 600);
         setBackground(img);
         instructionOne = new Label("prev    next", 30);
         bgm = new GreenfootSound("bgm-start.mp3");
@@ -57,6 +66,8 @@ public class StartWorld extends World
         }
         if (count == 0) {
             if (Greenfoot.isKeyDown("space")) {
+                if(f!=null)
+                    f.removeSelf();
                 count++;
                 setBackground(new GreenfootImage(count+".jpg"));
             }
@@ -70,10 +81,10 @@ public class StartWorld extends World
     }
     
     public void moveWorld(){
-        Statics.setLevel(3);
+        Statics.setLevel(1);
         Statics.setHP(40);
         Statics.setActive(false);
-        Statics.setOrb(0);
+        Statics.setOrb(3);
         Statics.rsetStay();
         unMusic(); Statics.begin();
         Greenfoot.setWorld(new MainWorld());

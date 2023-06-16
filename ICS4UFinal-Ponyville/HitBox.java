@@ -14,6 +14,8 @@ public class HitBox extends SuperSmoothMover
     private int time, damageTime;//time is for the gap between each shoot, damageTime is for the gap between each damage
     private int hp;
     private boolean final1;
+    private final int speed = 4;
+    
     public HitBox(boolean final1){
         heart = new GreenfootImage("The Heart.png");
         heart.scale(27, 27);
@@ -27,20 +29,15 @@ public class HitBox extends SuperSmoothMover
      * Act - do whatever the HitBox wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public void act()
-    {
+    public void act(){
         move();
         if(final1){
             shoot();
             success();
         }
-        
         time--;
         damageTime--;
         dead();
-        
-        
-        
     }
     
     public void addedToWorld(World w){
@@ -48,52 +45,59 @@ public class HitBox extends SuperSmoothMover
         start = true;
     }
     
-    public void move(){
-        if(Greenfoot.isKeyDown("w")){
-            setRotation(270);
-            move(2);
-        }
-        if(Greenfoot.isKeyDown("a")){
-            setRotation(180);
-            move(2);
-        }
-        if(Greenfoot.isKeyDown("s")){
-            setRotation(90);
-            move(2);
-        }
-        if(Greenfoot.isKeyDown("d")){
-            setRotation(0);
-            move(2);
+    private boolean chk(int x, int y){
+        if(y>275 && y<675 && x<925 && x>275)
+            return true;
+        return false;
+    }
+    
+    private void move(){
+        int dirX = 0, dirY = 0;
+        if (Greenfoot.isKeyDown("up"))
+            dirY -= speed;
+        if (Greenfoot.isKeyDown("down"))
+            dirY += speed;
+        if (Greenfoot.isKeyDown("left"))
+            dirX -= speed;
+        if (Greenfoot.isKeyDown("right"))
+            dirX += speed;
+        if (dirX != 0 && dirY != 0){
+            if(chk(getX()+dirX/2, getY()+dirY/2))
+                setLocation(getX()+dirX/2, getY()+dirY/2);
+        }else{
+            if(chk(getX()+dirX, getY()+dirY))
+                setLocation(getX()+dirX, getY()+dirY);
         }
     }
     
-    public void shoot(){
+    private void shoot(){
         if(Greenfoot.isKeyDown("z") && (time % 5 == 0)){
-            getWorld().addObject(new LightBall(false, 270), getX(), getY());
+            GreenfootSound st = new GreenfootSound("SE/player_Shoot.wav");
+            st.setVolume(75);
+            st.play();
+            getWorld().addObject(new Bullet_Undirected(1, 20, 270, 8, 12, getX(), getY(), true), getX(), getY());
         }
         
     }
     
-    public void dead(){
+    private void dead(){
         if(Statics.getHP() <= 0 && !final1){
-            Statics.setLevel(2);
+            Statics.setLevel(2); ((SideWorld)getWorld()).unMusic();
             Greenfoot.setWorld(new MainWorld());
-            
         }else if(final1 && start && Statics.getHP() <= 0){
+            ((SideWorld)getWorld()).unMusic();
             EndWorld ew = new EndWorld(false);
             ew.setEnd();
             Greenfoot.setWorld(ew);
         }
     }
     
-
-    
-    public void success(){
+    private void success(){
         if(final1 && start && sw.getBoss().getHp() < 0){
+            ((SideWorld)getWorld()).unMusic();
             EndWorld ew = new EndWorld(true);
             ew.setEnd();
             Greenfoot.setWorld(ew);
-            
         }
     }
     

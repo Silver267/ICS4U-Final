@@ -9,7 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class EndWorld extends World
 {
     private boolean end;
-    Label instruction;
+    private Label instruction;
+    private GreenfootSound bgm;
     /**
      * Constructor for objects of class BattleWorld.
      * 
@@ -18,10 +19,35 @@ public class EndWorld extends World
     {    
         // Create a new world with 1200x675 cells with a cell size of 1x1 pixels.
         super(1200, 675, 1, false);
-        Statics.saveTime();
+        if(result)
+            Statics.saveTime();
+        bgm = new GreenfootSound("bgm-end.mp3");
         GreenfootImage img = new GreenfootImage(result?"EndWorldGood.jpg":"EndWorldBad.jpg");
         img.scale(1200, 675);
         setBackground(img);
+        music();
+    }
+    
+    public void started(){
+        music();
+    }
+    
+    public void stopped(){
+        unMusic();
+    }
+    
+    /**
+     * Don't play music.
+     */
+    private void unMusic(){
+        bgm.stop();
+    }
+    
+    /**
+     * Play music.
+     */
+    private void music(){
+        bgm.playLoop();
     }
     
     public void setEnd(){

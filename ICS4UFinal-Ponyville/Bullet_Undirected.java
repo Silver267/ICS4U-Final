@@ -44,7 +44,7 @@ public class Bullet_Undirected extends removableBullet{
         if(friendly){//If friendly bullet, decrease enemy hp when hitted the enemy.
             if(this.isTouching(Boss.class)){
                 getWorld().removeObject(this);
-                sw.getBoss().damage(-8);
+                sw.getBoss().changeHp(8);
                 return;
             }
         }else{//else, decrease player hp when hitted the player.
@@ -80,7 +80,8 @@ public class Bullet_Undirected extends removableBullet{
         }
         if(pict==1){
             //Player's bullet
-            GreenfootImage image = new GreenfootImage("Star.png");
+            GreenfootImage image = new GreenfootImage("RedBall.png");
+            image.scale(size, size);
             return image;
         }
         return null;

@@ -7,7 +7,7 @@ import java.util.*;
  * @version 1.0
  */
 public class MainWorld extends World{
-    ShaderBox[][] sb;
+    private ShaderBox[][] sb;
     private boolean havePanel;
     private CoordMap mp;
     private int prevPlayerX, prevPlayerY;

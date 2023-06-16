@@ -34,6 +34,9 @@ public class Boss extends Enemy
     }
     
     public void changeHp(int x){
+        GreenfootSound st = new GreenfootSound("SE/enemy_damaged.wav");
+        st.setVolume(75);
+        st.play();
         hp -= x;
     }
     

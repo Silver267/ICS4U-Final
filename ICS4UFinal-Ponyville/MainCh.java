@@ -143,23 +143,23 @@ public class MainCh extends MovingInTurns{
      */
     private boolean detect(int[] gridPos){
         xx = 0;
-        if(Greenfoot.isKeyDown("w")){
+        if(Greenfoot.isKeyDown("up")){
             if(gridPos[1]-1>=0 && ((MainWorld)getWorld()).getMap().getNode(new int[]{gridPos[0], gridPos[1]-1}).getType()!=2){
                 gridPos[1]--; dir = 2;
                 moving = true;
             }
-        }else if(Greenfoot.isKeyDown("a")){
+        }else if(Greenfoot.isKeyDown("left")){
             if(gridPos[0]-1>=0 && ((MainWorld)getWorld()).getMap().getNode(new int[]{gridPos[0]-1, gridPos[1]}).getType()!=2){
                 gridPos[0]--; dir = 0;
                 moving = true;
                 facingFront = false;
             }
-        }else if(Greenfoot.isKeyDown("s")){
+        }else if(Greenfoot.isKeyDown("down")){
             if(gridPos[1]+1<11 && ((MainWorld)getWorld()).getMap().getNode(new int[]{gridPos[0], gridPos[1]+1}).getType()!=2){
                 gridPos[1]++; dir = 3;
                 moving = true;
             }
-        }else if(Greenfoot.isKeyDown("d")){
+        }else if(Greenfoot.isKeyDown("right")){
             if(gridPos[0]+1<20 && ((MainWorld)getWorld()).getMap().getNode(new int[]{gridPos[0]+1, gridPos[1]}).getType()!=2){
                 gridPos[0]++; dir = 1;
                 moving = true;

@@ -51,8 +51,6 @@ public class Statics{
         try{
             if(bestTime==-1)
                 bestTime = Long.MAX_VALUE;
-            System.out.println(System.currentTimeMillis());
-            System.out.println(startTime);
             long tmp = System.currentTimeMillis()-startTime;
             PrintWriter pw = new PrintWriter(new FileWriter("./save/save.txt"));
             if(tmp<bestTime)

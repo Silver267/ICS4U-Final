@@ -12,7 +12,10 @@ public class LightRay extends Weapon
     private boolean start, damage;//damage will tell if the lightray will start damage
     private int direction, width, warnTime, duration;
     private int damageTime;//This will check the gap it damage the hitbox
+    private GreenfootSound laserSound;
+    
     public LightRay(int direction, int width, int warnTime, int duration){
+        laserSound = new GreenfootSound("SE/laser.wav");
         base = new GreenfootImage("laser.png");
         for(int x=0; x<base.getWidth(); x++){
             for(int y=0; y<base.getHeight()/2; y++){
@@ -26,7 +29,6 @@ public class LightRay extends Weapon
         this.warnTime = warnTime;
         damageTime = 15;
         this.duration = duration;
-        
     }
     
     public void addedToWorld(World w){
@@ -42,6 +44,8 @@ public class LightRay extends Weapon
         warnIt();
         warnTime--;
         if(warnTime < 0){
+            laserSound.setVolume(60);
+            laserSound.playLoop();
             lightRay = new GreenfootImage(base);
             lightRay.scale(width, 2000);
             setImage(lightRay);
@@ -73,6 +77,7 @@ public class LightRay extends Weapon
     
     public void remove(){
         if(warnTime == -1*duration){
+            laserSound.stop();
             getWorld().removeObject(this);
         }
     }

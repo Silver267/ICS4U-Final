@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=StartWorld
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ StartWorld\ here.\r\n\ The\ starting\ world\ for\ this\ game.\ Introduces\ the\ background\ story\ and\ instructions\ for\ the\ user\ to\ better\ understand\ the\ game.\r\n\ \r\n\ @author\ Molly\ Wu\ &\ Yawen\ &\ Xuanxi\r\n\ @version\ 6.9.2023\r\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ StartWorld\ here.\r\n\ The\ starting\ world\ for\ this\ game.\ Introduces\ the\ background\ story\ and\ instructions\ for\ the\ user\ to\ better\ understand\ the\ game.\r\n\ \r\n\ Notes\:\r\n\ This\ is\ a\ release-preview\ version\ of\ the\ game,\ some\ features\ are\ not\ polished,\ and\ there\ are\ some\ errors\ in\ the\ introduction\ screen\ too.\r\n\ \r\n\ \ Additional\ notes\:\r\n\ \ \ \ \ \ The\ keys\ to\ move\ around\ is\ not\ "wasd",\ instead,\ its\ the\ arrow\ keys\ (up,\ down,\ left,\ right)\r\n\ \ \ \ \ \ These\ keys\ are\ the\ same\ keys\ that\ you\ will\ use\ in\ battle\ when\ dodging\ bullets.\r\n\ \ \ \ \ \ When\ confronting\ the\ final\ boss,\ you\ must\ empty\ all\ its\ HP\ value\ to\ successfully\ pass.\ To\ do\ this,\ you\ can\ shoot\ bullets\ by\ pressing\ the\ "z"\ button.\r\n\ \r\n\ @author\ Molly\ Wu\ &\ Yawen\ &\ Xuanxi\r\n\ @version\ 6.9.2023\r\n
 comment1.params=
 comment1.target=void\ unMusic()
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ StartWorld.\r\n\ \r\n
