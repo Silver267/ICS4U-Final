@@ -29,10 +29,10 @@ import java.io.FileNotFoundException;
  * <h1>BGM Citations:</h1>
  * <ul>Beginning: Prisoner to a Formula (Pokemon)</ul>
  * <ul>1st map - Nectar Meadow (Pokemon SMD Music 037)</ul>
- * <ul>2nd map - Sun/Moon Disc 3 Music 37</ul>
- * <ul>3rd map - XY Disc 2 Music 25</ul>
- * <ul>Boss Battle: The Bitter Cold Stage 2</ul>
- * <ul>Final Boss: Battle (Ultra Necrozma)</ul>
+ * <ul>2nd map - Vast Poni Canyon - Sun/Moon Disc 3 Music 37</ul>
+ * <ul>3rd map - The Kalos Power Plant - XY Disc 2 Music 25</ul>
+ * <ul>Boss Battle: The Bitter Cold Stage 2 (Pokemon Mystery Dungeon Gates to Infinity)</ul>
+ * <ul>Final Boss: Battle (Ultra Necrozma) (Pokemon USUM)</ul>
  * <ul>Talk: An Eternal Prison (Pokemon XY)</ul>
  * <ul>Final Panel: Don't Ever Forget (Pokemon Mystery Dungeon: Explorers of Sky)</ul>
  * 
