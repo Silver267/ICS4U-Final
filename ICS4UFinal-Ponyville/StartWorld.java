@@ -2,25 +2,39 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.io.FileNotFoundException;
 
 /**
- * <p>Write a description of class StartWorld here.
- * <p>The starting world for this game. Introduces the background story and instructions for the user to better understand the game.
+ * <p>The starting world of this game. Introduces the background story and instruction on how to play.
+ * <h1>Game Instruction</h1>
+ * <p>*** Must new StartWorld() every time before playing.</p>
+ * <h3>1. For MainWorld (Map Maze):</h3>
+ * <p><strong>¡ü¡ý¡û¡ú</strong> to move in the map.
+ * <strong>'z'</strong> to allure the chaser to come closer.
+ * <strong>alt</strong> to illuminate magic to kill chasers.
+ * <p>When in contact with Ponies or Portal, press 'z' to proceed.
+ * <p>Goal: find all Ponies to collect all 3 orbs (you get them after saving the Ponies), to get to next level.
+ * <p>*** If can't find the Ponies, in ShaderBox class, comment //this.setImage(blk);
+ * <h3>2. For SideWorld (Level Boss Conversation):</h3>
+ * <p>The ponies will say something, Flurry Heart replies by selecting choice <strong>A, B, C, D</strong>.
+ * <p>Conversation proceeds if Flurry Heart replied the correct thing.
+ * <p>Press the continue <strong>button (¡ú)</strong> to check answer, continue to next dialogue and exit world.
+ * <p>Goal: help the ponies to figure out life issues.
+ * <h3>3. For SideWorld (Level Final Boss Conversation+Battle):</h3>
+ * <p>Flurry Heart needs to dodge the attacks from the ponies, and then solve their life issues.
+ * <p>Attacks & Conversation takes turn to happen.
+ * <p>Goal: survive & help the ponies to figure out life issues.
+ * <h3>4. For SideWorld (Final Boss Battle):</h3>
+ * <p>Dodge attacks from the Boss.
+ * <p><strong>Press 'z'</strong> to attack the Boss.
+ * <p>Goal: survive & kill the Boss.
  * 
- * <p>Notes:
- * <p>This is a release-preview version of the game, some features are not polished, and there are some errors in the introduction screen too.
- * 
- *  <p>Additional notes:
- *      <p>The keys to move around is not "wasd", instead, its the arrow keys (up, down, left, right)
- *      <p>These keys are the same keys that you will use in battle when dodging bullets.
- * 
- * <p>BGM Citations:
- *  <p>Beginning: Prisoner to a Formula (Pokemon
- *  <p>1st map - Nectar Meadow (Pokemon SMD Music 037)
- *  <p>2nd map - Sun/Moon Disc 3 Music 37
- *  <p>3rd map - XY Disc 2 Music 25
- *  <p>Boss Battle: The Bitter Cold Stage 2
- *  <p>Final Boss: Battle (Ultra Necrozma)
- *  <p>Talk: An Eternal Prison (Pokemon XY)
- *  <p>Final Panel: Don't Ever Forget (Pokemon Mystery Dungeon: Explorers of Sky)
+ * <h1>BGM Citations:</h1>
+ * <ul>Beginning: Prisoner to a Formula (Pokemon)</ul>
+ * <ul>1st map - Nectar Meadow (Pokemon SMD Music 037)</ul>
+ * <ul>2nd map - Sun/Moon Disc 3 Music 37</ul>
+ * <ul>3rd map - XY Disc 2 Music 25</ul>
+ * <ul>Boss Battle: The Bitter Cold Stage 2</ul>
+ * <ul>Final Boss: Battle (Ultra Necrozma)</ul>
+ * <ul>Talk: An Eternal Prison (Pokemon XY)</ul>
+ * <ul>Final Panel: Don't Ever Forget (Pokemon Mystery Dungeon: Explorers of Sky)</ul>
  * 
  * @author Molly Wu & Yawen & Xuanxi
  * @version 6.9.2023

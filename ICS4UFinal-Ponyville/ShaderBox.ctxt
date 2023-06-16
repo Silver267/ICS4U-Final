@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=ShaderBox
-comment0.text=\r\n\ Shader\ box,\ the\ box\ that\ acts\ as\ a\ "cover"\ to\ cover\ up\ the\ real\ maze.\r\n\ \r\n\ @author\ Xuanxi\ Jiang\r\n\ @version\ 1.0\r\n
+comment0.text=\n\ Shader\ box,\ the\ box\ that\ acts\ as\ a\ "cover"\ to\ cover\ up\ the\ real\ maze.\n\ \n\ @author\ Xuanxi\ Jiang\n\ @version\ 1.0\n
 comment1.params=xsz\ ysz
 comment1.target=ShaderBox(int,\ int)
 comment2.params=perc
 comment2.target=void\ iluminate(int)
-comment2.text=\r\n\ Iluminate\ the\ shader\ box\r\n\ \r\n\ @param\ perc\ \ The\ percentage\ of\ transparency\ of\ shaderBox.\r\n
+comment2.text=\n\ Iluminate\ the\ shader\ box\n\ \n\ @param\ perc\ \ The\ percentage\ of\ transparency\ of\ shaderBox.\n
 numComments=3
