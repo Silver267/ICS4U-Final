@@ -1,13 +1,13 @@
 #BlueJ class context
 comment0.target=LightRay
-comment0.text=\n\ The\ laser\n\ \n\ @author\ George\ Lu\n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\r\n\ The\ laser\r\n\ \r\n\ @author\ George\ Lu\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=direction\ width\ warnTime\ duration
 comment1.target=LightRay(int,\ int,\ int,\ int)
 comment2.params=w
 comment2.target=void\ addedToWorld(greenfoot.World)
 comment3.params=
 comment3.target=void\ act()
-comment3.text=\n\ Act\ -\ do\ whatever\ the\ LightRay\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+comment3.text=\r\n\ Act\ -\ do\ whatever\ the\ LightRay\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
 comment4.params=
 comment4.target=void\ warnIt()
 comment5.params=
