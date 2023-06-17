@@ -1,6 +1,10 @@
 #BlueJ class context
 comment0.target=SideWorld
+<<<<<<< Updated upstream
 comment0.text=\r\n\ World\ that\ holds\ every\ battle\ (including\ talking.).\r\n\ \r\n\ @author\ George\ &&\ Ming\ &&\ Xuanxi\ Jiang\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n\ \r\n\ change\ sthe\ conversation\ logic,\ not\ let\ change\ after\ wrong\ choice\r\n
+=======
+comment0.text=\r\n\ World\ that\ holds\ every\ battle\ (including\ talking.).\r\n\ \r\n\ @author\ George\ &&\ Ming\ &&\ Xuanxi\ Jiang\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+>>>>>>> Stashed changes
 comment1.params=id
 comment1.target=SideWorld(int)
 comment10.params=

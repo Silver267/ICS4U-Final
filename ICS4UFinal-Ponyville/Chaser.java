@@ -14,6 +14,9 @@ public class Chaser extends MovingInTurns{
     private Stack<int[]> curPos;
     private GreenfootImage cc, ccdamaging;
     
+    /**
+     * Initializeation of the chaser object. Since chaser moves 2x faster than player, its speed should be 3.
+     */
     public Chaser(){
         curstk = new Stack<Integer>();
         curPos = new Stack<int[]>();
@@ -21,6 +24,11 @@ public class Chaser extends MovingInTurns{
         spd = 3;
     }
     
+    /**
+     * Perform more initialization steps that requires the world.
+     * 
+     * @param w     The world in which the chaser is added to.
+     */
     public void addedToWorld(World w){
         prevPos = new int[]{getX(), getY()};
         realPos = new int[]{getX(), getY()};
@@ -31,7 +39,7 @@ public class Chaser extends MovingInTurns{
     }
     
     /**
-     * Implementing the move() method in superclass.
+     * Implementing the move() method in superclass. The chaser would determine whether to follow the path stored in the stack.
      */
     protected void move(){
         if(!moving && cnt>0 && !curstk.isEmpty()){
@@ -107,8 +115,7 @@ public class Chaser extends MovingInTurns{
     }
     
     /**
-     * BFS algorithm that detects the player's coordinates and provides
-     * a working list of nodes stored in a stack. (FILO to reverse tracking)
+     * BFS algorithm that detects the player's coordinates and provides a working list of nodes stored in a stack. (FILO to reverse tracking)
      * 
      * @param plCoord   the player's current coord
      */

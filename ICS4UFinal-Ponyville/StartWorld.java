@@ -79,6 +79,9 @@ public class StartWorld extends World
         bgm.playLoop();
     }
     
+    /**
+     * Initializes the StartWorld, initialize music, background image, and add a fastest time if there is a save file.
+     */
     public StartWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -94,14 +97,23 @@ public class StartWorld extends World
         bgm.stop(); bgm.setVolume(70);
     }
     
+    /**
+     * Play music when started
+     */
     public void started(){
         music();
     }
     
+    /**
+     * Stop music when stopped.
+     */
     public void stopped(){
         unMusic();
     }
     
+    /**
+     * The world only needs to determine of left or right (or space if at first panel) is clicked. If everything else is displayed, move to MainWorld.
+     */
     public void act(){
         if (count == 9){
             moveWorld();
@@ -122,6 +134,9 @@ public class StartWorld extends World
         }
     }
     
+    /**
+     * Moving to MainWorld while performing initialization of variables.
+     */
     public void moveWorld(){
         Statics.setLevel(1);
         Statics.setHP(40);

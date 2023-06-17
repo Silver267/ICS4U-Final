@@ -11,6 +11,11 @@ public class Barrier extends Actor{
     
     private GreenfootImage img;
     
+    /**
+     * Perform initialization when added to world because it needs the map object. The barrier is just supposed to be a placeholder so there isn't much to talk about.
+     * 
+     * @param w     The world in which the object is going to be added to.
+     */
     public void addedToWorld(World w){
         decideLook();
         setImage(img);

@@ -7,6 +7,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version 1.0
  */
 public class battleBox extends Actor{
+    /**
+     * <p>Initializes the image of the battle box.</p>
+     * <p>This box is just an indicator so it should do nothing other than being a picture.</p>
+     */
     public battleBox(){
         GreenfootImage img = new GreenfootImage(650, 410);
         img.drawRect(1, 1, 648, 408);

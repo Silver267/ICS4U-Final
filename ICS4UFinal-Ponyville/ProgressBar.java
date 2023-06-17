@@ -12,8 +12,7 @@ public class ProgressBar extends Actor{
     int selection, barValue;
     
     /**
-     * Act - do whatever the ProgressBar wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Update progress bar according to HP and MP stored in Statics.
      */
     public void act(){
         //implementBar();
@@ -23,6 +22,11 @@ public class ProgressBar extends Actor{
             setImage(SparkleEngine.drawProgressBar(100, Statics.getMP(), 160, 20, new Color(255, 153, 255), new Color(179, 0, 179)));
     }
     
+    /**
+     * Constructor of the progress bar, essentially selecting a desired color theme accoridng to select.
+     * 
+     * @param select    The selection of type. 0 = displays player's HP; 1 = displays player's MP.
+     */
     public ProgressBar(int select){
         selection = select;
         if(selection==0)
