@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Option extends BattleScreen
 {
     private GreenfootImage[] animation;
-    private boolean startTimer, check;
+    private boolean startTimer, check, lock;
     private int timer;
     /**
      * This is the constructor of class Option
@@ -36,24 +36,33 @@ public class Option extends BattleScreen
             setImage(gf);
         }
         
-        
+        lock = false;
         
     }
     
-    
+    public void lock(){
+        lock = !lock;
+    }
     
     public void act(){
         if(startTimer){
             timer--;
             
         }
+        
         if(check){
             if(((SideWorld)getWorld()).getContinueChoose()){
+                setImage(animation[0]);
                 animation();
+            }else{
+                setImage(animation[1]);
             }
         }else{
             if(((SideWorld)getWorld()).getContinueChooseLine()){
+                setImage(animation[0]);
                 animation();
+            }else{
+                setImage(animation[1]);
             }
             
         }
@@ -63,7 +72,7 @@ public class Option extends BattleScreen
     }
     
     public boolean isClick(){
-        if(Greenfoot.mouseClicked(this)){
+        if(Greenfoot.mouseClicked(this) ){
             startTimer = true;
             return true;
         }

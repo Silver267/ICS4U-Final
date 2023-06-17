@@ -29,17 +29,17 @@ public class SideWorld extends World
     private int rounds, character, countTime, wrongTime;//countTime is used to count the time in current game, wrongTime counts the number of time the player hit the continue after they select the wrong choice
     private GreenfootImage character1;
     private Option a, b, c, d, cf;
-    private int first, rounds1;
     private String toSay, horseSay;//This string will hold what the enmy will say next, the horseSay will hold what the horse maysay next
     private Label conversationCentre;//This label will show the conversation
-    private boolean startCount;//This will check whther the system can start count the number of times the continute is hit
     private boolean keepCount, remove;//This boolean will check if the time should keep count, remove will tell if the four oprions are removed
     private boolean done, sayIt, sayMore, start, change;//This boolean will check if the pony fail to talk heal the enemy, sayIt controls when the enemy will response, sayMore controls when can the character continue speak, start will tell the program to enable the continue button
     private GreenfootSound bgm;
     
     
     //new variable
-    private boolean continueChoose, continueChooseLine;
+    private boolean continueChoose, continueChooseLine, startCount;
+    private int countClick, speakFirst;
+    private boolean clickOnce; //This boolean is used to check if the continue should keep + rounds
     
     public SideWorld(int id)
     {
@@ -94,14 +94,16 @@ public class SideWorld extends World
             addObject(new battleBox(), 600, 480);
             
             Statics.takeInWords();
+            continueChooseLine = false;
             
             character = 8 + Statics.getLevel();
+            
             conversation = Statics.getConversation().get(character); 
             rounds = 0;
             limit = Integer.parseInt(conversation.get(conversation.size()-2).substring(8,9)); 
             
             if(character == 9){
-                addObject(new Fluttershy(Greenfoot.getRandomNumber(2)+1, 600), 600, 150);
+                addObject(new Fluttershy(Greenfoot.getRandomNumber(2)+1, 200), 600, 150);
             }else if(character == 10){
                 addObject(new PinkiePie(Greenfoot.getRandomNumber(2)+1, 800), 600, 150);
             }else if(character == 11){
@@ -111,9 +113,9 @@ public class SideWorld extends World
             bgm = new GreenfootSound("bgm-normal-battle.mp3");
             addObject(new BattleScreen(), 600, 510);
             Statics.takeInWords();
-            //use this code after, character = id*Statics.getLevel()-1;
-            character = 0;
-            //character = id+(Statics.getLevel()-1)*3-1;
+           
+            
+            character = id+(Statics.getLevel()-1)*3-1;
             
             conversation = Statics.getConversation().get(character);
            
@@ -131,6 +133,7 @@ public class SideWorld extends World
             addObject(conversationCentre, 600, 500);
             
             rounds = 0;
+            clickOnce = true;
             if(character == 0){
                 character1 = new GreenfootImage("BrightMac/tile000.png");
                 addObject(new Pony(character1), 600, 200);
@@ -178,197 +181,135 @@ public class SideWorld extends World
     
 
     public void act(){
-        if(id > 0){
-            chooseLine();
-            coniformeed();
-            
-        }else if(id == 0){
-            if(talk){
-                if(first == 0){
-                    String tmp = Statics.getStartLine()[character];
-                    conversationCentre = new Label(changeLine(tmp), 25);
-                    addObject(conversationCentre, 600, 500);
-                    first = 2;
-                }
-                if(rounds == 1 && !keepSpeak){
-                    continue1 = changeLine(toSay);
-                    conversationCentre = new Label(continue1, 25);
-                    conversationCentre.setFillColor(Color.BLACK);
-                    addObject(conversationCentre, 600, 500);
-                    keepSpeak = true;
-                }
-                if(rounds == 2 && !keepSpeak){
-                    keepSpeak = true;
-                    continue1 = changeLine(toSay);
-                    conversationCentre = new Label(continue1, 25);
-                    conversationCentre.setFillColor(Color.BLACK);
-                    addObject(conversationCentre, 600, 500);
-                }
-                chooseLine();
-                coniformeed();
+        if(id == 0){
+            if(speakFirst == 1){
+                String tmp = Statics.getStartLine()[character];
+                conversationCentre = new Label(changeLine(tmp), 25);
+                addObject(conversationCentre, 600, 500);
+                speakFirst++;
+                
             }
-            
         }
+        chooseLine();
+        if(id > 0){
+            coniformeed();
+        }else if(id == 0){
+            coniform();
+        }
+        
+        
+        
         
     }
     
     /**
      * This method will allow the player to coniform the line they continue with
      */
-    public void coniformeed(){
+    private void coniformeed(){
         if(continueChoose){
-            cf.setImage(cf.getImage(true));
+            
             if(cf.isClick()){
                 if(!done){
                     rounds++;
+                    
                 }else if(done){
-                    continueChooseLine = false;
-                    a.setImage(a.getImage(false));
-                    b.setImage(b.getImage(false));
-                    c.setImage(c.getImage(false));
-                    d.setImage(d.getImage(false));
+                    
+                    if(id > 0){
+                        startCount = true;
+                        continueChooseLine = false;
+                    }
+                    
                 }
                 removeObject(conversationCentre);
                 conversationCentre = new Label(changeLine(toSay), 25);
                 conversationCentre.setFillColor(Color.BLACK);
                 addObject(conversationCentre, 600, 500);
                 
-                
-            }
-            if(id == 0){
-                if(character == 9){
-                    addObject(new Fluttershy(Greenfoot.getRandomNumber(2)+1, 600), 600, 150);
-                }else if(character == 10){
-                    addObject(new PinkiePie(Greenfoot.getRandomNumber(2)+1, 800), 600, 150);
-                }else if(character == 11){
-                    addObject(new TwilightSparkle(Greenfoot.getRandomNumber(2)+1, 1200), 600, 150);
-                }
-            }else if(id > 0 && done){
-                                
-            }
-            
-            
-        }else{
-            cf.setImage(cf.getImage(false));
-        }
-        /*
-        if(cf.isClick() && change){
-            if(id > 0){
-                rounds++;
-            }
-            
-            if(id == 0){
-                if(!done){
-                    rounds++;
-                }
-            }
-            removeObject(conversationCentre);
-            if(id > 0){
-                continue1 = changeLine(toSay);
-                conversationCentre = new Label(continue1, 25);
-                conversationCentre.setFillColor(Color.BLACK);
-                addObject(conversationCentre, 600, 500);
-            }
-            change = false;
-            if(id == 0){
-                if(done){
-                    wrongTime++;
-                }
-            }
-            if(rounds == limit){
-                checkSuccess = true;
-            }
-            needAdd = true;
-            keepSpeak = false;
-        }
-        
-        if(id > 0){
-            if(cf.isClick() && checkSuccess){
-                successTime++;
-            }
-            if(cf.isClick() && startCount){
-                wrongTime++;
-            }
-            if(cf.isClick() && done && wrongTime == 2){
-                unMusic();
-                Greenfoot.setWorld(new MainWorld());
-            }
-            if(cf.isClick() && successTime >= 2 && !done){
-                Statics.setOrb(Statics.getOrb()-1);
-                Statics.setStay(id); unMusic();
-                Greenfoot.setWorld(new MainWorld());
-            }
-        }
-        if(id == 0){
-            
-            if(rounds == 1 && needAdd){
-                removeObject(conversationCentre);
-                if(character == 9){
-                    addObject(new Fluttershy(Greenfoot.getRandomNumber(2)+1, 600), 600, 150);
-                }else if(character == 10){
-                    addObject(new PinkiePie(Greenfoot.getRandomNumber(2)+1, 800), 600, 150);
-                }else if(character == 11){
-                    addObject(new TwilightSparkle(Greenfoot.getRandomNumber(2)+1, 1200), 600, 150);
+                if(done && countClick >= 2){
+                    //unMusic()
+                    Greenfoot.setWorld(new MainWorld());                
                 }
                 
-                wrongTime = 0;
-                done = false;
-                needAdd = false;
-                talk = false;
-            }
-            if(cf.isClick() && checkSuccess){
-                successTime++;
-            }
-            if(cf.isClick() && successTime >= 2 && !done){
-                talk = false;
-                removeObject(conversationCentre);
-                wrongTime = 0;
-                done = false;
-                Statics.setLevel(Statics.getLevel()+1);
-                Statics.rsetStay();
-                Statics.setOrb(3);
-                Statics.setHP(40);
-                Statics.setActive(false);
-                if(character != 11){
-                    unMusic();
-                    Greenfoot.setWorld(new MainWorld());
-                }else{
-                    unMusic();
-                    Greenfoot.setWorld(new SideWorld(0));
+                if(startCount){
+                    countClick++;
                 }
-                    //switch to final battle
-            }
-            if(wrongTime == 2 && done && cf.isClick()){
-                talk = false;
-                removeObject(conversationCentre);
-                if(character == 9){
-                    addObject(new Fluttershy(Greenfoot.getRandomNumber(2)+1, 600), 600, 150);
-                }else if(character == 10){
-                    addObject(new PinkiePie(Greenfoot.getRandomNumber(2)+1, 800), 600, 150);
-                }else if(character == 11){
-                    addObject(new TwilightSparkle(Greenfoot.getRandomNumber(2)+1, 1200), 600, 150);
+                
+                if(rounds >= limit){
+                    continueChooseLine = false;
+                    if(id > 0){
+                        startCount = true;
+                        if(countClick > 2){
+                            Statics.setStay(id); Statics.setOrb(Statics.getOrb()-1);
+                            //unMusic()
+                            Greenfoot.setWorld(new MainWorld());  
+                        }
+                    }
+                }else if(!done){
+                    continueChoose = false;
                 }
-                if(first == 2){
-                    first = 0;
-                }
-                wrongTime = 0;
-                done = false;
+                
+                
             }
-            
-            if(cf.isClick() && done){
-                wrongTime++;
-            }
-            
         }
-        */
     }
     
-    
+    public void coniform(){
+        if(continueChoose && cf.isClick()){
+            startCount = true;
+            if(startCount){
+                countClick++;
+            }
+            if(!done && clickOnce){
+                rounds++;
+                Fluttershy.countplus();
+                PinkiePie.countplus();
+                TwilightSparkle.countplus();
+                clickOnce = false;
+            }
+            //below will reset the first line if the player failed at the first round
+            if(speakFirst == 2 && done){
+                speakFirst = 0;
+                
+            }
+            removeObject(conversationCentre);
+            conversationCentre = new Label(changeLine(toSay), 25);
+            conversationCentre.setFillColor(Color.BLACK);
+            addObject(conversationCentre, 600, 500);
+            continueChooseLine = false;
+            if(countClick == 2){
+                countClick = 0;
+                removeObject(conversationCentre);
+                startCount = false;
+                continueChooseLine = false;
+                continueChoose = false;
+                if(character == 9){
+                    addObject(new Fluttershy(Greenfoot.getRandomNumber(2)+1, 600), 600, 150);
+                }else if(character == 10){
+                    addObject(new PinkiePie(Greenfoot.getRandomNumber(2)+1, 800), 600, 150);
+                }else if(character == 11){
+                    addObject(new TwilightSparkle(Greenfoot.getRandomNumber(2)+1, 1200), 600, 150);
+                }
+                if(rounds >= limit){
+                    Statics.setLevel(Statics.getLevel()+1);
+                    Statics.rsetStay(); Statics.setOrb(3);
+                    Statics.setHP(40); Statics.setActive(false);
+                    if(Statics.getLevel() == 4){
+                        Greenfoot.setWorld(new SideWorld(0));  
+                    }else{
+                    Greenfoot.setWorld(new MainWorld());  
+                }
+                }
+            }
+        
+        
+        }
+    }
+  
     
     /**
      * This method will allow the player to choose the lines
      */
-    public void chooseLine(){
+    private void chooseLine(){
         if(rounds < limit && continueChooseLine){
             if(a.isClick()){
                 changePresent(2);
@@ -384,7 +325,7 @@ public class SideWorld extends World
         
     }
     
-    public void changePresent(int x){
+    private void changePresent(int x){
         //change the presence of the middle sentence
         removeObject(conversationCentre);
         horseSay = changeLine(conversation.get(x + rounds*8));//x is 2 at the start
@@ -402,7 +343,23 @@ public class SideWorld extends World
         
         //tell the cf can move now
         continueChoose = true;
+        clickOnce = true;
+
+        
     }
+    
+    public void setSpeakFirst(){
+        speakFirst++;
+    }
+    
+    public void setContinueChooseLine(boolean x){
+        continueChooseLine = x;
+    }
+    
+    public void setContinueChoose(boolean x){
+        continueChoose = x;
+    }
+    
     
     public boolean getContinueChoose(){
         return continueChoose;
@@ -416,18 +373,9 @@ public class SideWorld extends World
         return countTime;
     }
     
-    public void keepSpeak(){
-        removeObject(conversationCentre);
-        String tmp = changeLine(toSay);
-        conversationCentre = new Label(tmp, 25);
-        conversationCentre.setFillColor(Color.BLACK);
-        addObject(conversationCentre, 600, 500);
-        if(done){
-            //write some code to send the pny back
-        }
-    }
     
-    public String changeLine(String txt){
+    
+    private String changeLine(String txt){
         return SparkleEngine.wordWrap(txt.substring(12, txt.length()-1), new Font(25), 500);
     }
     
@@ -460,6 +408,12 @@ public class SideWorld extends World
      */
     public void unMusic(){
         bgm.stop();
+    }
+    
+    public void setConversation(){
+        conversationCentre = new Label(changeLine(toSay), 25);
+        conversationCentre.setFillColor(Color.BLACK);
+        addObject(conversationCentre, 600, 500);
     }
     
     /**
