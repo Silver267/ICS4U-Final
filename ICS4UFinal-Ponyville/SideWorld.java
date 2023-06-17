@@ -37,6 +37,10 @@ public class SideWorld extends World
     private boolean done, sayIt, sayMore, start, change;//This boolean will check if the pony fail to talk heal the enemy, sayIt controls when the enemy will response, sayMore controls when can the character continue speak, start will tell the program to enable the continue button
     private GreenfootSound bgm;
     
+    
+    //new variable
+    private boolean continueChoose, continueChooseLine;
+    
     public SideWorld(int id)
     {
         super(1200, 675, 1, false); 
@@ -69,7 +73,10 @@ public class SideWorld extends World
         d = new Option(new GreenfootImage("D.png"), new GreenfootImage("D1.png"),false);
         cf = new Option(new GreenfootImage("Continue.png"), new GreenfootImage("Continue1.png"),true);
         
-        if(id == 0 && Statics.getLevel() != 4){// add later
+        continueChooseLine = true;
+        
+        if(id == 0 && Statics.getLevel() != 4){
+            //add hitbox and option to the world
             hitBox = new HitBox(false);
             addObject(hitBox, 500, 500);
             addObject(a, 150, 380);
@@ -77,19 +84,19 @@ public class SideWorld extends World
             addObject(c, 1050, 380);
             addObject(d, 1050, 530);
             addObject(cf, 1050, 633);
-            keepCount = true;
             
             bgm = new GreenfootSound("bgm-boss-pony.mp3");
             
             addObject(new Label("Current HP: ", 25), 60, 200);
             addObject(new HPBar(true), 200, 200);
             
+            
             addObject(new battleBox(), 600, 480);
             
             Statics.takeInWords();
             
             character = 8 + Statics.getLevel();
-            conversation = Statics.getConversation().get(character); //use after
+            conversation = Statics.getConversation().get(character); 
             rounds = 0;
             limit = Integer.parseInt(conversation.get(conversation.size()-2).substring(8,9)); 
             
@@ -105,8 +112,8 @@ public class SideWorld extends World
             addObject(new BattleScreen(), 600, 510);
             Statics.takeInWords();
             //use this code after, character = id*Statics.getLevel()-1;
-            //character = 8;
-            character = id+(Statics.getLevel()-1)*3-1;
+            character = 0;
+            //character = id+(Statics.getLevel()-1)*3-1;
             
             conversation = Statics.getConversation().get(character);
            
@@ -117,10 +124,12 @@ public class SideWorld extends World
             addObject(c, 1050, 380);
             addObject(d, 1050, 530);
             addObject(cf, 1050, 633);
+            
             String tmp = changeLine(conversation.get(1));
             conversationCentre = new Label(tmp, 25);
             conversationCentre.setFillColor(Color.BLACK);
             addObject(conversationCentre, 600, 500);
+            
             rounds = 0;
             if(character == 0){
                 character1 = new GreenfootImage("BrightMac/tile000.png");
@@ -171,9 +180,8 @@ public class SideWorld extends World
     public void act(){
         if(id > 0){
             chooseLine();
-            if(start){
-                coniformeed();
-            }
+            coniformeed();
+            
         }else if(id == 0){
             if(talk){
                 if(first == 0){
@@ -208,6 +216,42 @@ public class SideWorld extends World
      * This method will allow the player to coniform the line they continue with
      */
     public void coniformeed(){
+        if(continueChoose){
+            cf.setImage(cf.getImage(true));
+            if(cf.isClick()){
+                if(!done){
+                    rounds++;
+                }else if(done){
+                    continueChooseLine = false;
+                    a.setImage(a.getImage(false));
+                    b.setImage(b.getImage(false));
+                    c.setImage(c.getImage(false));
+                    d.setImage(d.getImage(false));
+                }
+                removeObject(conversationCentre);
+                conversationCentre = new Label(changeLine(toSay), 25);
+                conversationCentre.setFillColor(Color.BLACK);
+                addObject(conversationCentre, 600, 500);
+                
+                
+            }
+            if(id == 0){
+                if(character == 9){
+                    addObject(new Fluttershy(Greenfoot.getRandomNumber(2)+1, 600), 600, 150);
+                }else if(character == 10){
+                    addObject(new PinkiePie(Greenfoot.getRandomNumber(2)+1, 800), 600, 150);
+                }else if(character == 11){
+                    addObject(new TwilightSparkle(Greenfoot.getRandomNumber(2)+1, 1200), 600, 150);
+                }
+            }else if(id > 0 && done){
+                                
+            }
+            
+            
+        }else{
+            cf.setImage(cf.getImage(false));
+        }
+        /*
         if(cf.isClick() && change){
             if(id > 0){
                 rounds++;
@@ -316,6 +360,7 @@ public class SideWorld extends World
             }
             
         }
+        */
     }
     
     
@@ -324,76 +369,47 @@ public class SideWorld extends World
      * This method will allow the player to choose the lines
      */
     public void chooseLine(){
-        if(a.isClick() && rounds < limit ){
-            start = true;
-            removeObject(conversationCentre);
-            String tmp = changeLine(conversation.get(2 + rounds*8));
-            conversationCentre = new Label(tmp, 25);
-            conversationCentre.setFillColor(Color.BLACK);
-            removeObject(conversationCentre);
-            addObject(conversationCentre, 600, 500);
-            horseSay = conversation.get(2 + rounds*8);
-            toSay = conversation.get(6 + rounds*8);
-            if(conversation.get(2 + rounds*8).substring(6,7).equals("F")){
-                done = true;
-                startCount = true;
-            }else{
-                done = false;
+        if(rounds < limit && continueChooseLine){
+            if(a.isClick()){
+                changePresent(2);
+            }else if(b.isClick()){
+                changePresent(3);
+            }else if(c.isClick()){
+                changePresent(4);
+            }else if(d.isClick()){
+                changePresent(5);
             }
-            change = true;
-        }else if(b.isClick() && rounds < limit ){
-            start = true;
-            removeObject(conversationCentre);
-            String tmp = changeLine(conversation.get(3 + rounds*8));
-            conversationCentre = new Label(tmp, 25);
-            conversationCentre.setFillColor(Color.BLACK);
-            addObject(conversationCentre, 600, 500);
-            horseSay = conversation.get(3 + rounds*8);
-            toSay = conversation.get(7 + rounds*8);
-            if(conversation.get(3 + rounds*8).substring(6,7).equals("F")){
-                done = true;
-                startCount = true;
-            }else{
-                done = false;
-            }
-            change = true;
-        }else if(c.isClick() && rounds < limit){
-            start = true;
-            removeObject(conversationCentre);
-            String tmp = changeLine(conversation.get(4 + rounds*8));
-            conversationCentre = new Label(tmp, 25);
-            conversationCentre.setFillColor(Color.BLACK);
-            addObject(conversationCentre, 600, 500);
-            horseSay = conversation.get(4 + rounds*8);
-            toSay = conversation.get(8 + rounds*8);
-            if(conversation.get(4 + rounds*8).substring(6,7).equals("F")){
-                done = true;
-                startCount = true;
-            }else{
-                done = false;
-            }
-            
-            change = true;
-            
-        }else if(d.isClick() && rounds < limit){
-            start = true;
-            removeObject(conversationCentre);
-            String tmp = changeLine(conversation.get(5 + rounds*8));
-            conversationCentre = new Label(tmp, 25);
-            conversationCentre.setFillColor(Color.BLACK);
-            addObject(conversationCentre, 600, 500);
-            horseSay = conversation.get(5 + rounds*8);
-            toSay = conversation.get(9 + rounds*8);
-            if(conversation.get(5 + rounds*8).substring(6,7).equals("F")){
-                done = true;
-                startCount = true;
-            }else{
-                done = false;
-            }
-            change = true;
-            
         }
         
+        
+    }
+    
+    public void changePresent(int x){
+        //change the presence of the middle sentence
+        removeObject(conversationCentre);
+        horseSay = changeLine(conversation.get(x + rounds*8));//x is 2 at the start
+        conversationCentre = new Label(horseSay, 25);
+        conversationCentre.setFillColor(Color.BLACK);            
+        addObject(conversationCentre, 600, 500);
+        toSay = conversation.get(x+4 + rounds*8);
+        
+        //check if the conversaqtion should end
+        if(conversation.get(x + rounds*8).substring(6,7).equals("F")){
+            done = true;
+        }else{
+            done = false;
+        }
+        
+        //tell the cf can move now
+        continueChoose = true;
+    }
+    
+    public boolean getContinueChoose(){
+        return continueChoose;
+    }
+    
+    public boolean getContinueChooseLine(){
+        return continueChooseLine;
     }
     
     public int getCountTime(){
