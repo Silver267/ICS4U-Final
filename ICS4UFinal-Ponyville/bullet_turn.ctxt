@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=bullet_turn
-comment0.text=\n\ Undirected\ bullet\ (goes\ in\ a\ straight\ line\ and\ will\ not\ automatically\ aim\ to\ target)\n\ However\ this\ bullet\ will\ turn\ every\ few\ whiles\n\ \n\ @author\ Xuanxi\ Jiang\n\ @version\ 1.0\n
+comment0.text=\r\n\ Undirected\ bullet\ (goes\ in\ a\ straight\ line\ and\ will\ not\ automatically\ aim\ to\ target)\r\n\ However\ this\ bullet\ will\ turn\ every\ few\ whiles\r\n\ \r\n\ @author\ Xuanxi\ Jiang\r\n\ @version\ 1.0\r\n
 comment1.params=facing\ x\ y\ flip
 comment1.target=bullet_turn(int,\ int,\ int,\ boolean)
 comment2.params=w

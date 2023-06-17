@@ -6,6 +6,8 @@ import java.util.*;
  * 
  * @author George && Ming && Xuanxi Jiang
  * @version (a version number or a date)
+ * 
+ * change sthe conversation logic, not let change after wrong choice
  */
 public class SideWorld extends World
 {
@@ -57,6 +59,8 @@ public class SideWorld extends World
         
         setBackground(backGround);
         
+        
+        
         setPaintOrder(Enemy.class);
         b1 = new Block(0);
         b2 = new Block(0);
@@ -68,6 +72,8 @@ public class SideWorld extends World
         c = new Option(new GreenfootImage("C.png"), new GreenfootImage("C1.png"),false);
         d = new Option(new GreenfootImage("D.png"), new GreenfootImage("D1.png"),false);
         cf = new Option(new GreenfootImage("Continue.png"), new GreenfootImage("Continue1.png"),true);
+        
+        
         
         if(id == 0 && Statics.getLevel() != 4){// add later
             hitBox = new HitBox(false);
@@ -166,6 +172,8 @@ public class SideWorld extends World
         music();
     }
     
+    
+    
     public void changeTalk(boolean x){
         talk = x;
     }
@@ -209,6 +217,7 @@ public class SideWorld extends World
     }
 
     public void act(){
+        
         if(id > 0){
             chooseLine();
             if(start){
