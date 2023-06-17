@@ -47,6 +47,10 @@ public class TwilightSparkle extends Enemy{
     
     public void addedToWorld(World w){
         sw = (SideWorld)w;
+        ArrayList<Picture> p = (ArrayList<Picture>)(sw.getObjects(Picture.class));
+        for(Picture x: p){
+            sw.removeObject(x);
+        }
     }
     
     public void act(){
@@ -69,6 +73,7 @@ public class TwilightSparkle extends Enemy{
             sw.setSpeakFirst();
             sw.setContinueChoose(false);
             ((SideWorld)getWorld()).setContinueChooseLine(true);
+            sw.addObject(new Picture(2), 600, 150);
             getWorld().removeObject(this);
         }
             

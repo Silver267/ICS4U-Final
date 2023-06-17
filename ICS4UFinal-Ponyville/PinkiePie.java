@@ -61,6 +61,10 @@ public class PinkiePie extends Enemy{
     
     public void addedToWorld(World w){
         sw = (SideWorld)w;
+        ArrayList<Picture> p = (ArrayList<Picture>)(sw.getObjects(Picture.class));
+        for(Picture x: p){
+            sw.removeObject(x);
+        }
     }
     
     private void phase2ATK(){
@@ -97,6 +101,7 @@ public class PinkiePie extends Enemy{
             sw.setContinueChooseLine(true);
             sw.setSpeakFirst();
             sw.setContinueChoose(false);
+            sw.addObject(new Picture(1), 600, 150);
             getWorld().removeObject(this);
         }
             

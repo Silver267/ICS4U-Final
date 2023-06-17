@@ -56,14 +56,9 @@ public class Boss extends Enemy
             }
             if(prev%7==0 && prev!=0){//The other bullets
                 int tmp = (int)(Math.random()*18);
-                    for(int i=0; i<20; i++){
-                        getWorld().addObject(new Bullet_Undirected(0, (2.13+x/867.0), i*18+tmp, 8, 17, xpos-3*(xpos/4), ypos+150, false), xpos-3*(xpos/4), ypos+150);
-                        getWorld().addObject(new Bullet_Undirected(0, (2.13+x/867.0), i*18-tmp, 8, 17, xpos+3*(xpos/4), ypos+150, false), xpos+3*(xpos/4), ypos+150);
-                    }
-                if(prev>0){//The bullets which aims to player
-                    int dx = ((SideWorld)getWorld()).getHitBox().getX()-getX();
-                    int dy = ((SideWorld)getWorld()).getHitBox().getY()-getY();
-                    getWorld().addObject(new Bullet_Undirected(0, 5, (int)(Math.toDegrees(Math.atan2(dy, dx))), 1, 18, getX(), getY(), false), getX(), getY());
+                for(int i=0; i<20; i++){
+                    getWorld().addObject(new Bullet_Undirected(0, (2.13+x/867.0), i*18+tmp, 8, 17, xpos-3*(xpos/4), ypos+150, false), xpos-3*(xpos/4), ypos+150);
+                    getWorld().addObject(new Bullet_Undirected(0, (2.13+x/867.0), i*18-tmp, 8, 17, xpos+3*(xpos/4), ypos+150, false), xpos+3*(xpos/4), ypos+150);
                 }
             }
             return prev;

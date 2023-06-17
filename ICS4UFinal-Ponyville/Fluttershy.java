@@ -52,7 +52,7 @@ public class Fluttershy extends Enemy{
     private void phase1ATK(){
         if(cnt==0){
             phase1Method1();
-            x++; cnt = 4;
+            x+=2; cnt = 4;
         }else{
             cnt--;
         }
@@ -69,7 +69,10 @@ public class Fluttershy extends Enemy{
     
     public void addedToWorld(World w){
         sw = (SideWorld)w;
-        
+        ArrayList<Picture> p = (ArrayList<Picture>)(sw.getObjects(Picture.class));
+        for(Picture x: p){
+            sw.removeObject(x);
+        }
     }
     
     public void act(){
@@ -91,6 +94,7 @@ public class Fluttershy extends Enemy{
             sw.setContinueChooseLine(true);
             sw.setSpeakFirst();
             sw.setContinueChoose(false);
+            sw.addObject(new Picture(0), 600, 150);
             getWorld().removeObject(this);
         }
             
