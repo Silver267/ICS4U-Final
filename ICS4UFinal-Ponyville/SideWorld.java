@@ -42,6 +42,7 @@ public class SideWorld extends World
         super(1200, 675, 1, false); 
         this.id = id;
         
+        //This will set the background of the world by looking at the level
         if (Statics.getLevel() == 1) {
             backGround = new GreenfootImage("images/BackGround/battle1.jpg");
         }
@@ -54,7 +55,6 @@ public class SideWorld extends World
         if (Statics.getLevel() == 4) {
             backGround = new GreenfootImage("images/BackGround/battle4.png");
         }
-        
         setBackground(backGround);
         
         setPaintOrder(Enemy.class);
@@ -166,47 +166,7 @@ public class SideWorld extends World
         music();
     }
     
-    public void changeTalk(boolean x){
-        talk = x;
-    }
     
-    public HitBox getHitBox(){
-        return hitBox;
-    }
-    
-    public Boss getBoss(){
-        return boss;
-    }
-    
-    public void started(){
-        music();
-    }
-    
-    public void stopped(){
-        unMusic();
-    }
-    
-    /**
-     * Don't play music.
-     */
-    public void unMusic(){
-        bgm.stop();
-    }
-    
-    /**
-     * Play music.
-     */
-    private void music(){
-        bgm.playLoop();
-    }
-    
-    
-    public void remAllBullets(){
-        ArrayList<removableBullet> re = (ArrayList<removableBullet>)(getObjects(removableBullet.class));
-        for(removableBullet x: re){
-            removeObject(x);
-        }
-    }
 
     public void act(){
         if(id > 0){
@@ -358,9 +318,7 @@ public class SideWorld extends World
         }
     }
     
-    public int getCountTime(){
-        return countTime;
-    }
+    
     
     /**
      * This method will allow the player to choose the lines
@@ -438,6 +396,10 @@ public class SideWorld extends World
         
     }
     
+    public int getCountTime(){
+        return countTime;
+    }
+    
     public void keepSpeak(){
         removeObject(conversationCentre);
         String tmp = changeLine(toSay);
@@ -455,5 +417,47 @@ public class SideWorld extends World
     
     public void ponyTalk(){
         GreenfootImage start = new GreenfootImage(594, 360);
+    }
+    
+    public void changeTalk(boolean x){
+        talk = x;
+    }
+    
+    public HitBox getHitBox(){
+        return hitBox;
+    }
+    
+    public Boss getBoss(){
+        return boss;
+    }
+    
+    public void started(){
+        music();
+    }
+    
+    public void stopped(){
+        unMusic();
+    }
+    
+    /**
+     * Don't play music.
+     */
+    public void unMusic(){
+        bgm.stop();
+    }
+    
+    /**
+     * Play music.
+     */
+    private void music(){
+        bgm.playLoop();
+    }
+    
+    
+    public void remAllBullets(){
+        ArrayList<removableBullet> re = (ArrayList<removableBullet>)(getObjects(removableBullet.class));
+        for(removableBullet x: re){
+            removeObject(x);
+        }
     }
 }

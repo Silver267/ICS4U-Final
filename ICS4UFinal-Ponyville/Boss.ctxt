@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Boss
-comment0.text=\n\ Final\ boss\ that\ releases\ bullets\ and\ shifts\ to\ phase\ 2\ when\ hp\ is\ lower\ than\ 3000.\n\ \n\ @author\ Various\n\ @version\ 1.0\n
+comment0.text=\r\n\ Final\ boss\ that\ releases\ bullets\ and\ shifts\ to\ phase\ 2\ when\ hp\ is\ lower\ than\ 3000.\r\n\ \r\n\ @author\ Various\r\n\ @version\ 1.0\r\n
 comment1.params=
 comment1.target=Boss()
 comment2.params=
