@@ -44,18 +44,7 @@ public class SideWorld extends World
         super(1200, 675, 1, false); 
         this.id = id;
         
-        if (Statics.getLevel() == 1) {
-            backGround = new GreenfootImage("images/BackGround/battle1.jpg");
-        }
-        if (Statics.getLevel() == 2) {
-            backGround = new GreenfootImage("images/BackGround/battle2.jpg");
-        }
-        if (Statics.getLevel() == 3) {
-            backGround = new GreenfootImage("images/BackGround/battle3.jpg");
-        }
-        if (Statics.getLevel() == 4) {
-            backGround = new GreenfootImage("images/BackGround/battle4.png");
-        }
+        backGround = new GreenfootImage("images/BackGround/battle"+Statics.getLevel()+".jpg");
         
         setBackground(backGround);
         
