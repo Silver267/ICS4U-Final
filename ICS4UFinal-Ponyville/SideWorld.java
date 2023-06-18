@@ -65,7 +65,7 @@ public class SideWorld extends World
         if(id == 0 && Statics.getLevel() != 4){
             //add hitbox and option to the world
             hitBox = new HitBox(false);
-            addObject(hitBox, 500, 500);
+            addObject(hitBox, 600, 500);
             addObject(a, 150, 380);
             addObject(b, 150, 530);
             addObject(c, 1050, 380);
@@ -158,7 +158,7 @@ public class SideWorld extends World
             addObject(new HPBar(false), 200, 250);
             hitBox = new HitBox(true);
             addObject(new BattleBox(), 600, 480);
-            addObject(hitBox, 500, 500);
+            addObject(hitBox, 600, 500);
         }
         sayMore = true;
         music();
