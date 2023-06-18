@@ -35,7 +35,7 @@ public class SidePlane extends Enemy
         // Add your action code here.
     }
     
-    public void shoot(){
+    private void shoot(){
         if(time % 15 == 0){
             getWorld().addObject(new LightBall(true, direction), getX(), getY());
             getWorld().addObject(new LightBall(true, direction + 20), getX() , getY());
