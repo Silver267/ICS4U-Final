@@ -226,7 +226,7 @@ public class SideWorld extends World
     
     private void coniform(){
         if(Statics.getHP()<=0 && Statics.getLevel()!=4){
-            Statics.rsetStay(); Statics.setOrb(3);
+            Statics.rsetStay(); Statics.setOrb(3); unMusic();
             Statics.setHP(40); Statics.setActive(false);
             Greenfoot.setWorld(new MainWorld());
             if(character == 9){
