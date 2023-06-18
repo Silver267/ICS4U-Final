@@ -11,6 +11,7 @@ public class Fluttershy extends Enemy{
     private int x, meth, timer, prevAng, cnt;
     private double ang; 
     private SideWorld sw;
+    private static int count;
     
     //meth: which attack pattern will use 
     private GreenfootImage gf;
@@ -20,6 +21,10 @@ public class Fluttershy extends Enemy{
         gf = new GreenfootImage("MainPony/FS-1.png");
         gf.scale(150, 150);
         setImage(gf);
+    }
+    
+    public static void countplus(){
+        count++;
     }
     
     private void phase1Method1(){
@@ -47,7 +52,7 @@ public class Fluttershy extends Enemy{
     private void phase1ATK(){
         if(cnt==0){
             phase1Method1();
-            x++; cnt = 4;
+            x+=2; cnt = 4;
         }else{
             cnt--;
         }
@@ -64,6 +69,10 @@ public class Fluttershy extends Enemy{
     
     public void addedToWorld(World w){
         sw = (SideWorld)w;
+        ArrayList<Picture> p = (ArrayList<Picture>)(sw.getObjects(Picture.class));
+        for(Picture x: p){
+            sw.removeObject(x);
+        }
     }
     
     public void act(){
@@ -79,7 +88,13 @@ public class Fluttershy extends Enemy{
         if(timer==0){
             sw.changeTalk(true);
             ((SideWorld)getWorld()).remAllBullets();
-            
+            if(count >= 1){
+                ((SideWorld)getWorld()).setConversation();
+            }
+            sw.setContinueChooseLine(true);
+            sw.setSpeakFirst();
+            sw.setContinueChoose(false);
+            sw.addObject(new Picture(0), 600, 150);
             getWorld().removeObject(this);
         }
             

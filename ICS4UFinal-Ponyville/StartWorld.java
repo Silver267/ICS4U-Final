@@ -141,7 +141,7 @@ public class StartWorld extends World
         Statics.setLevel(1);
         Statics.setHP(40);
         Statics.setActive(false);
-        Statics.setOrb(3);
+        Statics.setOrb(0);
         Statics.rsetStay();
         unMusic(); Statics.begin();
         Greenfoot.setWorld(new MainWorld());

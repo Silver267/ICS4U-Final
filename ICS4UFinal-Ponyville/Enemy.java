@@ -21,4 +21,5 @@ public class Enemy extends SuperSmoothMover
     public void damage(int x){
         hp -= x;
     }
+    
 }
