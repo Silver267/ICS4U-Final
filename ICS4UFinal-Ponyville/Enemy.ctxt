@@ -1,9 +1,7 @@
 #BlueJ class context
 comment0.target=Enemy
-comment0.text=\r\n\ Enemy\ class\r\n\ \r\n\ @author\ George\ Liu\r\n\ @version\ 1.0\r\n
-comment1.params=
-comment1.target=void\ act()
-comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Enemy\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
-comment2.params=x
-comment2.target=void\ damage(int)
-numComments=3
+comment0.text=\r\n\ This\ is\ the\ enemy\ class,\ it\ is\ the\ superclass\ for\ all\ the\ enemy\ objects\r\n\ \r\n\ @author\ George\ Liu\r\n\ @version\ 1.0\r\n
+comment1.params=x
+comment1.target=void\ damage(int)
+comment1.text=\r\n\ This\ is\ the\ method\ will\ decrease\ the\ enemy's\ hp\ according\ to\ the\ damage\ being\ input\r\n\ \r\n\ \r\n
+numComments=2

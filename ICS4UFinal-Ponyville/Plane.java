@@ -12,6 +12,13 @@ public class Plane extends Enemy
     //shoot: number of directions the plane will shoot.
     private boolean turn, activate;//this boolean will control when to turn
     private double bs,os, ts; //bs: bullet speed; os = self (own) speed; ts = turning speed (turning speed of Plane)
+    /**
+     * This is the constructor of Plane class
+     * 
+     * @param shoot     number of direction in which the bullets will shoot.
+     * @param bs        The speed of the generated bullet
+     * @param os        Self's speed
+     */
     public Plane(int shoot, double bs, double os, double ts, int path, int direction){
         GreenfootImage image = new GreenfootImage(30, 10);
         image.setColor(new Color(231, 76, 60));
@@ -28,9 +35,9 @@ public class Plane extends Enemy
         this.shoot = shoot;
         ind = direction;
     }
+    
     /**
-     * Act - do whatever the Plane wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * This is the act method of Plane
      */
     public void act()
     {
@@ -41,7 +48,7 @@ public class Plane extends Enemy
             shootBullet();
     }
     
-    public void moveRound(){
+    private void moveRound(){
         if(turn){
             direction=(direction+2)%360;
             setRotation(direction);
@@ -58,7 +65,7 @@ public class Plane extends Enemy
     }
     
     
-    public void shootBullet(){
+    private void shootBullet(){
         for(int i=0; i<shoot; i++){
             getWorld().addObject(new Bullet_Undirected(0, bs, i*(360/shoot)+direction, 1, 13, getX(), getY(), false), getX(), getY());
         }

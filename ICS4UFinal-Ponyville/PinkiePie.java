@@ -2,7 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 
 /**
- * Pinkie pie that releases bullets
+ * This is PinkiePie class, which is the class for the second pony boss
  * 
  * @author Xuanxi Jiang
  * @version 1.0
@@ -15,6 +15,12 @@ public class PinkiePie extends Enemy{
     
     //meth: which attack pattern will use 
     private GreenfootImage gf;
+    /**
+     * This is the constructor of Fluttershy class
+     * 
+     * @param meth This int will determine which damage method it will use
+     * param duration This int will determine the time this boss exist
+     */
     public PinkiePie(int meth, int duration){
         x = 0; this.meth = meth; cnt2 = 0;
         cnt = 0; ang = 0; timer = duration;
@@ -23,6 +29,9 @@ public class PinkiePie extends Enemy{
         setImage(gf);
     }
     
+    /**
+     * This method will increase  the count variable by one
+     */
     public static void countplus(){
         count++;
     }
@@ -59,6 +68,11 @@ public class PinkiePie extends Enemy{
         }
     }
     
+    /**
+     * This method will create a sideworld object and remove all the Picture object in SideWorld
+     * 
+     * @param w The world the Fluttershy is about to be add in
+     */
     public void addedToWorld(World w){
         sw = (SideWorld)w;
         ArrayList<Picture> p = (ArrayList<Picture>)(sw.getObjects(Picture.class));
@@ -82,6 +96,9 @@ public class PinkiePie extends Enemy{
         }
     }
     
+    /**
+     * This is the act method of Fluttershy class
+     */
     public void act(){
         timer--;
         switch(meth){
@@ -93,7 +110,6 @@ public class PinkiePie extends Enemy{
                 break;
         }
         if(timer==0){
-            sw.changeTalk(true);
             ((SideWorld)getWorld()).remAllBullets();
             if(count >= 1){
                 ((SideWorld)getWorld()).setConversation();

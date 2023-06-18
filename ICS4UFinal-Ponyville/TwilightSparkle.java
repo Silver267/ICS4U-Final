@@ -64,7 +64,6 @@ public class TwilightSparkle extends Enemy{
                 break;
         }
         if(timer==0){
-            sw.changeTalk(true);
             ((SideWorld)getWorld()).remAllBullets();
             if(count >= 1){
                 ((SideWorld)getWorld()).setConversation();
@@ -72,7 +71,6 @@ public class TwilightSparkle extends Enemy{
             sw.setContinueChooseLine(true);
             sw.setSpeakFirst();
             sw.setContinueChoose(false);
-            ((SideWorld)getWorld()).setContinueChooseLine(true);
             sw.addObject(new Picture(2), 600, 150);
             getWorld().removeObject(this);
         }

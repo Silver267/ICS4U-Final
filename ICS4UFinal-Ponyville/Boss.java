@@ -4,7 +4,7 @@ import java.util.*;
 /**
  * Final boss that releases bullets and shifts to phase 2 when hp is lower than 3000.
  * 
- * @author Various
+ * @author George && Thomas
  * @version 1.0
  */
 public class Boss extends Enemy
@@ -17,6 +17,9 @@ public class Boss extends Enemy
     
     //meth: which attack pattern will use 
     private GreenfootImage gf;
+    /**
+     * This is the constructor for Boss class
+     */
     public Boss(){
         x = 0; hp = 3000;
         cnt = 0; prevAng = 0;
@@ -25,10 +28,20 @@ public class Boss extends Enemy
         setImage(gf);
     }
     
+    /**
+     * This method will return the hp of current Boss object
+     * 
+     * #return int This is the hp of Boss
+     */
     public int getHp(){
         return hp;
     }
     
+    /**
+     * This method will decrease the Boss's hp according to the damage being put in
+     * 
+     * @param x This is the damage being put in
+     */
     public void changeHp(int x){
         GreenfootSound st = new GreenfootSound("SE/enemy_damaged.wav");
         st.setVolume(75);
@@ -73,6 +86,11 @@ public class Boss extends Enemy
         }
     }
     
+    /**
+     * This method will create a world object when Boss is added to world
+     * 
+     * @param w This current world
+     */
     public void addedToWorld(World w){
         sw = (SideWorld)w;
         
@@ -86,7 +104,9 @@ public class Boss extends Enemy
         }
     }
     
-    
+    /**
+     * This is the act method for Boss class
+     */
     public void act(){
         if(hp>1500)
             phase1ATK();
