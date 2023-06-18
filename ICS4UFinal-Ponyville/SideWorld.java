@@ -172,6 +172,7 @@ public class SideWorld extends World
             if(speakFirst == 1){
                 String tmp = Statics.getStartLine()[character];
                 conversationCentre = new Label(changeLine(tmp), 25);
+                conversationCentre.setFillColor(Color.BLACK);
                 addObject(conversationCentre, 600, 500);
                 speakFirst++;
             }
