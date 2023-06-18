@@ -217,7 +217,7 @@ public class SideWorld extends World
                 addObject(conversationCentre, 600, 500);
                 
                 if(done && countClick >= 2){
-                    //unMusic()
+                    unMusic();
                     Greenfoot.setWorld(new MainWorld());                
                 }
                 
@@ -231,7 +231,7 @@ public class SideWorld extends World
                         startCount = true;
                         if(countClick > 2){
                             Statics.setStay(id); Statics.setOrb(Statics.getOrb()-1);
-                            //unMusic()
+                            unMusic();
                             Greenfoot.setWorld(new MainWorld());  
                         }
                     }
@@ -286,14 +286,15 @@ public class SideWorld extends World
                     addObject(new TwilightSparkle(Greenfoot.getRandomNumber(2)+1, 1200), 600, 150);
                 }
                 if(rounds >= limit){
+                    unMusic();
                     Statics.setLevel(Statics.getLevel()+1);
                     Statics.rsetStay(); Statics.setOrb(3);
                     Statics.setHP(40); Statics.setActive(false);
                     if(Statics.getLevel() == 4){
                         Greenfoot.setWorld(new SideWorld(0));  
                     }else{
-                    Greenfoot.setWorld(new MainWorld());  
-                }
+                        Greenfoot.setWorld(new MainWorld());  
+                    }
                 }
             }
         }

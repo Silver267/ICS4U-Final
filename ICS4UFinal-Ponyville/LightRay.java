@@ -56,7 +56,7 @@ public class LightRay extends Weapon
         warnIt();
         warnTime--;
         if(warnTime < 0){
-            laserSound.setVolume(60);
+            laserSound.setVolume(30);
             laserSound.playLoop();
             lightRay = new GreenfootImage(base);
             lightRay.scale(width, 2000);
