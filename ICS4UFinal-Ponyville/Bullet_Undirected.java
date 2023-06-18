@@ -6,20 +6,10 @@ import greenfoot.*;
  * @version 1.0
  */
 public class Bullet_Undirected extends RemovableBullet{
-    //Borrowed the concept of speed, friendly from Mr. Cohen
     private int pict, power, size, facing;
-    //pict = 0 -> Enemy normal bullet
-    //pict = 1 -> Player normal bullet
     private double speed;
     private SideWorld sw;
-    //facing is the side which the bullet is facing
-    //for bullets which heads a straight line but initially facing the player.
-    //power is the power of the bullet, depends how many hp (or shield) the target will take
-    //if touching this bullet.
-    //size is the size of bullet.
-    //Note that this bullet does not have a "hit zone", so size should be < 15.
     private boolean friendly;
-    //variables for sub-pixel movement
     private double subPixPosX, subPixPosY, subPixIncX, subPixIncY;
     
     /**

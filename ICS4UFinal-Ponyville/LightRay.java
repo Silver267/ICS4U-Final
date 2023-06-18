@@ -39,6 +39,15 @@ public class LightRay extends Weapon
         this.duration = duration;
     }
     
+    public void stopped(){
+        laserSound.stop();
+    }
+    
+    public void started(){
+        if(warnTime<0)
+            laserSound.playLoop();
+    }
+    
     /**
      * This will set the start to true
      * 
