@@ -36,6 +36,13 @@ public class Fluttershy extends Enemy{
         count++;
     }
     
+    /**
+     * This method will reset the count variable since it's a static variable.
+     */
+    public static void rsetCount(){
+        count = 0;
+    }
+    
     private void phase1Method1(){
         double fx = ((-1/10.0)*x + 28/3.0); //generation (angle) function
         ang = ang+fx;

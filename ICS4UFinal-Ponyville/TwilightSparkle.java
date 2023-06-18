@@ -35,6 +35,13 @@ public class TwilightSparkle extends Enemy{
         count++;
     }
     
+    /**
+     * This method will reset the count variable since it's a static variable.
+     */
+    public static void rsetCount(){
+        count = 0;
+    }
+    
     private void phase1ATK(){
         if(cnt==0){
             cnt = 600;

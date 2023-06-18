@@ -36,6 +36,13 @@ public class PinkiePie extends Enemy{
         count++;
     }
     
+    /**
+     * This method will reset the count variable since it's a static variable.
+     */
+    public static void rsetCount(){
+        count = 0;
+    }
+    
     private void phase1Method1(){
         double fx = (8*Math.sin(0.3*x));
         ang = ang+fx;

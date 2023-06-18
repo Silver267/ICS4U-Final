@@ -225,6 +225,19 @@ public class SideWorld extends World
     }
     
     private void coniform(){
+        if(Statics.getHP()<=0 && Statics.getLevel()!=4){
+            Statics.rsetStay(); Statics.setOrb(3);
+            Statics.setHP(40); Statics.setActive(false);
+            Greenfoot.setWorld(new MainWorld());
+            if(character == 9){
+                Fluttershy.rsetCount();
+            }else if(character == 10){
+                PinkiePie.rsetCount();
+            }else{
+                TwilightSparkle.rsetCount();
+            }
+            return;
+        }
         if(continueChoose && cf.isClick()){
             startCount = true;
             if(startCount){
