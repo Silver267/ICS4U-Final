@@ -11,6 +11,11 @@ public class Panel extends Actor{
     private int maxX, maxY;
     private Label HPVal, MPVal, ColectVal;
     
+    /**
+     * Top panel that displays the status of the player in MainWorld. Includes: HP remaining, MP remaining, number of orbs that needs to be collected.
+     * 
+     * @param w     The world in which the object is going to be added to.
+     */
     public void addedToWorld(World w){
         base = new GreenfootImage("Banner.jpg");
         orb = new GreenfootImage("textures/Ball.png");

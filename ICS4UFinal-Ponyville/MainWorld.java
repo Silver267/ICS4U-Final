@@ -15,6 +15,9 @@ public class MainWorld extends World{
     private MainCh chara;
     private static GreenfootSound bgm;
     
+    /**
+     * Initializes the MainWorld, resets MP to full, initializes HP, and adds objects according to the readed map file.
+     */
     public MainWorld(){
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1200, 675, 1, false);
@@ -70,14 +73,23 @@ public class MainWorld extends World{
         return mp;
     }
     
+    /**
+     * For each act, update the transparency of shaderbox.
+     */
     public void act(){
         update();
     }
     
+    /**
+     * When started, play music.
+     */
     public void started(){
         music();
     }
     
+    /**
+     * When paused/stopped, stop music.
+     */
     public void stopped(){
         unMusic();
     }
@@ -96,6 +108,9 @@ public class MainWorld extends World{
         bgm.playLoop();
     }
     
+    /**
+     * Damage the enemies within manhatten distance of 2.
+     */
     public void damage(){
         ArrayList<Chaser> enemies = (ArrayList<Chaser>)getObjects(Chaser.class);
         for(Chaser c:enemies){

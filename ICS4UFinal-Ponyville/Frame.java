@@ -7,23 +7,28 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version 1.0
  */
 public class Frame extends Actor{
-    /**
-     * Act - do whatever the Frame wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     private Label l;
     
+    /**
+     * Initializes the frame, it's only job is to display the current fastest passing speed, so there's nothing much to talk about.
+     */
     public Frame(){
         GreenfootImage img = new GreenfootImage("DialogueBox.png");
         img.scale(650, 250);
         setImage(img);
     }
     
+    /**
+     * Removes the frame. However, before removing, it should also remove the lable that comes with it.
+     */
     public void removeSelf(){
         getWorld().removeObject(l);
         getWorld().removeObject(this);
     }
     
+    /**
+     * Adds a lable that displays text when added to world.
+     */
     public void addedToWorld(World w){
         getWorld().addObject(l = new Label("Fastest Time: \n"+Statics.timeToString(), 40), getX(), getY());
     }

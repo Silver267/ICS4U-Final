@@ -13,6 +13,12 @@ public class floatingPanel extends Actor{
     private int[] plC;
     private GreenfootImage[] img;
     
+    /**
+     * Constructing a floating panel according to player coordinate and word choise.
+     * 
+     * @param plC   The current coordinate of player. Once the player leaves, the floatingPanel will delete itself.
+     * @param sel   The thing that this floatingPanel will display. 2 = need more orb, 1 = press z.
+     */
     public floatingPanel(int[] plC, int sel){
         this.plC = plC.clone();
         GreenfootImage timg = new GreenfootImage("textures/Box.png");
@@ -28,6 +34,9 @@ public class floatingPanel extends Actor{
         setImage(img[75]);
     }
     
+    /**
+     * floatingPanel does only one thing: fades in when created, fades out when deleating.
+     */
     public void act(){
         if(plC[0]!=Statics.getPlayerCoords()[0] || plC[1]!=Statics.getPlayerCoords()[1])
             fadeOut = true;

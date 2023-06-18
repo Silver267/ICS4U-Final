@@ -9,61 +9,96 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Option extends BattleScreen
 {
     private GreenfootImage[] animation;
-    private boolean needBlack;
-    private int time1;
-    //int check meant to check if the option is a continue button
+    private boolean startTimer, check, lock;
+    private int timer;
+    /**
+     * This is the constructor of class Option
+     *
+     * @param gf This will take in an image
+     * @param gf1 This will take in another image
+     * @param check This will take in a boolean and determine type of button, if true, then it is a continue button, false will means it is a normal button
+     */
     public Option(GreenfootImage gf, GreenfootImage gf1, boolean check){
         animation = new GreenfootImage[2];
         animation[0] = gf;
         animation[1] = gf1;
+        this.check = check;
+        startTimer = false;
+        timer = 20;
         
         if(check){
             animation[0].scale(85, 85);
             animation[1].scale(85, 85);
+            setImage(gf1);
         }else{
             animation[0].scale(110, 110);
             animation[1].scale(110, 110);
+            setImage(gf);
         }
-        time1 = 20;
         
-        setImage(gf);
+        lock = false;
+        
+    }
+    
+    public void lock(){
+        lock = !lock;
+    }
+    
+    public void act(){
+        if(startTimer){
+            timer--;
+            
+        }
+        
+        if(check){
+            if(((SideWorld)getWorld()).getContinueChoose()){
+                setImage(animation[0]);
+                animation();
+            }else{
+                setImage(animation[1]);
+            }
+        }else{
+            if(((SideWorld)getWorld()).getContinueChooseLine()){
+                setImage(animation[0]);
+                animation();
+            }else{
+                setImage(animation[1]);
+            }
+            
+        }
+        
+        
+        
+    }
+    
+    public boolean isClick(){
+        if(Greenfoot.mouseClicked(this) ){
+            startTimer = true;
+            return true;
+        }
+        return false;
     }
     
     /**
-     * @param choose This means the image selected, true means first one, false means second one
+     * 
+     * @param x This boolean will determine which image to return, true means return teh first one, false means return the second one
      */
-    public GreenfootImage getImage(boolean choose){
-        if(choose){
+    public GreenfootImage getImage(boolean x){
+        if(x){
             return animation[0];
         }else{
             return animation[1];
         }
     }
     
-    public void act(){
-        continueAnimation();
-        if(needBlack){
-            time1--;
-        }
-    }
-    
-    public boolean isClick(){
-        if(Greenfoot.mouseClicked(this)){
-            needBlack = true;
-        }
-       
-        return Greenfoot.mouseClicked(this);
-    }
-    
-    public void continueAnimation(){
+    private void animation(){
         if(isClick()){
-            needBlack = true;
             setImage(animation[1]);
         }
-        if(needBlack && time1 == 0){
-            needBlack = false;
-            time1 = 20;
+        if(timer == 0){
             setImage(animation[0]);
+            timer = 20;
+            startTimer = false;
         }
     }
     

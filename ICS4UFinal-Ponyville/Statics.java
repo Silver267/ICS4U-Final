@@ -87,10 +87,9 @@ public class Statics{
     }
     
     /**
-     * George's method
-     * 
-     * This method will read in all the conversations in the story.txt
-     * This method should be call at the start of game
+     * <p>George's method
+     * <p>This method will read in all the conversations in the story.txt
+     * <p>This method should be call at the start of game
      */
     public static void takeInWords(){
         if(talkStorage!=null && !talkStorage.isEmpty()){
@@ -163,6 +162,8 @@ public class Statics{
     
     /**
      * Gets the talkStorage.
+     * 
+     * @return ArrayList<ArrayList<String>> The readed conversation file.
      */
     public static ArrayList<ArrayList<String>> getConversation(){
         

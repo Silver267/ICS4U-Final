@@ -14,12 +14,20 @@ public class MainCh extends MovingInTurns{
     private floatingPanel fp;
     private GreenfootSound magicSE;
     
+    /**
+     * Initializes the main character in the MainWorld.
+     */
     public MainCh(){
         spd = 1.5;
         magicSE = new GreenfootSound("SE/lightSound.wav");
         magicSE.setVolume(85);
     }
     
+    /**
+     * Executes various initialization steps when added to world, since the map object is stored in the world and not as static.
+     * 
+     * @param w     The world in which the character is added to.
+     */
     public void addedToWorld(World w){
         standBack = new GreenfootImage("FH/Stand/tile000.png");
         standBack.scale(((MainWorld)getWorld()).getMap().getSz()[0], ((MainWorld)getWorld()).getMap().getSz()[1]);

@@ -9,6 +9,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class ShaderBox extends Actor{
     GreenfootImage blk, realImg;
     
+    /**
+     * Initializes the ShaderBox object. This object shouldn't do anything other than staying there and change brightness when asked to.
+     * 
+     * @param xsz   The width of the box.
+     * @param ysz   The height of the box.
+     */
     public ShaderBox(int xsz, int ysz){
         blk = new GreenfootImage(xsz, ysz);
         blk.setColor(Color.BLACK);

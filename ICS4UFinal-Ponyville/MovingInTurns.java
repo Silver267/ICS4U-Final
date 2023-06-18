@@ -19,7 +19,14 @@ public abstract class MovingInTurns extends SuperSmoothMover{
         display();
     }
     
+    /**
+     * Moving the object
+     */
     protected abstract void move();
+    
+    /**
+     * Displaying animation or anything similar of the object.
+     */
     protected abstract void display();
     
     /**

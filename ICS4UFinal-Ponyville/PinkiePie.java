@@ -11,6 +11,7 @@ public class PinkiePie extends Enemy{
     private int x, meth, timer, prevAng, cnt, cnt2;
     private double ang; 
     private SideWorld sw;
+    private static int count;
     
     //meth: which attack pattern will use 
     private GreenfootImage gf;
@@ -20,6 +21,10 @@ public class PinkiePie extends Enemy{
         gf = new GreenfootImage("MainPony/PP-1.png");
         gf.scale(150, 150);
         setImage(gf);
+    }
+    
+    public static void countplus(){
+        count++;
     }
     
     private void phase1Method1(){
@@ -56,6 +61,10 @@ public class PinkiePie extends Enemy{
     
     public void addedToWorld(World w){
         sw = (SideWorld)w;
+        ArrayList<Picture> p = (ArrayList<Picture>)(sw.getObjects(Picture.class));
+        for(Picture x: p){
+            sw.removeObject(x);
+        }
     }
     
     private void phase2ATK(){
@@ -86,7 +95,13 @@ public class PinkiePie extends Enemy{
         if(timer==0){
             sw.changeTalk(true);
             ((SideWorld)getWorld()).remAllBullets();
-            
+            if(count >= 1){
+                ((SideWorld)getWorld()).setConversation();
+            }
+            sw.setContinueChooseLine(true);
+            sw.setSpeakFirst();
+            sw.setContinueChoose(false);
+            sw.addObject(new Picture(1), 600, 150);
             getWorld().removeObject(this);
         }
             

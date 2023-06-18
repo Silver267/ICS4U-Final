@@ -11,7 +11,7 @@ public class TwilightSparkle extends Enemy{
     private int x, meth, timer, prevAng, cnt;
     private double ang; 
     private SideWorld sw;
-    
+    private static int count;    
     //meth: which attack pattern will use 
     private GreenfootImage gf;
     public TwilightSparkle(int meth, int duration){
@@ -20,6 +20,10 @@ public class TwilightSparkle extends Enemy{
         gf = new GreenfootImage("MainPony/TS-1.png");
         gf.scale(150, 150);
         setImage(gf);
+    }
+    
+    public static void countplus(){
+        count++;
     }
     
     private void phase1ATK(){
@@ -43,6 +47,10 @@ public class TwilightSparkle extends Enemy{
     
     public void addedToWorld(World w){
         sw = (SideWorld)w;
+        ArrayList<Picture> p = (ArrayList<Picture>)(sw.getObjects(Picture.class));
+        for(Picture x: p){
+            sw.removeObject(x);
+        }
     }
     
     public void act(){
@@ -58,7 +66,14 @@ public class TwilightSparkle extends Enemy{
         if(timer==0){
             sw.changeTalk(true);
             ((SideWorld)getWorld()).remAllBullets();
-            
+            if(count >= 1){
+                ((SideWorld)getWorld()).setConversation();
+            }
+            sw.setContinueChooseLine(true);
+            sw.setSpeakFirst();
+            sw.setContinueChoose(false);
+            ((SideWorld)getWorld()).setContinueChooseLine(true);
+            sw.addObject(new Picture(2), 600, 150);
             getWorld().removeObject(this);
         }
             
