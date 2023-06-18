@@ -31,6 +31,12 @@ public class touchEquip extends Actor{
     GreenfootImage[] Trixie = new GreenfootImage[6];
     GreenfootImage[] LusterDawn = new GreenfootImage[6];
     
+    /**
+     * <p>Constructor for touchEquip - The pony that appears in the main world.</p>
+     * <p>Determins pony according to id and Statucs.getLevel().</p>
+     * 
+     * @param id    The id of the current pony.
+     */
     public touchEquip(int id){
         this.id = id;
         //[getlevel][id][picid]
@@ -107,6 +113,9 @@ public class touchEquip extends Actor{
         }
     }
     
+    /**
+     * touchEquip only performs one action: determins which picture to display and let the pony blink every few seconds.
+     */
     public void act() {
         animateCountDown = (animateCountDown+1)%blinkTimeout;
         if(animateCountDown<blinkTimeout-15)
@@ -174,9 +183,6 @@ public class touchEquip extends Actor{
         }
     }
     
-    /**
-     * Animates (displays) the animation of ponies.
-     */
     private void animate(GreenfootImage[] ponyName, int index){
         setImage(ponyName[index]);
     }

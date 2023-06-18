@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class BattleWorld here.
+ * The EndWorld is the very last world that displays the result of the player's adventure.
  * 
  * @author Yawen Zhang
  * @version 0.1
@@ -12,12 +12,12 @@ public class EndWorld extends World
     private Label instruction;
     private GreenfootSound bgm;
     /**
-     * Constructor for objects of class BattleWorld.
+     * Initializes the EndWorld according to result.
      * 
+     * @param result    The result of the world, true = good, false = bad.
      */
     public EndWorld(boolean result)
-    {    
-        // Create a new world with 1200x675 cells with a cell size of 1x1 pixels.
+    {
         super(1200, 675, 1, false);
         if(result)
             Statics.saveTime();
@@ -28,10 +28,16 @@ public class EndWorld extends World
         music();
     }
     
+    /**
+     * When started, play music.
+     */
     public void started(){
         music();
     }
     
+    /**
+     * When stopped, don't play music.
+     */
     public void stopped(){
         unMusic();
     }
@@ -50,6 +56,9 @@ public class EndWorld extends World
         bgm.playLoop();
     }
     
+    /**
+     * Sets the End variable (which is deprecated).
+     */
     public void setEnd(){
         end = true;
     }
