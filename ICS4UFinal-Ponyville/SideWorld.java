@@ -199,7 +199,7 @@ public class SideWorld extends World
                 conversationCentre = new Label(changeLine(toSay), 25);
                 conversationCentre.setFillColor(Color.BLACK);
                 addObject(conversationCentre, 600, 500);
-                if(done && countClick >= 2){
+                if(done && countClick >= 1){
                     unMusic();
                     Greenfoot.setWorld(new MainWorld());
                 }
@@ -210,7 +210,7 @@ public class SideWorld extends World
                     continueChooseLine = false;
                     if(id > 0){
                         startCount = true;
-                        if(countClick > 2){
+                        if(countClick >= 1){
                             Statics.setStay(id); Statics.setOrb(Statics.getOrb()-1);
                             unMusic();
                             Greenfoot.setWorld(new MainWorld());
