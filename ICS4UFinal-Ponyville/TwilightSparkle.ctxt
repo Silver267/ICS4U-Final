@@ -16,4 +16,5 @@ comment5.target=void\ addedToWorld(greenfoot.World)
 comment5.text=\r\n\ This\ method\ will\ create\ a\ sideworld\ object\ and\ remove\ all\ the\ Picture\ object\ in\ SideWorld\r\n\ \r\n\ @param\ w\ The\ world\ the\ Fluttershy\ is\ about\ to\ be\ add\ in\r\n
 comment6.params=
 comment6.target=void\ act()
+comment6.text=\r\n\ This\ is\ the\ act\ method\ of\ Fluttershy\ class\r\n
 numComments=7

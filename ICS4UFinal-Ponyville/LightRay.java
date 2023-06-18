@@ -39,6 +39,15 @@ public class LightRay extends Weapon
         this.duration = duration;
     }
     
+    public void stopped(){
+        laserSound.stop();
+    }
+    
+    public void started(){
+        if(warnTime<0)
+            laserSound.playLoop();
+    }
+    
     /**
      * This will set the start to true
      * 
@@ -56,7 +65,7 @@ public class LightRay extends Weapon
         warnIt();
         warnTime--;
         if(warnTime < 0){
-            laserSound.setVolume(60);
+            laserSound.setVolume(30);
             laserSound.playLoop();
             lightRay = new GreenfootImage(base);
             lightRay.scale(width, 2000);
