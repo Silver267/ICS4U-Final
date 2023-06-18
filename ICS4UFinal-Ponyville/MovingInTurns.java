@@ -14,6 +14,9 @@ public abstract class MovingInTurns extends SuperSmoothMover{
     protected double spd;
     protected boolean moving;
     
+    /**
+     * This is the act method of MovingInTurns class
+     */
     public void act(){
         move();
         display();

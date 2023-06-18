@@ -6,13 +6,21 @@ import greenfoot.*;
  * @author Xuanxi Jiang
  * @version 1.0
  */
-public class bullet_turn extends removableBullet{
+public class Bullet_turn extends RemovableBullet{
     private int pict, power, size, facing;
     private double speed;
     private SideWorld sw;
     private boolean rev, revdir, flip;
     
-    public bullet_turn(int facing, int x, int y, boolean flip){
+    /**
+     * This is the constructor for Banked_turn class
+     * 
+     * @param facing This is the rotation of the Bullet_turn class
+     * @param x This is the x-coordnate of the object when generated
+     * @param y This is the y-coordnate of the object when generated
+     * @param flip This is the boolean determine if it is flip to the reverse direction
+     */
+    public Bullet_turn(int facing, int x, int y, boolean flip){
         facing += flip?(20):(-20); this.flip = flip;
         this.facing = facing;
         setRotation(facing);
@@ -21,10 +29,18 @@ public class bullet_turn extends removableBullet{
         speed = -10; rev = false; revdir = false;
     }
     
+    /**
+     * This will create a SideWorld object when the object is created
+     * 
+     * @param w This is the world the object is about to enter
+     */
     public void addedToWorld(World w){
         sw = (SideWorld)w;
     }
 
+    /**
+     * This is the act method of the Bullet_turn class
+     */
     public void act(){
         if(speed>=0)
             move(speed/10);

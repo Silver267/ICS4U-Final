@@ -16,6 +16,11 @@ public class HitBox extends SuperSmoothMover
     private boolean final1;
     private final int speed = 4;
     
+    /**
+     * This is the constructor for the HitBox class
+     * 
+     * @param final1 This boolean will determine whether the hitBox can shoot or not
+     */
     public HitBox(boolean final1){
         heart = new GreenfootImage("The Heart.png");
         heart.scale(27, 27);
@@ -25,9 +30,9 @@ public class HitBox extends SuperSmoothMover
         this.final1 = final1;
         Statics.setHP(40);
     }
+    
     /**
-     * Act - do whatever the HitBox wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * This is the act method of HitBox class
      */
     public void act(){
         move();
@@ -40,6 +45,11 @@ public class HitBox extends SuperSmoothMover
         dead();
     }
     
+    /**
+     * This method will create a SideWorld object and make the start boolean true
+     * 
+     * @param w This is the world the object is about to be add in
+     */
     public void addedToWorld(World w){
         sw = (SideWorld)w;
         start = true;

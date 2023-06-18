@@ -5,7 +5,7 @@ import greenfoot.*;
  * @author Xuanxi Jiang
  * @version 1.0
  */
-public class Bullet_Undirected extends removableBullet{
+public class Bullet_Undirected extends RemovableBullet{
     //Borrowed the concept of speed, friendly from Mr. Cohen
     private int pict, power, size, facing;
     //pict = 0 -> Enemy normal bullet
@@ -22,6 +22,17 @@ public class Bullet_Undirected extends removableBullet{
     //variables for sub-pixel movement
     private double subPixPosX, subPixPosY, subPixIncX, subPixIncY;
     
+    /**
+     * This is the constructor for Bullet_Undirected class
+     * 
+     * @param pict  Variable to select how Bullet_Undirected looks. 0 = oval, 1 = redball
+     * @param speed Speed of bullet
+     * @param power How much damage (in hp) this bullet will do.
+     * @param size  The physical size of the bullet in pixels
+     * @param x     The x position of the bullet when generated
+     * @param y     The y position of the bullet when generated
+     * @param friendly  If the bullet is friendly. true = friendly.
+     */
     public Bullet_Undirected(int pict, double speed, int facing, int power, int size, int x, int y, boolean friendly){
         this.pict = pict; this.speed = speed; this.facing = facing; this.power = power; this.size = size; this.friendly = friendly;
         setRotation(facing);
@@ -33,10 +44,18 @@ public class Bullet_Undirected extends removableBullet{
         subPixIncY = Math.sin((facing)*(Math.PI/180))*speed;
     }
     
+    /**
+     * This method will create a SideWorld object when it is created
+     * 
+     * @param w This is the world it is about to get in
+     */
     public void addedToWorld(World w){
         sw = (SideWorld)w;
     }
 
+    /**
+     * This is the act method for Undirected_Bullet
+     */
     public void act(){
         //custom sub-pixel movement in replacemenent of move() which features accurate movement at angle.
         subPixPosX+=subPixIncX; subPixPosY+=subPixIncY;
@@ -85,9 +104,5 @@ public class Bullet_Undirected extends removableBullet{
             return image;
         }
         return null;
-    }
-    
-    public void gone(){
-        
     }
 }

@@ -1,19 +1,22 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Screen here.
+ * This is the super class for screen
  * 
  * @author George Lu
  * @version 1.0
  */
 public class Screen extends SuperSmoothMover
 {
+    private GreenfootImage image;
     /**
-     * Act - do whatever the Screen wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * This is the constructor for screen class
      */
-    public void act()
-    {
-        // Add your action code here.
+    public Screen(){
+        image = new GreenfootImage("DialogueBox.png");
+        image.scale(700,460);
+        setImage(image);
     }
 }
+
+

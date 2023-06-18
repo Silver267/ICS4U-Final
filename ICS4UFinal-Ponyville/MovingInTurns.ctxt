@@ -3,6 +3,7 @@ comment0.target=MovingInTurns
 comment0.text=\r\n\ For\ things\ that\ moves\ in\ turns\ (only\ moves\ when\ player\ moves).\r\n\ Some\ common\ methods\ are\ displayed\ here.\r\n\ \r\n\ @author\ Xuanxi\ Jiang\r\n\ @version\ 1.0\r\n
 comment1.params=
 comment1.target=void\ act()
+comment1.text=\r\n\ This\ is\ the\ act\ method\ of\ MovingInTurns\ class\r\n
 comment2.params=
 comment2.target=void\ move()
 comment2.text=\r\n\ Moving\ the\ object\r\n

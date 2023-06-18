@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author Ming & Yawen
  * @version 1.0
  */
-public class touchEquip extends Actor{
+public class TouchEquip extends Actor{
     private GreenfootImage img;
     private int id;
     private int animateCountDown;
@@ -37,7 +37,7 @@ public class touchEquip extends Actor{
      * 
      * @param id    The id of the current pony.
      */
-    public touchEquip(int id){
+    public TouchEquip(int id){
         this.id = id;
         //[getlevel][id][picid]
         animateCountDown = blinkTimeout-2;

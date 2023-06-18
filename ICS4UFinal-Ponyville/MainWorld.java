@@ -38,7 +38,7 @@ public class MainWorld extends World{
                 else if(nodeType==2)
                     addObject(new Barrier(), mp.getPixes(new int[]{i, j})[0], mp.getPixes(new int[]{i, j})[1]);
                 else if(nodeType>=3 && Statics.getStay(nodeType-3)==0)
-                    addObject(new touchEquip(mp.getNode(new int[]{i, j}).getType()-3), mp.getPixes(new int[]{i, j})[0], mp.getPixes(new int[]{i, j})[1]);
+                    addObject(new TouchEquip(mp.getNode(new int[]{i, j}).getType()-3), mp.getPixes(new int[]{i, j})[0], mp.getPixes(new int[]{i, j})[1]);
             }
         }
         Statics.setActive(true);
@@ -48,7 +48,7 @@ public class MainWorld extends World{
         setBackground("BackGround/"+Statics.getLevel()+".jpg");
         addObject(new ProgressBar(0), 160, 32);
         addObject(new ProgressBar(1), 500, 32);
-        setPaintOrder(Label.class, floatingPanel.class, ProgressBar.class, Panel.class, ShaderBox.class, MainCh.class, Barrier.class, touchEquip.class);
+        setPaintOrder(Label.class, FloatingPanel.class, ProgressBar.class, Panel.class, ShaderBox.class, MainCh.class, Barrier.class, TouchEquip.class);
         update(); music();
     }
     
@@ -186,9 +186,9 @@ public class MainWorld extends World{
                         }else if(!havePanel && mp.getNode(currCoords).getType()>2 && Statics.getStay(mp.getNode(currCoords).getType()-3)==0){
                             havePanel = true;
                             if( (mp.getNode(currCoords).getType()==3 && Statics.getOrb()>0)){
-                                addObject(new floatingPanel(currCoords, 2), currCoords[0]==19?mp.getPixes(currCoords)[0]-40:mp.getPixes(currCoords)[0], mp.getPixes(currCoords)[1]);
+                                addObject(new FloatingPanel(currCoords, 2), currCoords[0]==19?mp.getPixes(currCoords)[0]-40:mp.getPixes(currCoords)[0], mp.getPixes(currCoords)[1]);
                             }else{
-                                addObject(new floatingPanel(currCoords, 1), currCoords[0]==19?mp.getPixes(currCoords)[0]-25:mp.getPixes(currCoords)[0], mp.getPixes(currCoords)[1]);
+                                addObject(new FloatingPanel(currCoords, 1), currCoords[0]==19?mp.getPixes(currCoords)[0]-25:mp.getPixes(currCoords)[0], mp.getPixes(currCoords)[1]);
                             }
                             
                         }

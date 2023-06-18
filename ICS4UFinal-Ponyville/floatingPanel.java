@@ -7,7 +7,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author Xuanxi Jiang
  * @version 1.0
  */
-public class floatingPanel extends Actor{
+public class FloatingPanel extends Actor{
     private boolean fadeIn, fadeOut;
     private int curTransparency, targTransparency;
     private int[] plC;
@@ -19,7 +19,7 @@ public class floatingPanel extends Actor{
      * @param plC   The current coordinate of player. Once the player leaves, the floatingPanel will delete itself.
      * @param sel   The thing that this floatingPanel will display. 2 = need more orb, 1 = press z.
      */
-    public floatingPanel(int[] plC, int sel){
+    public FloatingPanel(int[] plC, int sel){
         this.plC = plC.clone();
         GreenfootImage timg = new GreenfootImage("textures/Box.png");
         timg.scale(sel==2?160:100, 40);

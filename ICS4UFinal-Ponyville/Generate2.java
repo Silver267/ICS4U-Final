@@ -6,9 +6,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author Xuanxi Jiang
  * @version 1.0
  */
-public class Generate2 extends removableBullet{
+public class Generate2 extends RemovableBullet{
     private int activeCnt, x;
     
+    /**
+     * This is the constructor for Generate2 class
+     * 
+     * @param activeCnt Number of acts that the generator will follow the player
+     */
     public Generate2(int activeCnt){
         this.activeCnt = activeCnt;
         GreenfootImage tmp = new GreenfootImage("generate.png");
@@ -17,6 +22,9 @@ public class Generate2 extends removableBullet{
         setImage(tmp);
     }
     
+    /**
+     * This is the act method of the Generate2 class
+     */
     public void act(){
         if(activeCnt!=0)
             activeCnt--;

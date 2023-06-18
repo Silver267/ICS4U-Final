@@ -2,10 +2,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 
 /**
- * World that holds every battle (including talking.).
+ * This is the world that will hold every bettle(including talking.).
  * 
  * @author George && Ming && Xuanxi Jiang
- * @version (a version number or a date)
+ * @version 1.0
  */
 public class SideWorld extends World
 {
@@ -24,7 +24,6 @@ public class SideWorld extends World
     private boolean keepSpeak;
     private HitBox hitBox;
     private String continue1;//continue1 will store the sentence the pony didn;t finish
-    private Block b1,b2,b3,b4;
     private ArrayList<String> conversation;
     private int rounds, character, countTime, wrongTime;//countTime is used to count the time in current game, wrongTime counts the number of time the player hit the continue after they select the wrong choice
     private GreenfootImage character1;
@@ -41,31 +40,22 @@ public class SideWorld extends World
     private int countClick, speakFirst;
     private boolean clickOnce; //This boolean is used to check if the continue should keep + rounds
     
+    /**
+     * <p>This is the constructor of side world</p>
+     * <p>This will create a world base on the id inputted</p>
+     * 
+     * @param id This will determine what type of world will be created
+     */
     public SideWorld(int id)
     {
         super(1200, 675, 1, false); 
         this.id = id;
         
-        //This will set the background of the world by looking at the level
-        if (Statics.getLevel() == 1) {
-            backGround = new GreenfootImage("images/BackGround/battle1.jpg");
-        }
-        if (Statics.getLevel() == 2) {
-            backGround = new GreenfootImage("images/BackGround/battle2.jpg");
-        }
-        if (Statics.getLevel() == 3) {
-            backGround = new GreenfootImage("images/BackGround/battle3.jpg");
-        }
-        if (Statics.getLevel() == 4) {
-            backGround = new GreenfootImage("images/BackGround/battle4.png");
-        }
+        backGround = new GreenfootImage("images/BackGround/battle"+Statics.getLevel()+".jpg");
+        
         setBackground(backGround);
         
         setPaintOrder(Enemy.class);
-        b1 = new Block(0);
-        b2 = new Block(0);
-        b3 = new Block(90);
-        b4 = new Block(90);
         
         a = new Option(new GreenfootImage("A.png"), new GreenfootImage("A1.png"), false);
         b = new Option(new GreenfootImage("B.png"), new GreenfootImage("B1.png"), false);
@@ -91,7 +81,7 @@ public class SideWorld extends World
             addObject(new HPBar(true), 200, 200);
             
             
-            addObject(new battleBox(), 600, 480);
+            addObject(new BattleBox(), 600, 480);
             
             Statics.takeInWords();
             continueChooseLine = false;
@@ -111,7 +101,7 @@ public class SideWorld extends World
             }
         }else if(Statics.getLevel() != 4){
             bgm = new GreenfootSound("bgm-normal-battle.mp3");
-            addObject(new BattleScreen(), 600, 510);
+            addObject(new Screen(), 600, 510);
             Statics.takeInWords();
            
             
@@ -121,6 +111,7 @@ public class SideWorld extends World
            
             GreenfootImage lines = new GreenfootImage(300, 200);
             limit = Integer.parseInt(conversation.get(conversation.size()-2).substring(8,9));
+            
             addObject(a, 150, 380);
             addObject(b, 150, 530);
             addObject(c, 1050, 380);
@@ -171,7 +162,7 @@ public class SideWorld extends World
             addObject(new Label("Boss HP: ", 25), 60, 250);
             addObject(new HPBar(false), 200, 250);
             hitBox = new HitBox(true);
-            addObject(new battleBox(), 600, 480);
+            addObject(new BattleBox(), 600, 480);
             addObject(hitBox, 500, 500);
         }
         sayMore = true;
@@ -179,7 +170,9 @@ public class SideWorld extends World
     }
     
     
-
+    /**
+     * This is the act method of side world
+     */
     public void act(){
         if(id == 0){
             if(speakFirst == 1){
@@ -202,9 +195,7 @@ public class SideWorld extends World
         
     }
     
-    /**
-     * This method will allow the player to coniform the line they continue with
-     */
+    
     private void coniformeed(){
         if(continueChoose){
             
@@ -253,7 +244,8 @@ public class SideWorld extends World
         }
     }
     
-    public void coniform(){
+    
+    private void coniform(){
         if(continueChoose && cf.isClick()){
             startCount = true;
             if(startCount){
@@ -261,9 +253,13 @@ public class SideWorld extends World
             }
             if(!done && clickOnce){
                 rounds++;
-                Fluttershy.countplus();
-                PinkiePie.countplus();
-                TwilightSparkle.countplus();
+                if(character == 9){
+                    Fluttershy.countplus();
+                }else if(character == 10){
+                    PinkiePie.countplus();
+                }else{
+                    TwilightSparkle.countplus();
+                }
                 clickOnce = false;
             }
             //below will reset the first line if the player failed at the first round
@@ -300,15 +296,11 @@ public class SideWorld extends World
                 }
                 }
             }
-        
-        
         }
     }
   
     
-    /**
-     * This method will allow the player to choose the lines
-     */
+    
     private void chooseLine(){
         if(rounds < limit && continueChooseLine){
             if(a.isClick()){
@@ -321,8 +313,6 @@ public class SideWorld extends World
                 changePresent(5);
             }
         }
-        
-        
     }
     
     private void changePresent(int x){
@@ -348,57 +338,96 @@ public class SideWorld extends World
         
     }
     
+    /**
+     * This method will increase the speakFirst variable by one.
+     */
     public void setSpeakFirst(){
         speakFirst++;
     }
     
+    /**
+     * <p>This will change the boolean continueChooseLine according to the input</p>
+     * <p>continueChooseLine is the boolean that determines whether the four side buttons can be clicked</p>
+     * 
+     * @param x The input boolean
+     */
     public void setContinueChooseLine(boolean x){
         continueChooseLine = x;
     }
     
+    
+    /**
+     * <p>This will change the boolean continueChoose according to the input</p>
+     * <p>continueChoose is the boolean that determines whether the continue button can be clicked</p>
+     * 
+     * @param x The input boolean
+     */
     public void setContinueChoose(boolean x){
         continueChoose = x;
     }
     
-    
+    /**
+     * This method will return the continueChoose boolean
+     * 
+     * @return boolean This is the boolean being return
+     */
     public boolean getContinueChoose(){
         return continueChoose;
     }
     
+    /**
+     * This method will return the continueChooseLine boolean
+     * 
+     * @return boolean This is the boolean being return
+     */
     public boolean getContinueChooseLine(){
         return continueChooseLine;
     }
     
+    /**
+     * This method will return the int countTime
+     * 
+     * @return int This is the int bring return
+     */
     public int getCountTime(){
         return countTime;
     }
-    
     
     
     private String changeLine(String txt){
         return SparkleEngine.wordWrap(txt.substring(12, txt.length()-1), new Font(25), 500);
     }
     
-    public void ponyTalk(){
-        GreenfootImage start = new GreenfootImage(594, 360);
-    }
     
-    public void changeTalk(boolean x){
-        talk = x;
-    }
-    
+    /**
+     * This method will return the HitBox in the world
+     * 
+     * @return HitBox This is the HitBox that is being return
+     */
     public HitBox getHitBox(){
         return hitBox;
     }
     
+    /**
+     * This method will return the Boss in the world
+     * 
+     * @return Boss This is the Boss that is being return
+     */
     public Boss getBoss(){
         return boss;
     }
     
+    /**
+     * Play music when started
+     */
     public void started(){
         music();
     }
     
+    /**
+     * 
+     * Stop music when started
+     */
     public void stopped(){
         unMusic();
     }
@@ -410,6 +439,9 @@ public class SideWorld extends World
         bgm.stop();
     }
     
+    /**
+     * This method will allow the pony boss to set the conversation on the screen
+     */
     public void setConversation(){
         conversationCentre = new Label(changeLine(toSay), 25);
         conversationCentre.setFillColor(Color.BLACK);
@@ -423,10 +455,12 @@ public class SideWorld extends World
         bgm.playLoop();
     }
     
-    
+    /**
+     * This method will remove all the bullets that are belong to the removeableBullet class
+     */
     public void remAllBullets(){
-        ArrayList<removableBullet> re = (ArrayList<removableBullet>)(getObjects(removableBullet.class));
-        for(removableBullet x: re){
+        ArrayList<RemovableBullet> re = (ArrayList<RemovableBullet>)(getObjects(RemovableBullet.class));
+        for(RemovableBullet x: re){
             removeObject(x);
         }
     }

@@ -1,13 +1,15 @@
 #BlueJ class context
 comment0.target=LightRay
-comment0.text=\r\n\ The\ laser\r\n\ \r\n\ @author\ George\ Lu\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ laser\ class\r\n\ \r\n\ @author\ George\ Lu\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=direction\ width\ warnTime\ duration
 comment1.target=LightRay(int,\ int,\ int,\ int)
+comment1.text=\r\n\ This\ is\ the\ constructor\ of\ the\ LigthRay\ class\r\n\ \r\n\ @param\ direction\ This\ will\ determine\ the\ direction\ the\ light\ ray\ will\ point\ to\r\n\ @param\ width\ This\ will\ determine\ the\ width\ of\ the\ light\ ray\r\n\ @param\ warnTime\ This\ will\ dtermine\ the\ about\ of\ warn\ time\ before\ actual\ shoot,\ unit\ in\ acts\r\n\ @param\ duration\ This\ will\ determine\ the\ duration\ of\ the\ light\ ray\r\n
 comment2.params=w
 comment2.target=void\ addedToWorld(greenfoot.World)
+comment2.text=\r\n\ This\ will\ set\ the\ start\ to\ true\r\n\ \r\n\ @param\ w\ This\ is\ the\ world\ the\ object\ is\ about\ to\ enter\r\n
 comment3.params=
 comment3.target=void\ act()
-comment3.text=\r\n\ Act\ -\ do\ whatever\ the\ LightRay\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment3.text=\r\n\ This\ is\ the\ act\ method\ of\ the\ LightRay\ class\r\n
 comment4.params=
 comment4.target=void\ warnIt()
 comment5.params=

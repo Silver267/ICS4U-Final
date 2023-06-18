@@ -1,15 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Darts that goes in straight lines.
+ * Write a description of class GenerateBullet here.
  * 
- * @author George Lu
+ * @author George 
  * @version 1.0
  */
-public class StraightDart extends Weapon
+public class GenerateBullet extends RemovableBullet
 {
     /**
-     * Act - do whatever the StraightDart wants to do. This method is called whenever
+     * Act - do whatever the GenerateBullet wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()

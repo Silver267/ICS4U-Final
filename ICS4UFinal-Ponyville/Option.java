@@ -1,12 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * The 'A, B, C, D' keys.
+ * This is the class that contains 'A, B, C, D' and 'CF' keys.
  * 
- * @author George Liu
+ * @author George Lu
  * @version 1.0
  */
-public class Option extends BattleScreen
+public class Option extends Screen
 {
     private GreenfootImage[] animation;
     private boolean startTimer, check, lock;
@@ -40,10 +40,9 @@ public class Option extends BattleScreen
         
     }
     
-    public void lock(){
-        lock = !lock;
-    }
-    
+    /**
+     * This is the act method of Option class
+     */
     public void act(){
         if(startTimer){
             timer--;
@@ -71,6 +70,11 @@ public class Option extends BattleScreen
         
     }
     
+    /**
+     * This is the method that will determine if the current button is being clicked
+     * 
+     * @return boolean This boolean will determine if the button is being clicked
+     */
     public boolean isClick(){
         if(Greenfoot.mouseClicked(this) ){
             startTimer = true;
@@ -80,6 +84,7 @@ public class Option extends BattleScreen
     }
     
     /**
+     * This method will change the appearance of the button
      * 
      * @param x This boolean will determine which image to return, true means return teh first one, false means return the second one
      */

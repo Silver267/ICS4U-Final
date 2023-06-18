@@ -1,14 +1,19 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Picture here.
+ * This class is the class that will show the picture of the pony boss
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author George 
+ * @version 1.0
  */
 public class Picture extends Enemy
 {
     private GreenfootImage[] bigHead;
+    /**
+     * This is the constructor of Picture class
+     * 
+     * @param x This int will determine which pony it will show
+     */
     public Picture(int x){
         bigHead = new GreenfootImage[3];
         bigHead[0] = new GreenfootImage("MainPony/FS-1.png");
@@ -18,13 +23,5 @@ public class Picture extends Enemy
             bigHead[0].scale(150, 168);
         }
         setImage(bigHead[x]);
-    }
-    /**
-     * Act - do whatever the Picture wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
-    {
-        // Add your action code here.
     }
 }

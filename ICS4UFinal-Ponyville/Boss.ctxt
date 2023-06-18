@@ -1,20 +1,25 @@
 #BlueJ class context
 comment0.target=Boss
-comment0.text=\r\n\ Final\ boss\ that\ releases\ bullets\ and\ shifts\ to\ phase\ 2\ when\ hp\ is\ lower\ than\ 3000.\r\n\ \r\n\ @author\ Various\r\n\ @version\ 1.0\r\n
+comment0.text=\r\n\ Final\ boss\ that\ releases\ bullets\ and\ shifts\ to\ phase\ 2\ when\ hp\ is\ lower\ than\ 3000.\r\n\ \r\n\ @author\ George\ &&\ Thomas\r\n\ @version\ 1.0\r\n
 comment1.params=
 comment1.target=Boss()
+comment1.text=\r\n\ This\ is\ the\ constructor\ for\ Boss\ class\r\n
 comment2.params=
 comment2.target=int\ getHp()
+comment2.text=\r\n\ This\ method\ will\ return\ the\ hp\ of\ current\ Boss\ object\r\n\ \r\n\ \#return\ int\ This\ is\ the\ hp\ of\ Boss\r\n
 comment3.params=x
 comment3.target=void\ changeHp(int)
+comment3.text=\r\n\ This\ method\ will\ decrease\ the\ Boss's\ hp\ according\ to\ the\ damage\ being\ put\ in\r\n\ \r\n\ @\r\n
 comment4.params=prev
 comment4.target=double\ phase1Method1(double)
 comment5.params=
 comment5.target=void\ phase1ATK()
 comment6.params=w
 comment6.target=void\ addedToWorld(greenfoot.World)
+comment6.text=\r\n\ This\ method\ will\ create\ a\ world\ object\ when\ Boss\ is\ added\ to\ world\r\n\ \r\n\ @param\ w\ This\ current\ world\r\n
 comment7.params=
 comment7.target=void\ phase2ATK()
 comment8.params=
 comment8.target=void\ act()
+comment8.text=\r\n\ This\ is\ the\ act\ method\ for\ Boss\ class\r\n
 numComments=9

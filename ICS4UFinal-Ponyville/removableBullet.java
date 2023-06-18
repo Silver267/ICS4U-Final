@@ -7,6 +7,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author Xuanxi Jiang
  * @version 1.0
  */
-public abstract class removableBullet extends SuperSmoothMover{
+public abstract class RemovableBullet extends SuperSmoothMover{
     
 }
