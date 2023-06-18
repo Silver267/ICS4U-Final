@@ -20,7 +20,7 @@ public class Picture extends Enemy
         bigHead[1] = new GreenfootImage("MainPony/PP-1.png");
         bigHead[2] = new GreenfootImage("MainPony/TS-1.png");
         for(int i = 0; i < 3; i++){
-            bigHead[0].scale(150, 150);
+            bigHead[i].scale(150, 150);
         }
         setImage(bigHead[x]);
     }
