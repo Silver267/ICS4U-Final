@@ -25,7 +25,6 @@ public class Option extends Screen
         this.check = check;
         startTimer = false;
         timer = 20;
-        
         if(check){
             animation[0].scale(85, 85);
             animation[1].scale(85, 85);
@@ -35,9 +34,7 @@ public class Option extends Screen
             animation[1].scale(110, 110);
             setImage(gf);
         }
-        
         lock = false;
-        
     }
     
     /**
@@ -46,9 +43,7 @@ public class Option extends Screen
     public void act(){
         if(startTimer){
             timer--;
-            
         }
-        
         if(check){
             if(((SideWorld)getWorld()).getContinueChoose()){
                 setImage(animation[0]);
@@ -63,11 +58,7 @@ public class Option extends Screen
             }else{
                 setImage(animation[1]);
             }
-            
         }
-        
-        
-        
     }
     
     /**
@@ -106,5 +97,4 @@ public class Option extends Screen
             startTimer = false;
         }
     }
-    
 }

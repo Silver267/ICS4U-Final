@@ -52,11 +52,8 @@ public class SideWorld extends World
         this.id = id;
         
         backGround = new GreenfootImage("images/BackGround/battle"+Statics.getLevel()+".jpg");
-        
         setBackground(backGround);
-        
         setPaintOrder(Enemy.class);
-        
         a = new Option(new GreenfootImage("A.png"), new GreenfootImage("A1.png"), false);
         b = new Option(new GreenfootImage("B.png"), new GreenfootImage("B1.png"), false);
         c = new Option(new GreenfootImage("C.png"), new GreenfootImage("C1.png"),false);
@@ -79,7 +76,6 @@ public class SideWorld extends World
             
             addObject(new Label("Current HP: ", 25), 60, 200);
             addObject(new HPBar(true), 200, 200);
-            
             
             addObject(new BattleBox(), 600, 480);
             
@@ -104,7 +100,6 @@ public class SideWorld extends World
             addObject(new Screen(), 600, 510);
             Statics.takeInWords();
            
-            
             character = id+(Statics.getLevel()-1)*3-1;
             
             conversation = Statics.getConversation().get(character);
@@ -169,7 +164,6 @@ public class SideWorld extends World
         music();
     }
     
-    
     /**
      * This is the act method of side world
      */
@@ -180,7 +174,6 @@ public class SideWorld extends World
                 conversationCentre = new Label(changeLine(tmp), 25);
                 addObject(conversationCentre, 600, 500);
                 speakFirst++;
-                
             }
         }
         chooseLine();
@@ -189,42 +182,30 @@ public class SideWorld extends World
         }else if(id == 0){
             coniform();
         }
-        
-        
-        
-        
     }
-    
     
     private void coniformeed(){
         if(continueChoose){
-            
             if(cf.isClick()){
                 if(!done){
                     rounds++;
-                    
                 }else if(done){
-                    
                     if(id > 0){
                         startCount = true;
                         continueChooseLine = false;
                     }
-                    
                 }
                 removeObject(conversationCentre);
                 conversationCentre = new Label(changeLine(toSay), 25);
                 conversationCentre.setFillColor(Color.BLACK);
                 addObject(conversationCentre, 600, 500);
-                
                 if(done && countClick >= 2){
                     unMusic();
-                    Greenfoot.setWorld(new MainWorld());                
+                    Greenfoot.setWorld(new MainWorld());
                 }
-                
                 if(startCount){
                     countClick++;
                 }
-                
                 if(rounds >= limit){
                     continueChooseLine = false;
                     if(id > 0){
@@ -232,18 +213,15 @@ public class SideWorld extends World
                         if(countClick > 2){
                             Statics.setStay(id); Statics.setOrb(Statics.getOrb()-1);
                             unMusic();
-                            Greenfoot.setWorld(new MainWorld());  
+                            Greenfoot.setWorld(new MainWorld());
                         }
                     }
                 }else if(!done){
                     continueChoose = false;
                 }
-                
-                
             }
         }
     }
-    
     
     private void coniform(){
         if(continueChoose && cf.isClick()){
@@ -265,7 +243,6 @@ public class SideWorld extends World
             //below will reset the first line if the player failed at the first round
             if(speakFirst == 2 && done){
                 speakFirst = 0;
-                
             }
             removeObject(conversationCentre);
             conversationCentre = new Label(changeLine(toSay), 25);
@@ -300,8 +277,6 @@ public class SideWorld extends World
         }
     }
   
-    
-    
     private void chooseLine(){
         if(rounds < limit && continueChooseLine){
             if(a.isClick()){
@@ -324,19 +299,15 @@ public class SideWorld extends World
         conversationCentre.setFillColor(Color.BLACK);            
         addObject(conversationCentre, 600, 500);
         toSay = conversation.get(x+4 + rounds*8);
-        
         //check if the conversaqtion should end
         if(conversation.get(x + rounds*8).substring(6,7).equals("F")){
             done = true;
         }else{
             done = false;
         }
-        
         //tell the cf can move now
         continueChoose = true;
         clickOnce = true;
-
-        
     }
     
     /**
@@ -355,7 +326,6 @@ public class SideWorld extends World
     public void setContinueChooseLine(boolean x){
         continueChooseLine = x;
     }
-    
     
     /**
      * <p>This will change the boolean continueChoose according to the input</p>
@@ -394,11 +364,9 @@ public class SideWorld extends World
         return countTime;
     }
     
-    
     private String changeLine(String txt){
         return SparkleEngine.wordWrap(txt.substring(12, txt.length()-1), new Font(25), 500);
     }
-    
     
     /**
      * This method will return the HitBox in the world
