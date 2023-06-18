@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Darts that goes in straight lines.
  * 
- * @author George Liu
+ * @author George Lu
  * @version 1.0
  */
 public class StraightDart extends Weapon

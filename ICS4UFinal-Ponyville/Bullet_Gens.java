@@ -5,10 +5,19 @@ import greenfoot.*;
  * @author Xuanxi Jiang
  * @version 1.0
  */
-public class Bullet_Gens extends removableBullet{
+public class Bullet_Gens extends RemovableBullet{
     private int cnt, live, dx;
     private double subPixPosX, subPixPosY, subPixIncX, subPixIncY, dv, ang;
     
+    /**
+     * This is the constructor for Bullet_Gens class
+     * 
+     * @param facing    The second speed vector of the object, controlling direction with another moving machenic indipendent of move(), intended to be used for bullets that goes in circles while expanding outwards.
+     * @param rotation  The direction of the object, controlling direction by move() method.
+     * @param x         x coordinate of the object at generation
+     * @param y         y coordinate of the object at generation
+     * @param speed     speed of the second vector.
+     */
     public Bullet_Gens(int facing, int rotation, int x, int y, int speed){
         subPixPosX = x; subPixPosY = y;
         subPixIncX = Math.cos((facing)*(Math.PI/180))*speed;
@@ -20,6 +29,9 @@ public class Bullet_Gens extends removableBullet{
         live = 180; dx = 0; ang = 0;
     }
     
+    /**
+     * This is the act method of Bullet_Gens class
+     */
     public void act(){
         if(this.isTouching(HitBox.class)){
             getWorld().removeObject(this);

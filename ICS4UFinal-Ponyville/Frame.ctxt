@@ -9,5 +9,5 @@ comment2.target=void\ removeSelf()
 comment2.text=\r\n\ Removes\ the\ frame.\ However,\ before\ removing,\ it\ should\ also\ remove\ the\ lable\ that\ comes\ with\ it.\r\n
 comment3.params=w
 comment3.target=void\ addedToWorld(greenfoot.World)
-comment3.text=\r\n\ Adds\ a\ lable\ that\ displays\ text\ when\ added\ to\ world.\r\n
+comment3.text=\r\n\ Adds\ a\ lable\ that\ displays\ text\ when\ added\ to\ world.\r\n\ \r\n\ @param\ w\ This\ will\ be\ teh\ world\ the\ object\ is\ about\ to\ be\ added\r\n
 numComments=4

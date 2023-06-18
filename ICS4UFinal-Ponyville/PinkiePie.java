@@ -55,7 +55,7 @@ public class PinkiePie extends Enemy{
     private void phase2Method2(){
         int offset = Greenfoot.getRandomNumber(50);
         for(int i=0; i<8; i++){
-            getWorld().addObject(new bullet_turn(90, i*180+60+offset, getY(), Greenfoot.getRandomNumber(2)%2==0), i*180+60+offset, getY());
+            getWorld().addObject(new Bullet_turn(90, i*180+60+offset, getY(), Greenfoot.getRandomNumber(2)%2==0), i*180+60+offset, getY());
         }
     }
     

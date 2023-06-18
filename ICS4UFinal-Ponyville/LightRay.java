@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * The laser
+ * The laser class
  * 
  * @author George Lu
  * @version (a version number or a date)
@@ -14,6 +14,14 @@ public class LightRay extends Weapon
     private int damageTime;//This will check the gap it damage the hitbox
     private GreenfootSound laserSound;
     
+    /**
+     * This is the constructor of the LigthRay class
+     * 
+     * @param direction This will determine the direction the light ray will point to
+     * @param width This will determine the width of the light ray
+     * @param warnTime This will dtermine the about of warn time before actual shoot, unit in acts
+     * @param duration This will determine the duration of the light ray
+     */
     public LightRay(int direction, int width, int warnTime, int duration){
         laserSound = new GreenfootSound("SE/laser.wav");
         base = new GreenfootImage("laser.png");
@@ -31,13 +39,17 @@ public class LightRay extends Weapon
         this.duration = duration;
     }
     
+    /**
+     * This will set the start to true
+     * 
+     * @param w This is the world the object is about to enter
+     */
     public void addedToWorld(World w){
         start = true;
     }
     
     /**
-     * Act - do whatever the LightRay wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * This is the act method of the LightRay class
      */
     public void act()
     {
@@ -58,7 +70,7 @@ public class LightRay extends Weapon
         remove();
     }
     
-    public void warnIt(){
+    private void warnIt(){
         if(start && warnTime > 0){
             lightRay = new GreenfootImage(base);
             lightRay.scale(5, 2000);
@@ -67,7 +79,7 @@ public class LightRay extends Weapon
     }
     //if have time, create an animation to make a smooth transition
     
-    public void damageThem(){
+    private void damageThem(){
         if(damageTime%5 == 0){
             if(isTouching(HitBox.class)){
                 Statics.setHP(Statics.getHP()-1);
@@ -75,7 +87,7 @@ public class LightRay extends Weapon
         }
     }
     
-    public void remove(){
+    private void remove(){
         if(warnTime == -1*duration){
             laserSound.stop();
             getWorld().removeObject(this);

@@ -22,4 +22,5 @@ comment8.params=
 comment8.target=void\ phase2ATK()
 comment9.params=
 comment9.target=void\ act()
+comment9.text=\r\n\ This\ is\ the\ act\ method\ of\ Fluttershy\ class\r\n
 numComments=10

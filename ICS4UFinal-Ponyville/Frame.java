@@ -28,6 +28,8 @@ public class Frame extends Actor{
     
     /**
      * Adds a lable that displays text when added to world.
+     * 
+     * @param w This will be teh world the object is about to be added
      */
     public void addedToWorld(World w){
         getWorld().addObject(l = new Label("Fastest Time: \n"+Statics.timeToString(), 40), getX(), getY());

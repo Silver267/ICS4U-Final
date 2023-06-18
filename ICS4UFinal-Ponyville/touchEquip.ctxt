@@ -1,8 +1,8 @@
 #BlueJ class context
-comment0.target=touchEquip
+comment0.target=TouchEquip
 comment0.text=\r\n\ The\ pony\ that\ appears\ in\ the\ map,\ there\ should\ be\ three\ of\ them.\r\n\ \r\n\ @author\ Ming\ &\ Yawen\r\n\ @version\ 1.0\r\n
 comment1.params=id
-comment1.target=touchEquip(int)
+comment1.target=TouchEquip(int)
 comment1.text=\r\n\ <p>Constructor\ for\ touchEquip\ -\ The\ pony\ that\ appears\ in\ the\ main\ world.</p>\r\n\ <p>Determins\ pony\ according\ to\ id\ and\ Statucs.getLevel().</p>\r\n\ \r\n\ @param\ id\ \ \ \ The\ id\ of\ the\ current\ pony.\r\n
 comment2.params=ponyName
 comment2.target=void\ initImage(java.lang.String)

@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * HP Bar of either player or boss at battle screen.
  * 
- * @author George Liu
+ * @author George Lu
  * @version 1.0
  */
 public class HPBar extends SuperSmoothMover
@@ -13,6 +13,11 @@ public class HPBar extends SuperSmoothMover
     private boolean side;
     private int hpI, hpC;//hpI is the inital hp, hpC is the hp that will change
     //side = true means it will show the main ch, visaversa
+    /**
+     * This is the constructor of HPBar class
+     * 
+     * @param side This boolean will determine which one HPBar will show
+     */
     public HPBar(boolean side){
     
         if(side){
@@ -22,6 +27,11 @@ public class HPBar extends SuperSmoothMover
         this.side = side;
     }
     
+    /**
+     * This method will intialize the HPBar object
+     * 
+     * @param w This will be the world the HPBar about to be added
+     */
     public void addedToWorld(World w){
         sw = (SideWorld)w;
         if(!side){
@@ -30,9 +40,9 @@ public class HPBar extends SuperSmoothMover
         }
         setImage(hpBar);
     }
+    
     /**
-     * Act - do whatever the HPBar wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * This is the act method of HPBar
      */
     public void act()
     {

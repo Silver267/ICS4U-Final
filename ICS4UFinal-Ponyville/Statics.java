@@ -87,9 +87,8 @@ public class Statics{
     }
     
     /**
-     * <p>George's method
-     * <p>This method will read in all the conversations in the story.txt
-     * <p>This method should be call at the start of game
+     * <p>This method will read in all the conversations in the story.txt</p>
+     * <p>This method should be call at the start of game</p>
      */
     public static void takeInWords(){
         if(talkStorage!=null && !talkStorage.isEmpty()){

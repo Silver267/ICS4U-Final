@@ -1,9 +1,0 @@
-#BlueJ class context
-comment0.target=BattleScreen
-comment0.text=\r\n\ The\ dialogue\ box\ that\ appears\ in\ normal\ battles.\r\n\ \r\n\ @author\ George\ Lu\r\n\ @version\ 2023/6/1\ 11\:52\r\n
-comment1.params=
-comment1.target=BattleScreen()
-comment2.params=
-comment2.target=void\ act()
-comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ BattleScreen\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
-numComments=3

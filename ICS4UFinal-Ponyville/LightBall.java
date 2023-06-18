@@ -12,6 +12,13 @@ public class LightBall extends StraightDart
     private Color color;
     private SideWorld sw;
     private boolean side, gone;//This boolean will determine if this lightBall is from enemy, true is from enemy, gone will determine if the pbject should be transparent
+    
+    /**
+     * This is the constructor for LightBall class
+     * 
+     * @param side This will determine the side the light ball is on, true means on main character, false means enemy
+     * @param direction This will determine the direction of the light ball class
+     */
     public LightBall(boolean side, int direction){
         lightBall = new GreenfootImage("RedBall.png");
         lightBall.scale(15,15);
@@ -21,8 +28,7 @@ public class LightBall extends StraightDart
         
     }
     /**
-     * Act - do whatever the LightBall wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * The act method of LightBall class
      */
     public void act()
     {
@@ -42,16 +48,26 @@ public class LightBall extends StraightDart
         
     }
     
+    /**
+     * This will create a SideWorld object when the object is created
+     * 
+     * @param w This is the world the object is about to enter
+     */
     public void addedToWorld(World w){
         sw = (SideWorld)w;
         
     }
     
+    /**
+     * This method will return the side of current light ball
+     * 
+     * @return boolean This boolean will determine the side light ball is on, true means on main character side and false means on enemy side
+     */
     public boolean getSide(){
         return side;
     }
     
-    public void damage(){
+    private void damage(){
         if(side){
             if(isTouching(HitBox.class)){
                 Statics.setHP(Statics.getHP()-1);

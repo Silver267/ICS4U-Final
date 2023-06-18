@@ -24,7 +24,6 @@ public class SideWorld extends World
     private boolean keepSpeak;
     private HitBox hitBox;
     private String continue1;//continue1 will store the sentence the pony didn;t finish
-    private Block b1,b2,b3,b4;
     private ArrayList<String> conversation;
     private int rounds, character, countTime, wrongTime;//countTime is used to count the time in current game, wrongTime counts the number of time the player hit the continue after they select the wrong choice
     private GreenfootImage character1;
@@ -41,6 +40,12 @@ public class SideWorld extends World
     private int countClick, speakFirst;
     private boolean clickOnce; //This boolean is used to check if the continue should keep + rounds
     
+    /**
+     * <p>This is the constructor of side world</p>
+     * <p>This will create a world base on the id inputted</p>
+     * 
+     * @param id This will determine what type of world will be created
+     */
     public SideWorld(int id)
     {
         super(1200, 675, 1, false); 
@@ -51,10 +56,6 @@ public class SideWorld extends World
         setBackground(backGround);
         
         setPaintOrder(Enemy.class);
-        b1 = new Block(0);
-        b2 = new Block(0);
-        b3 = new Block(90);
-        b4 = new Block(90);
         
         a = new Option(new GreenfootImage("A.png"), new GreenfootImage("A1.png"), false);
         b = new Option(new GreenfootImage("B.png"), new GreenfootImage("B1.png"), false);
@@ -80,7 +81,7 @@ public class SideWorld extends World
             addObject(new HPBar(true), 200, 200);
             
             
-            addObject(new battleBox(), 600, 480);
+            addObject(new BattleBox(), 600, 480);
             
             Statics.takeInWords();
             continueChooseLine = false;
@@ -100,7 +101,7 @@ public class SideWorld extends World
             }
         }else if(Statics.getLevel() != 4){
             bgm = new GreenfootSound("bgm-normal-battle.mp3");
-            addObject(new BattleScreen(), 600, 510);
+            addObject(new Screen(), 600, 510);
             Statics.takeInWords();
            
             
@@ -161,7 +162,7 @@ public class SideWorld extends World
             addObject(new Label("Boss HP: ", 25), 60, 250);
             addObject(new HPBar(false), 200, 250);
             hitBox = new HitBox(true);
-            addObject(new battleBox(), 600, 480);
+            addObject(new BattleBox(), 600, 480);
             addObject(hitBox, 500, 500);
         }
         sayMore = true;
@@ -458,8 +459,8 @@ public class SideWorld extends World
      * This method will remove all the bullets that are belong to the removeableBullet class
      */
     public void remAllBullets(){
-        ArrayList<removableBullet> re = (ArrayList<removableBullet>)(getObjects(removableBullet.class));
-        for(removableBullet x: re){
+        ArrayList<RemovableBullet> re = (ArrayList<RemovableBullet>)(getObjects(RemovableBullet.class));
+        for(RemovableBullet x: re){
             removeObject(x);
         }
     }

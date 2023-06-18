@@ -11,7 +11,7 @@ public class MainCh extends MovingInTurns{
     private boolean facingFront, pressedZ;
     private GreenfootImage stand, standBack;
     private GreenfootImage[] walk = new GreenfootImage[16], walkBack = new GreenfootImage[16];
-    private floatingPanel fp;
+    private FloatingPanel fp;
     private GreenfootSound magicSE;
     
     /**
