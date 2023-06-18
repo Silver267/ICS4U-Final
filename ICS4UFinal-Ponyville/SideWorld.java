@@ -93,7 +93,7 @@ public class SideWorld extends World
             limit = Integer.parseInt(conversation.get(conversation.size()-2).substring(8,9)); 
             
             if(character == 9){
-                addObject(new Fluttershy(Greenfoot.getRandomNumber(2)+1, 200), 600, 150);
+                addObject(new Fluttershy(Greenfoot.getRandomNumber(2)+1, 600), 600, 150);
             }else if(character == 10){
                 addObject(new PinkiePie(Greenfoot.getRandomNumber(2)+1, 800), 600, 150);
             }else if(character == 11){
